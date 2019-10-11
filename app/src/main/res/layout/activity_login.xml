@@ -70,17 +70,17 @@
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/ivLogoApp">
 
-                    <io.gloxey.cfv.CFTextView
+                    <TextView
                         android:id="@+id/tvTitleUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/input_username"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_medium"
-                        app:font_name="@string/typeface_quark_bold"
+                        android:fontFamily="@font/font_sv_bold"
                         tools:ignore="MissingConstraints,SpUsage" />
 
-                    <io.gloxey.cfv.CFEditText
+                    <EditText
                         android:id="@+id/etUsername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -91,6 +91,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:textColor="@color/textColorBlack"
+                        android:fontFamily="@font/font_sv_bold"
                         android:textSize="@dimen/text_size_small"
                         app:layout_constraintTop_toBottomOf="@+id/tvTitleUser"
                         tools:ignore="MissingConstraints" />
@@ -105,17 +106,17 @@
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/lyContentUser">
 
-                    <io.gloxey.cfv.CFTextView
+                    <TextView
                         android:id="@+id/tvTitlePass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/input_password"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_medium"
-                        app:font_name="@string/typeface_quark_bold"
+                        android:fontFamily="@font/font_sv_bold"
                         tools:ignore="MissingConstraints,SpUsage" />
 
-                    <io.gloxey.cfv.CFEditText
+                    <EditText
                         android:id="@+id/etPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -127,12 +128,13 @@
                         android:inputType="text"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_small"
+                        android:fontFamily="@font/font_sv_bold"
                         app:layout_constraintTop_toBottomOf="@+id/tvTitlePass"
                         tools:ignore="MissingConstraints" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <io.gloxey.cfv.CFButton
+                    <Button
                         android:id="@+id/btLogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -142,11 +144,11 @@
                         android:textAllCaps="false"
                         android:textColor="@color/textColorWhite"
                         android:textSize="@dimen/text_size_large"
+                        android:fontFamily="@font/font_sv_bold"
                         android:layout_marginTop="@dimen/d30dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/lyContentPassword"
-                        app:font_name="@string/typeface_quark_bold" />
+                        app:layout_constraintTop_toBottomOf="@+id/lyContentPassword" />
 
 
 

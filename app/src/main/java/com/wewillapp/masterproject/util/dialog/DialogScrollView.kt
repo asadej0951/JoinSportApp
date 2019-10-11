@@ -240,7 +240,7 @@ class DialogScrollView : ScrollView {
             }
             val face = Typeface.createFromAsset(
                 context!!.assets,
-                "fonts/SF-Pro-Text-Medium.otf"
+                "fonts/sf_pro_medium.otf"
             )
             itemView.typeface = face
 

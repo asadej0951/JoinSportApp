@@ -17,7 +17,7 @@
             android:background="@drawable/custom_dialog_background"
             android:orientation="vertical">
 
-            <io.gloxey.cfv.CFTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -25,7 +25,7 @@
                 android:text="@string/txt_button_camera"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_medium"
-                app:font_name="@string/typeface_Medium"
+                android:fontFamily="@font/quark_bold"
                 tools:ignore="RelativeOverlap" />
 
             <View
@@ -34,7 +34,7 @@
                 android:layout_gravity="center_vertical"
                 android:background="@color/placeHolderColorGray" />
 
-            <io.gloxey.cfv.CFTextView
+            <TextView
                 android:id="@+id/btn_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:textColor="@color/textColorBlack"
                 android:text="@string/txt_button_gallery"
                 android:textSize="@dimen/text_size_medium"
-                app:font_name="@string/typeface_Medium"
+                android:fontFamily="@font/quark_bold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
@@ -59,7 +59,7 @@
             android:background="@drawable/custom_dialog_background"
             android:orientation="vertical">
 
-            <io.gloxey.cfv.CFTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -67,7 +67,7 @@
                 android:text="@string/txt_button_cancel"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_medium"
-                app:font_name="@string/typeface_Medium"
+                android:fontFamily="@font/quark_bold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>

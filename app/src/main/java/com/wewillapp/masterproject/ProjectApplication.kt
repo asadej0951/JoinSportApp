@@ -28,11 +28,11 @@ class ProjectApplication : Application(), HasActivityInjector {
         TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/DB OZONE X.ttf")
         TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/quark_bold.otf")
         TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/quark_light.otf")
-        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/SF-Pro-Text-Bold.otf")
-        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/SF-Pro-Text-Light.otf")
-        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/SF-Pro-Text-Medium.otf")
-        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/SF-Pro-Text-Regular.otf")
-        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/SF-Pro-Text-Semibold.otf")
+        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/sf_pro_bold.otf")
+        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/sf_pro_light.otf")
+        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/sf_pro_medium.otf")
+        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/sf_pro_regular.otf")
+        TypefaceUtil.overrideFont(applicationContext, "SERIF", "fonts/sf_pro_semibold.otf")
     }
 
     override fun activityInjector(): DispatchingAndroidInjector<Activity> = dispatchingAndroidInjector
