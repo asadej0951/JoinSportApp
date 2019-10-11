@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/notifications"
+        android:layout_marginTop="15dp"
+        android:layout_width="@dimen/d10dp"
+        android:layout_height="@dimen/d10dp"
+        android:layout_marginStart="@dimen/d5dp"
+        android:paddingLeft="@dimen/d5dp"
+        android:paddingRight="@dimen/d5dp"
+        android:paddingTop="@dimen/d1dp"
+        android:paddingBottom="@dimen/d1dp"
+        android:background="@drawable/notification_badge"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FC323B"
+        android:textSize="@dimen/d10dp"
+        tools:ignore="SpUsage" />
+</LinearLayout>

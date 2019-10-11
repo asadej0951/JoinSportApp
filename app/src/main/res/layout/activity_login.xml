@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.wewillapp.masterproject.vo.enumClass.Language" />
+
+        <import type="android.view.View" />
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <import type="com.wewillapp.masterproject.vo.Resource" />
+
+        <import type="com.wewillapp.masterproject.vo.enumClass.Status" />
+
+        <variable
+            name="loadResource"
+            type="Resource" />
+
+        <variable
+            name="settingResource"
+            type="Language" />
+
+        <variable
+            name="handler"
+            type="com.wewillapp.masterproject.view.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/d60dp"
+            android:scrollbars="none">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/d30dp"
+                android:layout_marginEnd="@dimen/d30dp"
+                android:layout_marginBottom="@dimen/d40dp">
+
+                <ImageView
+                    android:id="@+id/ivLogoApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lyContentUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLogoApp">
+
+                    <io.gloxey.cfv.CFTextView
+                        android:id="@+id/tvTitleUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/input_username"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_medium"
+                        app:font_name="@string/typeface_quark_bold"
+                        tools:ignore="MissingConstraints,SpUsage" />
+
+                    <io.gloxey.cfv.CFEditText
+                        android:id="@+id/etUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{handler.etUserName}"
+                        android:addTextChangedListener="@{handler.onUserNameTextChanged}"
+                        android:backgroundTint="@color/textColorGray"
+                        android:hint="@string/input_username"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_small"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitleUser"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lyContentPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/lyContentUser">
+
+                    <io.gloxey.cfv.CFTextView
+                        android:id="@+id/tvTitlePass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/input_password"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_medium"
+                        app:font_name="@string/typeface_quark_bold"
+                        tools:ignore="MissingConstraints,SpUsage" />
+
+                    <io.gloxey.cfv.CFEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/textColorGray"
+                        android:hint="@string/input_password"
+                        android:text="@{handler.etPassWord}"
+                        android:addTextChangedListener="@{handler.onPasswordTextChanged}"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_small"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitlePass"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <io.gloxey.cfv.CFButton
+                        android:id="@+id/btLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_login"
+                        android:text="@string/message_login"
+                        android:onClick="@{()-> handler.onClickLogin()}"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textColorWhite"
+                        android:textSize="@dimen/text_size_large"
+                        android:layout_marginTop="@dimen/d30dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lyContentPassword"
+                        app:font_name="@string/typeface_quark_bold" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:translationZ="1dp"
+            android:visibility="gone"
+            app:visibleGone="@{loadResource.status == Status.LOADING}">
+
+            <include layout="@layout/item_progress" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

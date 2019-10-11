@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        # Material Design Dimensions
+
+        These dimensions are provided as per Material Design Guidelines
+        to adhere to a 8 dp baseline grid. (With the exception of the
+        toolbar and notification bar.).
+
+        ## References
+
+        - https://www.google.com/design/spec/layout/metrics-keylines.html
+        - https://material.io/guidelines/style/typography.html#typography-typeface
+    -->
+    <!-- Radius -->
+    <dimen name="radius_5">5dp</dimen>
+    <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_15">15dp</dimen>
+    <dimen name="radius_20">2dp</dimen>
+
+    <!-- Margins & Padding, 8 dp baseline, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-baseline-grids -->
+    <dimen name="margin_padding_size_small">8dp</dimen>
+    <dimen name="margin_padding_size_medium">16dp</dimen>
+    <dimen name="margin_padding_size_large">24dp</dimen>
+    <dimen name="margin_padding_size_xlarge">32dp</dimen>
+    <dimen name="margin_padding_size_xxlarge">40dp</dimen>
+
+    <!-- Launcher Icon Size, https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size -->
+    <dimen name="launcher_icon_size">@dimen/standard_touch_size</dimen>
+
+    <!-- Touch Target Size, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-touch-target-size-->
+    <dimen name="standard_touch_size">48dp</dimen>
+
+    <!-- Toolbar, 4 dp baseline, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-baseline-grids -->
+    <dimen name="toolbar_margin_size">4dp</dimen>
+    <dimen name="toolbar_icon_size">24dp</dimen>
+
+    <!-- Font sizes, https://material.io/guidelines/style/typography.html#typography-typeface -->
+    <dimen name="text_size_micro">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_xlarge">34sp</dimen>
+    <dimen name="text_size_xxlarge">45sp</dimen>
+    <dimen name="text_size_xxxlarge">56sp</dimen>
+
+
+    <dimen name="activity_horizontal_margin">17.6dp</dimen>
+    <dimen name="activity_vertical_margin">17.6dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8.8dp</dimen>
+    <dimen name="nav_header_height">193.6dp</dimen>
+    <dimen name="fab_margin">17.6dp</dimen>
+    <dimen name="d3dp">3.3dp</dimen>
+    <dimen name="d5dp">5.5dp</dimen>
+    <dimen name="d10dp">11dp</dimen>
+    <dimen name="d15dp">16.5dp</dimen>
+    <dimen name="d20dp">22dp</dimen>
+    <dimen name="d22dp">24.2dp</dimen>
+    <dimen name="d24dp">26.4dp</dimen>
+    <dimen name="d30dp">33dp</dimen>
+    <dimen name="d18dp">19.8dp</dimen>
+    <dimen name="d50dp">55dp</dimen>
+    <dimen name="d40dp">44dp</dimen>
+    <dimen name="d25dp">27.5dp</dimen>
+    <dimen name="d100dp">110dp</dimen>
+    <dimen name="d80dp">88dp</dimen>
+    <dimen name="d250dp">275dp</dimen>
+    <dimen name="d200dp">220dp</dimen>
+    <dimen name="d180dp">198dp</dimen>
+    <dimen name="d150dp">165dp</dimen>
+    <dimen name="d2dp">2.2dp</dimen>
+    <dimen name="d8dp">8.8dp</dimen>
+    <dimen name="d16dp">17.6dp</dimen>
+    <dimen name="d35dp">38.5dp</dimen>
+    <dimen name="d32dp">35.2dp</dimen>
+    <dimen name="d90dp">99dp</dimen>
+    <dimen name="d60dp">66dp</dimen>
+    <dimen name="d120dp">132dp</dimen>
+    <dimen name="d14dp">15.4dp</dimen>
+    <dimen name="d12dp">13.2dp</dimen>
+    <dimen name="d13dp">14.3dp</dimen>
+    <dimen name="d160dp">176dp</dimen>
+    <dimen name="d190dp">209dp</dimen>
+    <dimen name="d17dp">18.7dp</dimen>
+    <dimen name="d70dp">77dp</dimen>
+    <dimen name="d110dp">121dp</dimen>
+    <dimen name="d105dp">115.5dp</dimen>
+    <dimen name="d6dp">6.6dp</dimen>
+    <dimen name="d45dp">49.5dp</dimen>
+    <dimen name="d48dp">52.8dp</dimen>
+    <dimen name="d75dp">82.5dp</dimen>
+    <dimen name="d65dp">71.5dp</dimen>
+    <dimen name="d140dp">154dp</dimen>
+    <dimen name="d130dp">143dp</dimen>
+    <dimen name="d55dp">60.5dp</dimen>
+    <dimen name="d4dp">4.4dp</dimen>
+    <dimen name="d58dp">63.8dp</dimen>
+    <dimen name="d95dp">104.5dp</dimen>
+    <dimen name="d102dp">112.2dp</dimen>
+    <dimen name="d85dp">93.5dp</dimen>
+    <dimen name="d170dp">187dp</dimen>
+    <dimen name="d28dp">30.8dp</dimen>
+    <dimen name="d115dp">126.5dp</dimen>
+    <dimen name="d125dp">137.5dp</dimen>
+    <dimen name="d26dp">28.6dp</dimen>
+    <dimen name="d1dp">1dp</dimen>
+    <dimen name="d42dp">46.2dp</dimen>
+    <dimen name="spacing">550dp</dimen>
+    <dimen name="d135dp">148.5dp</dimen>
+    <dimen name="global_margin">8.8dp</dimen>
+    <dimen name="x5dp">5.5dp</dimen>
+    <dimen name="x10dp">11dp</dimen>
+    <dimen name="d260dp">286dp</dimen>
+    <dimen name="d0dp">0dp</dimen>
+    <dimen name="radius_corner">11dp</dimen>
+    <dimen name="d230dp">253dp</dimen>
+    <dimen name="d7dp">7.7dp</dimen>
+    <dimen name="width_icon_sale_cart">38.5dp</dimen>
+    <dimen name="height_icon_sale_cart">33dp</dimen>
+    <dimen name="d220dp">242dp</dimen>
+    <dimen name="d05dp">0.6dp</dimen>
+    <dimen name="d240dp">264dp</dimen>
+    <dimen name="d36dp">39.6dp</dimen>
+    <dimen name="d400dp">440dp</dimen>
+    <dimen name="d300dp">330dp</dimen>
+    <dimen name="dots_height">33dp</dimen>
+    <dimen name="dots_margin_bottom">22dp</dimen>
+    <dimen name="img_width_height">132dp</dimen>
+    <dimen name="slide_title">33dp</dimen>
+    <dimen name="slide_desc">17.6dp</dimen>
+    <dimen name="desc_padding">44dp</dimen>
+    <dimen name="d280dp">308dp</dimen>
+    <dimen name="d350dp">385dp</dimen>
+    <dimen name="d1024dp">1126.4dp</dimen>
+    <dimen name="d11dp">12.1dp</dimen>
+    <dimen name="d330dp">330dp</dimen>
+    <dimen name="d340dp">340dp</dimen>
+    <dimen name="height_calendar">285dp</dimen>
+    <dimen name="bagde_left_margin">8dp</dimen>
+    <dimen name="magin_bage">13dp</dimen>
+    <dimen name="d37dp">37dp</dimen>
+    <dimen name="d38dp">38dp</dimen>
+    <dimen name="d9dp">9dp</dimen>
+    <dimen name="d320dp">320</dimen>
+
+    <dimen name="magin_top_login">23dp</dimen>
+    <dimen name="magin_left_login">11dp</dimen>
+    <dimen name="magin_rigth_login">40dp</dimen>
+    <dimen name="magin_bottom_login">11dp</dimen>
+    <dimen name="d122dp">122dp</dimen>
+    <dimen name="d380dp">380dp</dimen>
+    <dimen name="d420dp">420dp</dimen>
+    <dimen name="d450dp">450dp</dimen>
+    <dimen name="d360dp">360dp</dimen>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">an_master_projects</string>
+
+    <!-- Permission -->
+    <string name="permission_location">Please enable the use of location permission.</string>
+    <string name="permission_camera_storage">Please enable the use of cameras and personal files.</string>
+    <string name="permission_call_phone">Please enable the use of call permission.</string>
+    <string name="permission_setting">Setting</string>
+
+</resources>

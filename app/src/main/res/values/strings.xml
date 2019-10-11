@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">an_master_projects</string>
+
+    <!-- Permission -->
+    <string name="permission_location">Please enable the use of location permission.</string>
+    <string name="permission_camera_storage">Please enable the use of cameras and personal files.</string>
+    <string name="permission_call_phone">Please enable the use of call permission.</string>
+    <string name="permission_setting">Setting</string>
+
+    <!-- Font Names -->
+    <string name="typeface_regular" translatable="false">DB OZONE X.ttf</string>
+    <string name="typeface_bold" translatable="false">DB OZONE X BD.ttf</string>
+    <string name="typeface_light" translatable="false">DB OZONE X LI.ttf</string>
+    <string name="typeface_Medium" translatable="false">DB OZONE X MED.ttf</string>
+
+    <string name="typeface_quark_bold" translatable="false">quark_bold.otf</string>
+    <string name="typeface_quark_light" translatable="false">quark_light.otf</string>
+
+    <string name="typeface_sf_pro_bold" translatable="false">SF-Pro-Text-Bold.otf</string>
+    <string name="typeface_sf_pro_light" translatable="false">SF-Pro-Text-Light.otf</string>
+    <string name="typeface_sf_pro_medium" translatable="false">SF-Pro-Text-Medium.otf</string>
+    <string name="typeface_sf_pro_regular" translatable="false">SF-Pro-Text-Regular.otf</string>
+    <string name="typeface_sf_pro_semibold" translatable="false">SF-Pro-Text-Semibold.otf</string>
+
+
+    <!-- Dialog Screen -->
+    <string name="txt_button_okey" translatable="false">OK</string>
+    <string name="txt_button_cancel" translatable="false">Cancel</string>
+    <string name="txt_button_camera" translatable="false">Camera</string>
+    <string name="txt_button_gallery" translatable="false">Gallery</string>
+    <string name="imageClose" translatable="false">imageClose</string>
+    <string name="location_m" translatable="false">M.</string>
+    <string name="location_mm" translatable="false">MM.</string>
+    <string name="location_km" translatable="false">KM.</string>
+    <string name="input_password" translatable="false">Password</string>
+    <string name="input_username">Username</string>
+    <string name="message_login">Login</string>
+    <string name="message_alert_dialog">Message</string>
+</resources>

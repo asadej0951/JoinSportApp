@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_padding_size_large"
+            android:layout_marginStart="@dimen/margin_padding_size_large"
+            android:background="@drawable/custom_dialog_background"
+            android:orientation="vertical">
+
+            <io.gloxey.cfv.CFTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_size_small"
+                android:text="@string/txt_button_camera"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_size_medium"
+                app:font_name="@string/typeface_Medium"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/placeHolderColorGray" />
+
+            <io.gloxey.cfv.CFTextView
+                android:id="@+id/btn_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_size_small"
+                android:textColor="@color/textColorBlack"
+                android:text="@string/txt_button_gallery"
+                android:textSize="@dimen/text_size_medium"
+                app:font_name="@string/typeface_Medium"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_padding_size_large"
+            android:layout_marginStart="@dimen/margin_padding_size_large"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:background="@drawable/custom_dialog_background"
+            android:orientation="vertical">
+
+            <io.gloxey.cfv.CFTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_size_small"
+                android:text="@string/txt_button_cancel"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_size_medium"
+                app:font_name="@string/typeface_Medium"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
