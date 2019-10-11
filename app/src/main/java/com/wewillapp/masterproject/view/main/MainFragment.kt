@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.MainFragmentBinding
 
+
 class MainFragment : Fragment() {
     private lateinit var binding:MainFragmentBinding
 
@@ -31,6 +32,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+
     }
 
 }
