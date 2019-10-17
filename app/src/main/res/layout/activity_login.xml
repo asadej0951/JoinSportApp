@@ -33,22 +33,26 @@
         android:layout_height="match_parent">
 
         <ScrollView
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:fitsSystemWindows="true"
             android:overScrollMode="never"
-            android:paddingBottom="@dimen/d60dp"
             android:scrollbars="none">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginStart="@dimen/d30dp"
-                android:layout_marginEnd="@dimen/d30dp"
-                android:layout_marginBottom="@dimen/d40dp">
+                android:layout_marginEnd="@dimen/d30dp">
 
                 <ImageView
                     android:id="@+id/ivLogoApp"
@@ -94,7 +98,8 @@
                         android:fontFamily="@font/font_sv_bold"
                         android:textSize="@dimen/text_size_small"
                         app:layout_constraintTop_toBottomOf="@+id/tvTitleUser"
-                        tools:ignore="MissingConstraints" />
+                        tools:ignore="MissingConstraints"
+                        android:importantForAutofill="no" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -125,12 +130,13 @@
                         android:text="@{handler.etPassWord}"
                         android:addTextChangedListener="@{handler.onPasswordTextChanged}"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="textPassword"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_small"
                         android:fontFamily="@font/font_sv_bold"
                         app:layout_constraintTop_toBottomOf="@+id/tvTitlePass"
-                        tools:ignore="MissingConstraints" />
+                        tools:ignore="MissingConstraints"
+                        android:importantForAutofill="no" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -142,6 +148,7 @@
                         android:text="@string/message_login"
                         android:onClick="@{()-> handler.onClickLogin()}"
                         android:textAllCaps="false"
+                        android:enabled="@{handler.isStatusButtonClick()}"
                         android:textColor="@color/textColorWhite"
                         android:textSize="@dimen/text_size_large"
                         android:fontFamily="@font/font_sv_bold"
@@ -152,7 +159,7 @@
 
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </ScrollView>
 
         <FrameLayout

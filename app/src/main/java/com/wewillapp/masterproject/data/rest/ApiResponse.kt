@@ -1,6 +1,6 @@
 package com.wewillapp.masterproject.data.rest
 
-import com.wewillapp.masterproject.util.MyLog
+import com.wewillapp.masterproject.utils.MyLog
 import org.json.JSONObject
 import retrofit2.Response
 import java.net.UnknownHostException

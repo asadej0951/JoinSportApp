@@ -7,8 +7,9 @@ import javax.inject.Inject
 import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.data.Constants
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
-import com.wewillapp.masterproject.util.SingleLiveData
-import com.wewillapp.masterproject.util.watcher.TextWatcherAdapter
+import com.wewillapp.masterproject.utils.SingleLiveData
+import com.wewillapp.masterproject.utils.TextHelper
+import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
 import com.wewillapp.masterproject.vo.Resource
 import com.wewillapp.masterproject.vo.model.body.BodyLogin
 import com.wewillapp.masterproject.vo.model.response.ResponseLogin
@@ -21,18 +22,21 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
 
     val etPassWord = ObservableField<String>(if (Constants.MODE_DEBUG) "password" else "")
 
+    val isStatusButtonClick = ObservableField<Boolean>(false)
+
     val onUserNameTextChanged = TextWatcherAdapter{ s ->
         etUserName.set(s)
+        checkEventButtonClick()
     }
 
     val onPasswordTextChanged = TextWatcherAdapter{ s ->
         etPassWord.set(s)
+        checkEventButtonClick()
     }
 
     fun onClickLogin(){
        mCallLogin.call()
     }
-
 
     var mCallLogin = SingleLiveData<Void>()
     val mResponseLogin : LiveData<Resource<ResponseLogin>> = Transformations.switchMap(mCallLogin) {
@@ -44,5 +48,13 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
         )
     }
 
+
+    fun checkEventButtonClick() {
+        if (TextHelper.isNotEmptyStrings(etUserName.get()) && TextHelper.isNotEmptyStrings(etPassWord.get()))
+            isStatusButtonClick.set(true)
+        else
+            isStatusButtonClick.set(false)
+
+    }
 
 }

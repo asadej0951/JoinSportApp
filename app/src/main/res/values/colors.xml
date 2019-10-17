@@ -6,6 +6,8 @@
 
     <color name="transparent">@android:color/transparent</color>
 
+    <color name="colorBgApp">#F7F7F8</color>
+
     // Text Color
     <color name="textColorBlack">#000000</color>
     <color name="textColorGray">#cbcbcb</color>
@@ -31,6 +33,7 @@
     <color name="lineColor" tools:keep="@color/lineColor">#45959595</color>
 
     <color name="colorBadge">#FC323B</color>
+    <color name="colorLoadProgress">#FC323B</color>
 
     <color name="bgBtnRed">#FD5C63</color>
     <color name="bgBtnRedShadow">#C6FD5C63</color>

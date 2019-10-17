@@ -12,8 +12,8 @@ import com.wewillapp.masterproject.databinding.MainFragmentBinding
 
 
 class MainFragment : Fragment() {
-    private lateinit var binding:MainFragmentBinding
 
+    private lateinit var binding:MainFragmentBinding
 
     companion object {
         fun newInstance() = MainFragment()
@@ -21,8 +21,7 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
 
@@ -32,6 +31,16 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+
+        initView()
+        initViewModel()
+    }
+    private fun initView() {
+
+    }
+
+
+    private fun initViewModel() {
 
     }
 

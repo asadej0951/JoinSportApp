@@ -76,11 +76,11 @@ dependencies {
     // rxJava
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
     implementation "io.reactivex.rxjava2:rxjava:2.2.2"
+    implementation 'com.github.anadea:rxbus:1.0.1'
 
     // Dagger 2
     implementation 'com.google.dagger:dagger:2.17'
     kapt 'com.google.dagger:dagger-compiler:2.17'
-
     implementation('com.google.dagger:dagger-android:2.16') {
         exclude group: "com.android.support"
     }
@@ -96,6 +96,9 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
+
+    // Round Image View
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     // Hiden Statusbar
     implementation('com.github.niorgai:StatusBarCompat:2.3.0', {

@@ -2,7 +2,7 @@ package com.wewillapp.masterproject.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.wewillapp.masterproject.util.ViewModelFactory
+import com.wewillapp.masterproject.utils.ViewModelFactory
 import com.wewillapp.masterproject.di.anotation.ViewModelKey
 import com.wewillapp.masterproject.view.login.LoginViewModel
 import com.wewillapp.masterproject.view.main.MainViewModel

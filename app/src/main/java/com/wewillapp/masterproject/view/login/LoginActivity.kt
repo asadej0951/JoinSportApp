@@ -18,6 +18,7 @@ class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -51,9 +52,16 @@ class LoginActivity : BaseActivity() {
     }
 
     fun startAppIntent(actionPage:String) {
-        val intentApp = Intent(getBaseActivity,MainActivity::class.java)
-        startActivity(intentApp)
-        finishAffinity()
+        val intentApp: Intent
+        when (actionPage){
+            "" ->{
+                intentApp = Intent(getBaseActivity,MainActivity::class.java)
+                startActivity(intentApp)
+                finishAffinity()
+                mUtils.eventStartAnimationIntent(this,true)
+            }
+        }
+
     }
 
 }
