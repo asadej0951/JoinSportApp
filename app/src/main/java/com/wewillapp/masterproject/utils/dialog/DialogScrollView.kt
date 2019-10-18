@@ -356,9 +356,9 @@ class DialogScrollView : ScrollView {
     }
 
     private fun getViewMeasuredHeight(view: View): Int {
-        val width = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        val width = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
         val expandSpec =
-            View.MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE shr 2, View.MeasureSpec.AT_MOST)
+            MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE shr 2, MeasureSpec.AT_MOST)
         view.measure(width, expandSpec)
         return view.measuredHeight
     }

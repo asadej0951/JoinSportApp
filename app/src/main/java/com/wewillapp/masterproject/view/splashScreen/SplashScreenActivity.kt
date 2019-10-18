@@ -1,11 +1,8 @@
 package com.wewillapp.masterproject.view.splashScreen
 
-import android.animation.ObjectAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.animation.LinearInterpolator
 import androidx.databinding.DataBindingUtil
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.data.Constants

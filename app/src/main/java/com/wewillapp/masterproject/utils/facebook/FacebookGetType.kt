@@ -1,4 +1,4 @@
-package com.service.easily.stores.utility.facebook
+package com.wewillapp.masterproject.utils.facebook
 
 enum class FacebookGetType {
     LOGIN,

@@ -1,7 +1,6 @@
 package com.wewillapp.masterproject.di.module.activity
 
 import androidx.fragment.app.FragmentActivity
-import com.wewillapp.masterproject.view.login.LoginActivity
 import com.wewillapp.masterproject.view.splashScreen.SplashScreenActivity
 import dagger.Module
 import dagger.Provides

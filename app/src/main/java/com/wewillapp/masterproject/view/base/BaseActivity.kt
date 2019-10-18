@@ -33,6 +33,7 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var mPreferences: Preferences
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

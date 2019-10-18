@@ -1,4 +1,4 @@
-package com.service.easily.stores.utility
+package com.wewillapp.masterproject.utils.watcher
 
 import android.text.Editable
 import android.text.InputFilter

@@ -44,6 +44,7 @@ class LoginActivity : BaseActivity() {
           binding.loadResource = it
                     when(it.status) {
                         Status.SUCCESS -> {
+                            mPreferences.saveToken(it.data!!.data.accessToken)
                             startAppIntent("")
                         }
                         Status.ERROR -> mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {}

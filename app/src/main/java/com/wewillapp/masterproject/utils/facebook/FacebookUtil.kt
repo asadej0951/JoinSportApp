@@ -1,4 +1,4 @@
-package com.service.easily.stores.utility.facebook
+package com.wewillapp.masterproject.utils.facebook
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity

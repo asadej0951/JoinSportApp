@@ -1,4 +1,4 @@
-package com.service.easily.stores.utility.facebook
+package com.wewillapp.masterproject.utils.facebook
 
 data class Facebook(
     val id: String,

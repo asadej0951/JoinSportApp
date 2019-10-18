@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <import type="android.graphics.drawable.Drawable"/>
 
@@ -10,57 +14,117 @@
         <import type="com.wewillapp.masterproject.vo.enumClass.Status"/>
 
         <variable
-            name="loginResource"
+            name="loadResource"
             type="Resource"/>
+
+        <variable name="dataViewModel"
+            type="com.wewillapp.masterproject.view.main.MainViewModel"/>
+
     </data>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/d10dp"
-        android:paddingEnd="@dimen/d10dp"
-        android:background="@color/colorBgApp"
-        android:layout_height="?actionBarSize">
+        android:layout_height="wrap_content">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            android:elevation="@dimen/radius_10"
+            android:translationZ="1dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_collapseMode="pin">
 
-        <ImageView
-            android:id="@+id/ivToolBarBack"
-            android:layout_weight="0"
-            android:padding="@dimen/d5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_base_background"
-            android:src="@drawable/ic_back"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                tools:ignore="UselessParent">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin_padding_size_small"
+                    android:paddingEnd="@dimen/margin_padding_size_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlSymmetry">
 
-        <TextView
-            android:layout_marginBottom="@dimen/d1dp"
-            android:id="@+id/tvToolBarTitle"
-            android:text="@string/app_name"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:lines="1"
-            android:ellipsize="end"
-            android:fontFamily="@font/font_quark_bold"
-            android:textColor="@color/textColorBlack"
-            android:textSize="@dimen/text_size_large"/>
+                    <ImageView
+                        android:id="@+id/imgBack"
+                        android:layout_width="@dimen/toolbar_icon_size"
+                        android:layout_height="@dimen/toolbar_icon_size"
+                        android:src="@drawable/ic_back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:visibility="gone"
-            android:layout_marginBottom="@dimen/d5dp"
-            android:id="@+id/tvToolBarManage"
-            android:text="@string/app_name"
-            android:layout_weight="0"
-            android:gravity="bottom|right"
-            android:layout_gravity="bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/d15dp"/>
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_20dp"
+                    android:fontFamily="@font/font_quark_bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/layBackInvisible"
+                    app:layout_constraintStart_toEndOf="@id/layBack"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlHardcoded" />
 
-    </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layBackInvisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin_padding_size_medium"
+                    android:paddingEnd="@dimen/margin_padding_size_small"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvTitle"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlSymmetry">
+
+                    <ImageView
+                        android:id="@+id/imgBackInvisible"
+                        android:layout_width="@dimen/toolbar_icon_size"
+                        android:layout_height="@dimen/toolbar_icon_size"
+                        android:src="@drawable/ic_launcher_foreground"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 </layout>

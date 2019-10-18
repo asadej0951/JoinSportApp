@@ -5,7 +5,7 @@ import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.view.base.BaseActivity
 
 class MainActivity : BaseActivity() {
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)

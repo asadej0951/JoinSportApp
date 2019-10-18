@@ -1,4 +1,4 @@
-package com.service.easily.stores.utility.firebase
+package com.wewillapp.masterproject.utils.firebase
 
 import android.annotation.SuppressLint
 import android.app.Notification
@@ -20,6 +20,7 @@ import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.view.main.MainActivity
 import me.leolin.shortcutbadger.ShortcutBadger
 
+@SuppressLint("Registered")
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
