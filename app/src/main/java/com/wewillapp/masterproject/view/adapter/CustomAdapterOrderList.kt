@@ -1,6 +1,5 @@
 package com.wewillapp.masterproject.view.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -46,7 +45,6 @@ class CustomAdapterOrderList(
         }
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             holder.binding.dataViewModel = mListProduct[position]
@@ -60,7 +58,5 @@ class CustomAdapterOrderList(
     class ViewHolderLoadMore(internal val binding:ItemLoadMoreBinding) : RecyclerView.ViewHolder(binding.root)
 
     class ViewHolder(internal var binding: ItemOrderListBinding) : RecyclerView.ViewHolder(binding.root)
-
-
 
 }

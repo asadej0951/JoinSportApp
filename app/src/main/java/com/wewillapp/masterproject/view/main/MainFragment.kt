@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.view.adapter.CustomAdapterOrderList
 
@@ -61,31 +60,10 @@ class MainFragment : MainBinder() {
         }
 
         binding.recyclerViewOrderList.apply {
-            setHasFixedSize(false)
             layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(onScrollListener())
             adapter = mCustomAdapterOrderList
             mCustomAdapterOrderList.notifyDataSetChanged()
-        }
-    }
-
-    private fun onScrollListener(): RecyclerView.OnScrollListener {
-        return object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(view: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(view, dx, dy)
-                val linearLayoutManager = view.layoutManager as LinearLayoutManager?
-
-                if (linearLayoutManager!!.findLastCompletelyVisibleItemPosition() >= linearLayoutManager.itemCount - 1) {
-                    if (mListDataOrderList.size != mLastPage) { // Check Load duplicate
-                        mCurrentPage++
-                        viewModel.mCurrentPage.set(mCurrentPage)
-                        viewModel.mLayountLoadMore = true
-                        mListDataOrderList[mListDataOrderList.lastIndex].viewType = 1
-                        mCustomAdapterOrderList.notifyDataSetChanged()
-                        viewModel.mOrderBookingCall.call()
-                    }
-                }
-            }
         }
     }
 

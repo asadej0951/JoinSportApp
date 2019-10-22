@@ -55,7 +55,7 @@
             android:clickable="true"
             android:focusable="true"
             android:translationZ="1dp"
-            app:visibleGoneLoadMore="@{dataViewModel.mLayountLoadMore}"
+            app:visibleGoneLoadMore="@{dataViewModel.mLayoutLoadMore}"
             app:visibleGone="@{loadResource.status == Status.LOADING}">
 
             <include layout="@layout/item_progress"/>

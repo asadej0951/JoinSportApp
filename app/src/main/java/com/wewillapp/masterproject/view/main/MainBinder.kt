@@ -1,6 +1,8 @@
 package com.wewillapp.masterproject.view.main
 
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.MainFragmentBinding
 import com.wewillapp.masterproject.utils.Utils
@@ -12,7 +14,7 @@ import com.wewillapp.masterproject.vo.enumClass.Status
 import com.wewillapp.masterproject.vo.model.response.DataOrderList
 import javax.inject.Inject
 
-open class MainBinder:BaseFragment() {
+open class MainBinder : BaseFragment() {
     lateinit var binding: MainFragmentBinding
 
     lateinit var viewModel: MainViewModel
@@ -30,10 +32,6 @@ open class MainBinder:BaseFragment() {
     @Inject
     lateinit var mImageViewUtils: ImageViewUtils
 
-    var mLastPage = 0
-
-    var mCurrentPage = 1
-
     fun onSubScriptViewModel() {
         mListDataOrderList.clear()
         viewModel.mOrderBookingCall.call()
@@ -44,13 +42,33 @@ open class MainBinder:BaseFragment() {
                     if (mListDataOrderList.isNotEmpty())
                         mListDataOrderList[mListDataOrderList.lastIndex].viewType = 0
 
-                    viewModel.mLayountLoadMore = false
+                    viewModel.mLayoutLoadMore = false
                     mListDataOrderList.addAll(it.data!!.data)
-                    mLastPage = it.data.meta.total
+                    viewModel.mLastPage.set(it.data.meta.total)
                     mCustomAdapterOrderList.notifyDataSetChanged()
                 }
                 Status.ERROR -> mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
             }
         })
+    }
+
+    fun onScrollListener(): RecyclerView.OnScrollListener {
+        return object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(view: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(view, dx, dy)
+                val linearLayoutManager = view.layoutManager as LinearLayoutManager?
+
+                if (linearLayoutManager!!.findLastCompletelyVisibleItemPosition() >= linearLayoutManager.itemCount - 1) {
+                    if (mListDataOrderList.size != viewModel.mLastPage.get()) { // Check Load duplicate
+                        viewModel.mCurrentPage.set(viewModel.mCurrentPage.get()!!+1)
+
+                        viewModel.mLayoutLoadMore = true
+                        mListDataOrderList[mListDataOrderList.lastIndex].viewType = 1
+                        mCustomAdapterOrderList.notifyDataSetChanged()
+                        viewModel.mOrderBookingCall.call()
+                    }
+                }
+            }
+        }
     }
 }
