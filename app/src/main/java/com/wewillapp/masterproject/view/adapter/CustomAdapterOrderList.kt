@@ -23,7 +23,6 @@ class CustomAdapterOrderList(
         private const val TYPE_LOAD_MORE = 1
     }
 
-
     override fun getItemCount(): Int {
         return mListProduct.size
     }
@@ -31,7 +30,6 @@ class CustomAdapterOrderList(
     override fun getItemViewType(position: Int): Int {
         return mListProduct[position].viewType
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding: ViewDataBinding
@@ -52,6 +50,7 @@ class CustomAdapterOrderList(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             holder.binding.dataViewModel = mListProduct[position]
+
             holder.binding.root.setOnClickListener {
                 mOnClickList.invoke(mListProduct[position].id.toString())
             }

@@ -6,44 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewillapp.masterproject.R
-import com.wewillapp.masterproject.databinding.MainFragmentBinding
-import com.wewillapp.masterproject.utils.Utils
-import com.wewillapp.masterproject.utils.dialog.DialogPresenter
-import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
 import com.wewillapp.masterproject.view.adapter.CustomAdapterOrderList
-import com.wewillapp.masterproject.view.base.BaseFragment
-import com.wewillapp.masterproject.vo.enumClass.Status
-import com.wewillapp.masterproject.vo.model.response.DataOrderList
-import javax.inject.Inject
 
 
-class MainFragment : BaseFragment() {
-
-    private lateinit var binding:MainFragmentBinding
-
-    private lateinit var viewModel: MainViewModel
-
-    @Inject
-    lateinit var mUtils: Utils
-
-    lateinit var mCustomAdapterOrderList: CustomAdapterOrderList
-
-    private var mListDataOrderList = ArrayList<DataOrderList>()
-
-    @Inject
-    lateinit var mDialogPresenter: DialogPresenter
-
-    @Inject
-    lateinit var mImageViewUtils: ImageViewUtils
-
-    private var mLastPage = 0
-
-    private var mCurrentPage = 1
+class MainFragment : MainBinder() {
 
     companion object {
         fun newInstance(loadPage: String? = ""): MainFragment {
@@ -87,11 +57,11 @@ class MainFragment : BaseFragment() {
 
     private fun onSetDataOrderList() {
         mCustomAdapterOrderList = CustomAdapterOrderList(getBaseActivity()!!,mListDataOrderList){
-            Toast.makeText(getBaseActivity(), it,Toast.LENGTH_LONG).show()
+            Toast.makeText(getBaseActivity(), it, Toast.LENGTH_LONG).show()
         }
 
         binding.recyclerViewOrderList.apply {
-            setHasFixedSize(true)
+            setHasFixedSize(false)
             layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(onScrollListener())
             adapter = mCustomAdapterOrderList
@@ -109,31 +79,14 @@ class MainFragment : BaseFragment() {
                     if (mListDataOrderList.size != mLastPage) { // Check Load duplicate
                         mCurrentPage++
                         viewModel.mCurrentPage.set(mCurrentPage)
+                        viewModel.mLayountLoadMore = true
+                        mListDataOrderList[mListDataOrderList.lastIndex].viewType = 1
+                        mCustomAdapterOrderList.notifyDataSetChanged()
                         viewModel.mOrderBookingCall.call()
                     }
                 }
             }
         }
-    }
-
-    private fun onSubScriptViewModel() {
-        mListDataOrderList.clear()
-        viewModel.mOrderBookingCall.call()
-        viewModel.mResponseOrderBooking.observe(this, Observer {
-          binding.loadResource = it
-                    when(it.status) {
-                        Status.SUCCESS -> {
-                            it.data!!.data.forEachIndexed { index, dataOrderList ->
-                                dataOrderList.viewType = 0
-                                mListDataOrderList.add(dataOrderList)
-                            }
-
-                            mLastPage = it.data.meta.total
-                            mCustomAdapterOrderList.notifyDataSetChanged()
-                        }
-                        Status.ERROR -> mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
-                    }
-        })
     }
 
 }

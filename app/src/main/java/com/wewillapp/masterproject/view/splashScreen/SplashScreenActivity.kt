@@ -48,7 +48,6 @@ class SplashScreenActivity : BaseActivity() {
                 intent = Intent(this, MainActivity::class.java)
             }
         }
-
         mHandler.postDelayed({
             startActivity(intent)
             finishAffinity()

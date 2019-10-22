@@ -1,9 +1,9 @@
 package com.wewillapp.masterproject.utils.binding
 
 import android.annotation.SuppressLint
-import androidx.databinding.BindingAdapter
 import android.view.View
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wewillapp.masterproject.R
@@ -11,9 +11,13 @@ import com.wewillapp.masterproject.R
 
 object BindingAdapters {
     @JvmStatic
-    @BindingAdapter("visibleGone")
-    fun showHide(view: View, show: Boolean) {
-        view.visibility = if (show) View.VISIBLE else View.GONE
+    @BindingAdapter(value=["visibleGone", "visibleGoneLoadMore"], requireAll=false)
+    fun showHide(view: View, visibleGone: Boolean,visibleGoneLoadMore:Boolean) {
+        if (!visibleGoneLoadMore) {
+            view.visibility = if (visibleGone) View.VISIBLE else View.GONE
+        }else{
+            view.visibility = View.GONE
+        }
     }
 
     @SuppressLint("CheckResult")
