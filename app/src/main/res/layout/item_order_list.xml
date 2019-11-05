@@ -36,97 +36,33 @@
             android:orientation="horizontal"
             tools:ignore="RtlSymmetry">
 
-<!--            <FrameLayout-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:id="@+id/parent_layout"-->
-<!--                android:layout_width="@dimen/d80dp"-->
-<!--                android:layout_height="@dimen/d80dp"-->
-<!--                app:cardCornerRadius="8dp">-->
+            <FrameLayout
+                android:layout_centerVertical="true"
+                android:id="@+id/parent_layout"
+                android:layout_width="@dimen/d80dp"
+                android:layout_height="@dimen/d80dp"
+                app:cardCornerRadius="8dp">
 
-<!--                <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                    android:id="@+id/ivCircleOut"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:src="@mipmap/ic_launcher"-->
-<!--                    bind:imageUrl="@{dataViewModel.users.profileImage}"/>-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivCircleOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher"
+                    bind:imageUrl="@{dataViewModel.users.profileImage}"/>
 
-<!--            </FrameLayout>-->
+            </FrameLayout>
 
             <TextView
+                android:layout_toEndOf="@+id/parent_layout"
                 android:id="@+id/tvOrderNo"
-                android:layout_marginTop="@dimen/d2dp"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/d10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{dataViewModel.shippingAddress}"
+                android:text="@{dataViewModel.bookingUsername}"
                 android:textColor="@color/lineColorBlack"
                 android:textSize="@dimen/text_size_12dp"
                 android:fontFamily="@font/font_quark_bold" />
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvOrderPayment"-->
-<!--                android:layout_below="@+id/tvOrderNo"-->
-<!--                android:layout_marginTop="@dimen/d3dp"-->
-<!--                android:layout_marginStart="@dimen/d10dp"-->
-<!--                android:layout_marginEnd="@dimen/d5dp"-->
-<!--                android:layout_toEndOf="@+id/parent_layout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{dataViewModel.paymentStatus}"-->
-<!--                android:lines="1"-->
-<!--                android:ellipsize="end"-->
-<!--                android:textColor="@color/bgBtnRed"-->
-<!--                android:textSize="@dimen/text_size_11dp"-->
-<!--                android:fontFamily="@font/sf_pro_bold"/>-->
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvOrderTitle"-->
-<!--                android:layout_below="@+id/tvOrderPayment"-->
-<!--                android:layout_marginTop="@dimen/d3dp"-->
-<!--                android:layout_marginStart="@dimen/d10dp"-->
-<!--                android:layout_marginEnd="@dimen/d5dp"-->
-<!--                android:layout_toEndOf="@+id/parent_layout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{dataViewModel.bookingUsername}"-->
-<!--                android:lines="1"-->
-<!--                android:ellipsize="end"-->
-<!--                android:textColor="@color/textColorBlack"-->
-<!--                android:textSize="@dimen/text_size_10dp" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvOrderDateTime"-->
-<!--                android:layout_below="@+id/tvOrderTitle"-->
-<!--                android:layout_marginTop="@dimen/d6dp"-->
-<!--                android:layout_marginStart="@dimen/d10dp"-->
-<!--                android:layout_marginEnd="@dimen/d5dp"-->
-<!--                android:layout_toEndOf="@+id/parent_layout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{dataViewModel.bookingAt}"-->
-<!--                android:lines="1"-->
-<!--                android:ellipsize="end"-->
-<!--                android:textColor="@color/textColorBlack"-->
-<!--                android:textSize="@dimen/text_size_11dp" />-->
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvOrderDetail"-->
-<!--                android:layout_below="@+id/tvOrderDateTime"-->
-<!--                android:layout_marginTop="@dimen/d6dp"-->
-<!--                android:layout_marginStart="@dimen/d10dp"-->
-<!--                android:layout_marginEnd="@dimen/d5dp"-->
-<!--                android:layout_toEndOf="@+id/parent_layout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{dataViewModel.serviceLabel}"-->
-<!--                android:lines="1"-->
-<!--                android:ellipsize="end"-->
-<!--                android:textColor="@color/textColorBlack"-->
-<!--                android:textSize="@dimen/text_size_10dp"-->
-<!--                android:fontFamily="@font/font_quark_bold"/>-->
 
 
         </RelativeLayout>

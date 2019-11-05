@@ -26,6 +26,6 @@
         <item name="android:windowMinWidthMinor">100%</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay">1.8dp</style>
+    <style name="AppTheme.AppBarOverlay" tools:keep="@style/AppTheme_AppBarOverlay">1.8dp</style>
 
 </resources>

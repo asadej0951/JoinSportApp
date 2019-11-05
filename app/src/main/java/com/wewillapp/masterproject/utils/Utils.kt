@@ -1,5 +1,6 @@
 package com.wewillapp.masterproject.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
@@ -20,7 +21,8 @@ import javax.inject.Inject
 
 class Utils @Inject constructor() {
 
-    fun setDefaultLanguage(context:Context,language:String){
+    @SuppressLint("DefaultLocale")
+    fun setDefaultLanguage(context:Context, language:String){
         val config = Configuration()
         config.locale = Locale(language.toLowerCase())
         context.resources.updateConfiguration(config, null)
