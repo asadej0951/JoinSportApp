@@ -38,16 +38,15 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
         super.onCreate(savedInstanceState)
 
         getBaseActivity = this
-        onEventView()
+        onSetEventView()
     }
 
-    private fun onEventView() {
+    private fun onSetEventView() {
 
     }
 
     fun startIntentAnimation(isStatus: Boolean){
         mUtils.eventStartAnimationIntent(this,isStatus)
-        mUtils.closeKeyborad(this)
     }
 
     fun setTitleToolBar(textViewTitle: TextView, messageTitle:String) {

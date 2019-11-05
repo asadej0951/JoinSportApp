@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.view.adapter.CustomAdapterOrderList
 
-
 class MainFragment : MainBinder() {
 
     companion object {

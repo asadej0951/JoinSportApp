@@ -1,6 +1,7 @@
 package com.wewillapp.masterproject.data.rest
 
 import com.wewillapp.masterproject.utils.MyLog
+import com.wewillapp.masterproject.utils.rxBus.EventBusManage
 import org.json.JSONObject
 import retrofit2.Response
 import java.net.UnknownHostException
@@ -26,6 +27,9 @@ sealed class ApiResponse<T> {
                     )
                 }
             } else {
+               if (response.code() == 404)
+                   EventBusManage.onAddEventRxBus("token has expired")
+
                 val msg = when {
                     response.code() in 400..499 -> JSONObject(JSONObject(response.errorBody()?.string()).get("errors").toString()).getString("message")
                     response.code() == 413 -> "413 Request Entity Too Large"

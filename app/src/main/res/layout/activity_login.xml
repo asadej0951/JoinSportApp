@@ -46,13 +46,13 @@
 
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginStart="@dimen/d30dp"
-                android:layout_marginEnd="@dimen/d30dp">
+                android:layout_marginEnd="@dimen/d30dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ivLogoApp"
@@ -78,10 +78,10 @@
                         android:id="@+id/tvTitleUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_sv_bold"
                         android:text="@string/input_username"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_medium"
-                        android:fontFamily="@font/font_sv_bold"
                         tools:ignore="MissingConstraints,SpUsage" />
 
                     <!--suppress AndroidUnknownAttribute -->
@@ -89,18 +89,18 @@
                         android:id="@+id/etUsername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{handler.etUserName}"
                         android:addTextChangedListener="@{handler.onUserNameTextChanged}"
                         android:backgroundTint="@color/textColorGray"
+                        android:fontFamily="@font/font_sv_bold"
                         android:hint="@string/input_username"
                         android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
                         android:inputType="text"
+                        android:text="@{handler.etUserName}"
                         android:textColor="@color/textColorBlack"
-                        android:fontFamily="@font/font_sv_bold"
                         android:textSize="@dimen/text_size_small"
                         app:layout_constraintTop_toBottomOf="@+id/tvTitleUser"
-                        tools:ignore="MissingConstraints"
-                        android:importantForAutofill="no" />
+                        tools:ignore="MissingConstraints" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -116,10 +116,10 @@
                         android:id="@+id/tvTitlePass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_sv_bold"
                         android:text="@string/input_password"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_medium"
-                        android:fontFamily="@font/font_sv_bold"
                         tools:ignore="MissingConstraints,SpUsage" />
 
                     <!--suppress AndroidUnknownAttribute -->
@@ -127,38 +127,38 @@
                         android:id="@+id/etPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/textColorGray"
-                        android:hint="@string/input_password"
-                        android:text="@{handler.etPassWord}"
                         android:addTextChangedListener="@{handler.onPasswordTextChanged}"
+                        android:backgroundTint="@color/textColorGray"
+                        android:fontFamily="@font/font_sv_bold"
+                        android:hint="@string/input_password"
                         android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
                         android:inputType="textPassword"
+                        android:text="@{handler.etPassWord}"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_small"
-                        android:fontFamily="@font/font_sv_bold"
                         app:layout_constraintTop_toBottomOf="@+id/tvTitlePass"
-                        tools:ignore="MissingConstraints"
-                        android:importantForAutofill="no" />
+                        tools:ignore="MissingConstraints" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <Button
-                        android:id="@+id/btLogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_btn_login"
-                        android:text="@string/message_login"
-                        android:onClick="@{()-> handler.onClickLogin()}"
-                        android:textAllCaps="false"
-                        android:enabled="@{handler.isStatusButtonClick()}"
-                        android:textColor="@color/textColorWhite"
-                        android:textSize="@dimen/text_size_large"
-                        android:fontFamily="@font/font_sv_bold"
-                        android:layout_marginTop="@dimen/d30dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/lyContentPassword" />
-
+                <Button
+                    android:id="@+id/btLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d30dp"
+                    android:background="@drawable/bg_btn_login"
+                    android:baselineAligned="false"
+                    android:enabled="@{handler.isStatusButtonClick()}"
+                    android:fontFamily="@font/font_sv_bold"
+                    android:onClick="@{()-> handler.onClickLogin()}"
+                    android:text="@string/message_login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textColorWhite"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lyContentPassword" />
 
 
             </LinearLayout>

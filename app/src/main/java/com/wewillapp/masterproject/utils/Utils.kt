@@ -2,8 +2,10 @@ package com.wewillapp.masterproject.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.annotation.IdRes
@@ -13,9 +15,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wewillapp.masterproject.R
 import qiu.niorgai.StatusBarCompat
+import java.util.*
 import javax.inject.Inject
 
 class Utils @Inject constructor() {
+
+    fun setDefaultLanguage(context:Context,language:String){
+        val config = Configuration()
+        config.locale = Locale(language.toLowerCase())
+        context.resources.updateConfiguration(config, null)
+    }
+
 
     fun eventStartAnimationIntent(activity: AppCompatActivity, isCheck: Boolean) {
         if (isCheck) {
@@ -26,12 +36,9 @@ class Utils @Inject constructor() {
     }
 
 
-    fun closeKeyborad(context: AppCompatActivity) {
-        val view = context.currentFocus
-        view?.let {
-            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
+    fun closeKeyborad(context: AppCompatActivity,view: View) {
+        val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0)
     }
 
     fun setFormatNumber(number:Double):String{

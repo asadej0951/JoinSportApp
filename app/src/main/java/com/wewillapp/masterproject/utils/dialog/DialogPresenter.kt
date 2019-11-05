@@ -1,17 +1,24 @@
 package com.wewillapp.masterproject.utils.dialog
 
+import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.app.Dialog
 import android.content.Context
+import android.util.DisplayMetrics
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.Window
+import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
-import android.view.*
 import androidx.fragment.app.FragmentActivity
-import javax.inject.Inject
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.CustomImageFullscreenBinding
 import com.wewillapp.masterproject.databinding.DialogAlertMessageBinding
 import com.wewillapp.masterproject.databinding.DialogGalleryOrShootingBinding
+import com.wewillapp.masterproject.databinding.DialogMessageNoTitleBinding
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
+import javax.inject.Inject
 
 
 class DialogPresenter @Inject constructor(private var fragmentActivity: FragmentActivity) {
@@ -39,6 +46,41 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
             }
 
             dialog.show()
+    }
+
+
+    @SuppressLint("RtlHardcoded")
+    fun dialogAlertMessageNotitle(message: String?, ClickCallback: ((Boolean) -> Unit)) {
+        val dialog = getDialog()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val binding: DialogMessageNoTitleBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(fragmentActivity),
+                R.layout.dialog_message_no_title, null, false
+            )
+        dialog.setContentView(binding.root)
+        dialog.window?.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        dialog.window?.attributes!!.width =
+            (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+        binding.message = message
+
+        binding.tvOkey.setOnClickListener {
+            dialog.dismiss()
+            ClickCallback.invoke(true)
+        }
+
+        dialog.show()
+    }
+
+    private fun getDeviceMetrics(context: Context): DisplayMetrics {
+        val metrics = DisplayMetrics()
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display = wm.defaultDisplay
+        display.getMetrics(metrics)
+        return metrics
     }
 
     fun showAlertDialogFullScreen(context: Context, mImageUrl: String) {

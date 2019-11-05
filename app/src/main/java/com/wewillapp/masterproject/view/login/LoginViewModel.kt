@@ -3,7 +3,6 @@ package com.wewillapp.masterproject.view.login
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import javax.inject.Inject
 import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.data.Constants
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
@@ -13,6 +12,7 @@ import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
 import com.wewillapp.masterproject.vo.Resource
 import com.wewillapp.masterproject.vo.model.body.BodyLogin
 import com.wewillapp.masterproject.vo.model.response.ResponseLogin
+import javax.inject.Inject
 
 
 class LoginViewModel @Inject
@@ -54,7 +54,6 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
             isStatusButtonClick.set(true)
         else
             isStatusButtonClick.set(false)
-
     }
 
 }

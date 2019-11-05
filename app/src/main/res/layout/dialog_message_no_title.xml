@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_padding_size_large"
+        android:layout_marginStart="@dimen/margin_padding_size_large"
+        android:paddingTop="@dimen/d8dp"
+        android:paddingBottom="@dimen/d8dp"
+        android:background="@drawable/custom_dialog_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d15dp"
+            android:layout_marginRight="@dimen/d15dp"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@{message}"
+            android:textSize="@dimen/text_size_15dp"
+            android:lineHeight="@dimen/d2dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/font_quark_lighr"
+            tools:ignore="RelativeOverlap,SpUsage"
+            tools:targetApi="p" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/placeHolderColorGray"/>
+
+
+        <Button
+            android:id="@+id/tvOkey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d40dp"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@string/txt_button_okey"
+            android:textColor="@color/colorPrimary"
+            android:background="@color/lineColorWhite"
+            android:textSize="@dimen/text_size_18dp"
+            android:fontFamily="@font/font_quark_bold"
+            tools:ignore="RelativeOverlap" />
+
+    </LinearLayout>
+
+</layout>
