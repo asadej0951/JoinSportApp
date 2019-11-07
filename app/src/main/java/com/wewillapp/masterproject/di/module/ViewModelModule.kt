@@ -2,10 +2,11 @@ package com.wewillapp.masterproject.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.wewillapp.masterproject.utils.ViewModelFactory
 import com.wewillapp.masterproject.di.anotation.ViewModelKey
+import com.wewillapp.masterproject.utils.ViewModelFactory
 import com.wewillapp.masterproject.view.login.LoginViewModel
 import com.wewillapp.masterproject.view.main.MainViewModel
+import com.wewillapp.masterproject.view.register.RegisterViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,6 +18,12 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindProfileViewModel(viewModel: LoginViewModel): ViewModel
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegisterViewModel::class)
+    abstract fun bindRregisterViewModel(viewModel: RegisterViewModel): ViewModel
 
 
     @Binds

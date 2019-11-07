@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class ConvertUriToFile @Inject constructor(private var fragmentActivity: androidx.fragment.app.FragmentActivity) {
 
-    fun decodeFile(filePath: String): File {
+    fun decodeFile(filePath: String): File? {
         // Decode image size
         val o = BitmapFactory.Options()
         o.inJustDecodeBounds = true
@@ -34,10 +34,12 @@ class ConvertUriToFile @Inject constructor(private var fragmentActivity: android
         // Decode with inSampleSize
         val o2 = BitmapFactory.Options()
         o2.inSampleSize = scale
-        val b1 = BitmapFactory.decodeFile(filePath, o2)
-        val b = ExifUtils.rotateBitmap(filePath, b1)
-
-        return persistImage(b, File(filePath).name)
+            val b1 = BitmapFactory.decodeFile(filePath, o2)
+        b1?.let {
+            val b = ExifUtils.rotateBitmap(filePath, it)
+            return persistImage(b, File(filePath).name)
+        }
+        return null
     }
 
     fun decodeMultipleFile(filePath: String, position: Int): File {

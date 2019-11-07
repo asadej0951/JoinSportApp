@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wewillapp.masterproject.view.register.RegisterViewModel" />
+
+        <import type="com.wewillapp.masterproject.vo.enumClass.Language" />
+
+        <import type="android.view.View" />
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <import type="com.wewillapp.masterproject.vo.Resource" />
+
+        <import type="com.wewillapp.masterproject.vo.enumClass.Status" />
+
+        <variable
+            name="loadResource"
+            type="Resource" />
+
+        <variable
+            name="settingResource"
+            type="Language" />
+
+        <variable
+            name="dataViewModel"
+            type="com.wewillapp.masterproject.view.register.RegisterViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBgApp"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/icView"
+                layout="@layout/custom_toolbar_view" />
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:fitsSystemWindows="true">
+
+                <LinearLayout
+                    android:id="@+id/rlContentLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:onClick="@{()->dataViewModel.onClickEventAddImage()}"
+                        android:id="@+id/ivProfile"
+                        android:layout_marginTop="@dimen/d40dp"
+                        android:layout_width="@dimen/d120dp"
+                        android:layout_height="@dimen/d120dp"
+                        android:src="@mipmap/ic_launcher_round"/>
+
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d50dp"
+                        android:layout_marginTop="@dimen/d30dp"
+                        android:layout_marginEnd="@dimen/d50dp"
+                        android:addTextChangedListener="@{dataViewModel.onEmailTextChanged}"
+                        android:backgroundTint="@color/textColorGray"
+                        android:fontFamily="@font/font_quark_lighr"
+                        android:hint="@string/message_input_email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:text="@{dataViewModel.etEmail}"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_15dp" />
+
+
+                    <EditText
+                        android:id="@+id/etFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d50dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginEnd="@dimen/d50dp"
+                        android:addTextChangedListener="@{dataViewModel.onFullNameTextChanged}"
+                        android:backgroundTint="@color/textColorGray"
+                        android:fontFamily="@font/font_quark_lighr"
+                        android:hint="@string/message_input_fullname"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:text="@{dataViewModel.etFullName}"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_15dp" />
+
+                    <EditText
+                        android:id="@+id/etCurrentPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginStart="@dimen/d50dp"
+                        android:layout_marginEnd="@dimen/d50dp"
+                        android:addTextChangedListener="@{dataViewModel.onPasswordTextChanged}"
+                        android:backgroundTint="@color/textColorGray"
+                        android:fontFamily="@font/font_quark_lighr"
+                        android:hint="@string/message_password"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:text="@{dataViewModel.etPassword}"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_15dp" />
+
+                    <EditText
+                        android:id="@+id/etNewPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginStart="@dimen/d50dp"
+                        android:layout_marginEnd="@dimen/d50dp"
+                        android:addTextChangedListener="@{dataViewModel.onConfirmPasswordTextChanged}"
+                        android:backgroundTint="@color/textColorGray"
+                        android:fontFamily="@font/font_quark_lighr"
+                        android:hint="@string/message_confirm_password"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:text="@{dataViewModel.etConfirmPass}"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_15dp" />
+
+
+                    <Button
+                        android:id="@+id/btLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d30dp"
+                        android:layout_marginStart="@dimen/d50dp"
+                        android:layout_marginEnd="@dimen/d50dp"
+                        android:background="@drawable/bg_btn_login"
+                        android:baselineAligned="false"
+                        android:enabled="@{dataViewModel.isStatusButtonClick()}"
+                        android:fontFamily="@font/font_sv_bold"
+                        android:onClick="@{()-> dataViewModel.onClickEventRegister()}"
+                        android:text="@string/message_register"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textColorWhite"
+                        android:textSize="@dimen/text_size_large" />
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:translationZ="1dp"
+            android:visibility="visible"
+            app:visibleGone="@{loadResource.status == Status.LOADING}">
+
+            <include layout="@layout/item_progress" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

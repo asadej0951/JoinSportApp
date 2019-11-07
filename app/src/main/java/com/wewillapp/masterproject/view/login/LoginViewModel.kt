@@ -24,6 +24,10 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
 
     val isStatusButtonClick = ObservableField<Boolean>(false)
 
+    var mLoginCall = SingleLiveData<Void>()
+
+    var mOnClickListener = SingleLiveData<String>()
+
     val onUserNameTextChanged = TextWatcherAdapter{ s ->
         etUserName.set(s)
         checkEventButtonClick()
@@ -35,11 +39,14 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
     }
 
     fun onClickLogin(){
-       mCallLogin.call()
+        mLoginCall.call()
     }
 
-    var mCallLogin = SingleLiveData<Void>()
-    val mResponseLogin : LiveData<Resource<ResponseLogin>> = Transformations.switchMap(mCallLogin) {
+    fun onClickRegister(){
+        mOnClickListener.value = "intentRegister"
+    }
+
+    val mResponseLogin : LiveData<Resource<ResponseLogin>> = Transformations.switchMap(mLoginCall) {
         generalRepository.onLogin(
             BodyLogin(
                 etUserName.get()!!, etPassWord.get()!!

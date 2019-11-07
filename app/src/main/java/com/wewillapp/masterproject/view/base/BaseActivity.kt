@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.wewillapp.masterproject.data.local.Preferences
+import com.wewillapp.masterproject.utils.CheckPermission
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.dialog.DialogPresenter
 import dagger.android.DispatchingAndroidInjector
@@ -32,6 +33,9 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var mPreferences: Preferences
+
+    @Inject
+    lateinit var mCheckPermission: CheckPermission
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

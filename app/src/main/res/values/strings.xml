@@ -22,4 +22,9 @@
     <string name="message_login" translatable="false">Login</string>
     <string name="message_alert_dialog" translatable="false">Message</string>
     <string name="message_done" translatable="false">Done</string>
+    <string name="message_register" translatable="false"><u>Register</u></string>
+    <string name="message_input_email">email</string>
+    <string name="message_input_fullname">full name</string>
+    <string name="message_password">password</string>
+    <string name="message_confirm_password">confirm password</string>
 </resources>

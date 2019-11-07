@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.view.main.MainActivity
+import com.wewillapp.masterproject.view.register.RegisterActivity
 
 class LoginActivity : LoginBinder(),SubScriptLoginBinder {
 
@@ -35,9 +36,13 @@ class LoginActivity : LoginBinder(),SubScriptLoginBinder {
                 intentApp = Intent(getBaseActivity, MainActivity::class.java)
                 startActivity(intentApp)
                 finishAffinity()
-                mUtils.eventStartAnimationIntent(this,true)
+            }
+            "intentRegister" -> {
+                intentApp = Intent(getBaseActivity, RegisterActivity::class.java)
+                startActivity(intentApp)
             }
         }
+        mUtils.eventStartAnimationIntent(this,true)
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -37,6 +37,10 @@ open class LoginBinder : BaseActivity() {
                 Status.ERROR -> mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
             }
         })
+
+        viewModel.mOnClickListener.observe(this, Observer {
+            subScriptLoginBinder.onStartAppIntent(it)
+        })
     }
 
 
