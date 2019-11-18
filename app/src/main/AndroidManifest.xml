@@ -25,6 +25,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
+
         <activity
             android:name=".view.register.RegisterActivity"
             android:screenOrientation="portrait"

@@ -12,7 +12,6 @@ import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -40,10 +39,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
 
-        for (i in data.keys)
-            Log.i("checkNotification","$i == ${data[i]}")
+        val notificationID = System.currentTimeMillis()
+        val pendingIntent = PendingIntent.getActivity(this, notificationID.toInt(), intent, PendingIntent.FLAG_ONE_SHOT)
 
         ShortcutBadger.applyCount(applicationContext, data["badge"]?.toInt()!!)
 
@@ -64,33 +62,50 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 .setLights(Color.BLACK, 1000, 300)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setSmallIcon(R.mipmap.ic_launcher)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setStyle(NotificationCompat.BigTextStyle().bigText(notification.body))
 
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            val channel = NotificationChannel(
-                    "default", "channel_name", NotificationManager.IMPORTANCE_DEFAULT
-            )
+            createChannelId(notificationBuilder,notificationManager)
+        }else
+            onCheckSetting(notificationBuilder)
 
-            val audioAttributes = AudioAttributes.Builder()
-                .setContentType(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
-                .setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
-                .build()
-
-            channel.apply {
-                description = "channel description"
-                setShowBadge(true)
-                enableLights(true)
-                lightColor = Color.BLACK
-                enableVibration(true)
-                vibrationPattern = longArrayOf(100, 200, 300, 400, 500)
-                setSound(defaultSound, audioAttributes)
-            }
-
-            notificationBuilder.setChannelId("default")
-            notificationManager.createNotificationChannel(channel)
-        }
         notificationManager.notify(0, notificationBuilder.build())
+    }
+
+    @SuppressLint("NewApi", "WrongConstant")
+    private fun createChannelId(
+        notificationBuilder: NotificationCompat.Builder,
+        notificationManager: NotificationManager) {
+        val defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val channel = NotificationChannel("default", "channel_name", NotificationManager.IMPORTANCE_DEFAULT)
+
+        val audioAttributes = AudioAttributes.Builder()
+            .setContentType(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
+            .setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
+            .build()
+
+        channel.apply {
+            description = "channel description"
+            setShowBadge(true)
+            enableLights(true)
+            lightColor = Color.BLACK
+            enableVibration(true)
+            vibrationPattern = longArrayOf(100, 200, 300, 400, 500)
+            setSound(defaultSound, audioAttributes)
+            importance = NotificationManager.IMPORTANCE_MAX
+        }
+
+        notificationBuilder.priority = 2
+        notificationBuilder.setChannelId("default")
+        notificationManager.createNotificationChannel(channel)
+    }
+
+    private fun onCheckSetting(notification: NotificationCompat.Builder) {
+        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val defaultVibration = longArrayOf(500, 1000, 500, 500, 1000)
+        notification.setSound(defaultSoundUri).setVibrate(defaultVibration)
     }
 }
