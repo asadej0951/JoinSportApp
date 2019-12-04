@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.wewillapp.masterproject"
+        applicationId "com.onzon.delivery.user"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -20,13 +20,13 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", '"http://dev.easily.wewillapp.support/api/"'
+            buildConfigField "String", "SERVER_URL", '"http://dev.easily.onzon.support/api/"'
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", '"http://dev.easily.wewillapp.support/api/"'
+            buildConfigField "String", "SERVER_URL", '"http://dev.easily.onzon.support/api/"'
             signingConfig signingConfigs.debug
         }
     }
