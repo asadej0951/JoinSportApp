@@ -1,12 +1,13 @@
-package com.wewillapp.masterproject.utils.rxBus
+package com.onzon.delivery.user.utils.rxBus
 
-import com.wewillapp.masterproject.utils.MyLog
+import com.onzon.delivery.user.utils.MyLog
 import io.reactivex.disposables.Disposable
 
 object EventBusManage {
 
     fun onSubScritp(){
-        var personDisposable: Disposable = RxBus.listen(RxEvent::class.java).subscribe {
+        var personDisposable: Disposable = RxBus.listen(RxEvent::class.java)
+            .subscribe {
             MyLog.i(it.event)
         }
 
@@ -18,6 +19,10 @@ object EventBusManage {
 
 
     fun onAddEventRxBus(param:String){
-        RxBus.publish(RxEvent(param))
+        RxBus.publish(
+            RxEvent(
+                param
+            )
+        )
     }
 }

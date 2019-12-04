@@ -1,13 +1,13 @@
-package com.wewillapp.masterproject.view.main
+package com.onzon.delivery.user.view.main
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
-import com.wewillapp.masterproject.utils.SingleLiveData
-import com.wewillapp.masterproject.vo.Resource
-import com.wewillapp.masterproject.vo.model.response.ResponseOrderList
+import com.onzon.delivery.user.data.rest.repository.GeneralRepository
+import com.onzon.delivery.user.utils.SingleLiveData
+import com.onzon.delivery.user.vo.Resource
+import com.onzon.delivery.user.vo.model.response.ResponseOrderList
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(generalRepository: GeneralRepository) : ViewModel() {

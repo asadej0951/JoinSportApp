@@ -1,4 +1,4 @@
-package com.wewillapp.masterproject.vo.model.response
+package com.onzon.delivery.user.vo.model.response
 
 data class BaseResponse(
     val data: Data?,

@@ -1,8 +1,8 @@
-package com.wewillapp.masterproject.di.module
+package com.onzon.delivery.user.di.module
 
 
 import android.app.Application
-import com.wewillapp.masterproject.data.local.Preferences
+import com.onzon.delivery.user.data.local.Preferences
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

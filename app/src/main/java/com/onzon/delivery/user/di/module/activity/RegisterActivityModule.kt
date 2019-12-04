@@ -1,10 +1,10 @@
-package com.wewillapp.masterproject.di.module.activity
+package com.onzon.delivery.user.di.module.activity
 
 
 import androidx.fragment.app.FragmentActivity
 import dagger.Module
 import dagger.Provides
-import com.wewillapp.masterproject.view.register.RegisterActivity
+import com.onzon.delivery.user.view.register.RegisterActivity
 
 @Module
 class RegisterActivityModule {

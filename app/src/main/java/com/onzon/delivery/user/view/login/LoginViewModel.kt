@@ -1,17 +1,17 @@
-package com.wewillapp.masterproject.view.login
+package com.onzon.delivery.user.view.login
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.Constants
-import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
-import com.wewillapp.masterproject.utils.SingleLiveData
-import com.wewillapp.masterproject.utils.TextHelper
-import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
-import com.wewillapp.masterproject.vo.Resource
-import com.wewillapp.masterproject.vo.model.body.BodyLogin
-import com.wewillapp.masterproject.vo.model.response.ResponseLogin
+import com.onzon.delivery.user.data.Constants
+import com.onzon.delivery.user.data.rest.repository.GeneralRepository
+import com.onzon.delivery.user.utils.SingleLiveData
+import com.onzon.delivery.user.utils.TextHelper
+import com.onzon.delivery.user.utils.watcher.TextWatcherAdapter
+import com.onzon.delivery.user.vo.Resource
+import com.onzon.delivery.user.vo.model.body.BodyLogin
+import com.onzon.delivery.user.vo.model.response.ResponseLogin
 import javax.inject.Inject
 
 
@@ -28,12 +28,12 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
 
     var mOnClickListener = SingleLiveData<String>()
 
-    val onUserNameTextChanged = TextWatcherAdapter{ s ->
+    val onUserNameTextChanged = TextWatcherAdapter { s ->
         etUserName.set(s)
         checkEventButtonClick()
     }
 
-    val onPasswordTextChanged = TextWatcherAdapter{ s ->
+    val onPasswordTextChanged = TextWatcherAdapter { s ->
         etPassWord.set(s)
         checkEventButtonClick()
     }

@@ -1,11 +1,11 @@
-package com.wewillapp.masterproject.di.component
+package com.onzon.delivery.user.di.component
 
 import android.app.Application
-import com.wewillapp.masterproject.ProjectApplication
-import com.wewillapp.masterproject.di.module.ActivityModule
-import com.wewillapp.masterproject.di.module.DataModule
-import com.wewillapp.masterproject.di.module.PreferenceModule
-import com.wewillapp.masterproject.di.module.ViewModelModule
+import com.onzon.delivery.user.ProjectApplication
+import com.onzon.delivery.user.di.module.ActivityModule
+import com.onzon.delivery.user.di.module.DataModule
+import com.onzon.delivery.user.di.module.PreferenceModule
+import com.onzon.delivery.user.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule

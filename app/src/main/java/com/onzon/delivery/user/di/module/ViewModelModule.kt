@@ -1,12 +1,12 @@
-package com.wewillapp.masterproject.di.module
+package com.onzon.delivery.user.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.wewillapp.masterproject.di.anotation.ViewModelKey
-import com.wewillapp.masterproject.utils.ViewModelFactory
-import com.wewillapp.masterproject.view.login.LoginViewModel
-import com.wewillapp.masterproject.view.main.MainViewModel
-import com.wewillapp.masterproject.view.register.RegisterViewModel
+import com.onzon.delivery.user.di.anotation.ViewModelKey
+import com.onzon.delivery.user.utils.ViewModelFactory
+import com.onzon.delivery.user.view.login.LoginViewModel
+import com.onzon.delivery.user.view.main.MainViewModel
+import com.onzon.delivery.user.view.register.RegisterViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

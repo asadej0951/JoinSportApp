@@ -1,14 +1,14 @@
-package com.wewillapp.masterproject.di.module
+package com.onzon.delivery.user.di.module
 
-import com.wewillapp.masterproject.di.module.activity.LoginActivityModule
-import com.wewillapp.masterproject.di.module.activity.MainActivityModule
-import com.wewillapp.masterproject.di.module.activity.RegisterActivityModule
-import com.wewillapp.masterproject.di.module.activity.SpashActivityModule
-import com.wewillapp.masterproject.di.module.fragment.FragmentModule
-import com.wewillapp.masterproject.view.login.LoginActivity
-import com.wewillapp.masterproject.view.main.MainActivity
-import com.wewillapp.masterproject.view.register.RegisterActivity
-import com.wewillapp.masterproject.view.splashScreen.SplashScreenActivity
+import com.onzon.delivery.user.di.module.activity.LoginActivityModule
+import com.onzon.delivery.user.di.module.activity.MainActivityModule
+import com.onzon.delivery.user.di.module.activity.RegisterActivityModule
+import com.onzon.delivery.user.di.module.activity.SpashActivityModule
+import com.onzon.delivery.user.di.module.fragment.FragmentModule
+import com.onzon.delivery.user.view.login.LoginActivity
+import com.onzon.delivery.user.view.main.MainActivity
+import com.onzon.delivery.user.view.register.RegisterActivity
+import com.onzon.delivery.user.view.splashScreen.SplashScreenActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

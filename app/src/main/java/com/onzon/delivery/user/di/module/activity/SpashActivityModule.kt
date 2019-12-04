@@ -1,7 +1,7 @@
-package com.wewillapp.masterproject.di.module.activity
+package com.onzon.delivery.user.di.module.activity
 
 import androidx.fragment.app.FragmentActivity
-import com.wewillapp.masterproject.view.splashScreen.SplashScreenActivity
+import com.onzon.delivery.user.view.splashScreen.SplashScreenActivity
 import dagger.Module
 import dagger.Provides
 

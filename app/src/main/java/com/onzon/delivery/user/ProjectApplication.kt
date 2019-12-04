@@ -1,10 +1,10 @@
-package com.wewillapp.masterproject
+package com.onzon.delivery.user
 
 import android.app.Activity
 import android.app.Application
 import androidx.multidex.MultiDex
-import com.wewillapp.masterproject.di.AppInjector
-import com.wewillapp.masterproject.utils.TypefaceUtil
+import com.onzon.delivery.user.di.AppInjector
+import com.onzon.delivery.user.utils.TypefaceUtil
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject

@@ -1,9 +1,9 @@
-package com.wewillapp.masterproject.data.rest
+package com.onzon.delivery.user.data.rest
 
-import com.wewillapp.masterproject.vo.model.body.BodyLogin
-import com.wewillapp.masterproject.vo.model.response.BaseResponse
-import com.wewillapp.masterproject.vo.model.response.ResponseLogin
-import com.wewillapp.masterproject.vo.model.response.ResponseOrderList
+import com.onzon.delivery.user.vo.model.body.BodyLogin
+import com.onzon.delivery.user.vo.model.response.BaseResponse
+import com.onzon.delivery.user.vo.model.response.ResponseLogin
+import com.onzon.delivery.user.vo.model.response.ResponseOrderList
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
