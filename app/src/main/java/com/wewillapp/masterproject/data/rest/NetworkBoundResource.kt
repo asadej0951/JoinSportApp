@@ -2,13 +2,14 @@ package com.wewillapp.masterproject.data.rest
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import com.wewillapp.masterproject.data.rest.ApiResponse.Companion.onErrorResponseServer
 import com.wewillapp.masterproject.vo.Resource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 
@@ -43,7 +44,7 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
                         }
 
                         override fun onError(response: Throwable) {
-                            setValue(Resource.error(response.message!!, null))
+                            setValue(Resource.error(onErrorResponseServer(response), null))
                         }
 
                         override fun onComplete() {
@@ -61,7 +62,7 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
                         }
 
                         override fun onError(response: Throwable) {
-                            setValue(Resource.error(response.message!!, null))
+                            setValue(Resource.error(onErrorResponseServer(response), null))
                         }
 
                         override fun onComplete() {
@@ -79,7 +80,7 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
                         }
 
                         override fun onError(response: Throwable) {
-                            setValue(Resource.error(response.message!!, null))
+                            setValue(Resource.error(onErrorResponseServer(response), null))
                         }
 
                         override fun onComplete() {
@@ -88,6 +89,8 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
             }
         }
     }
+
+
 
     fun asLiveData() = result as LiveData<Resource<RequestType>>
 
