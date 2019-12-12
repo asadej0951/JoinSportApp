@@ -15,7 +15,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityModule {
 
-    // เดี๋ยวจะใส่ Activity ทุกๆตัวไว้ในนี้เพื่อทำเป็น Dependency
     @ContributesAndroidInjector(modules = [SpashActivityModule::class])
     abstract fun contributeSplashScreenActivity(): SplashScreenActivity
 

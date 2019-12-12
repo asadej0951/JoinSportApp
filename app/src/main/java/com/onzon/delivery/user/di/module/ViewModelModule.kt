@@ -31,7 +31,8 @@ abstract class ViewModelModule {
     @ViewModelKey(MainViewModel::class)
     abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
 
+
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
-    // เดี๋ยวจะประกาศ ViewModel ไว้ในนี้ทีหลัง
+
 }

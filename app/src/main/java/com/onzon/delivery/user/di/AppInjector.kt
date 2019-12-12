@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.onzon.delivery.user.ProjectApplication
-import com.onzon.delivery.di.component.DaggerAppComponent
+import com.onzon.delivery.user.di.component.DaggerAppComponent
 import dagger.android.AndroidInjection
-import dagger.android.support.HasSupportFragmentInjector
 import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.HasSupportFragmentInjector
 
 object AppInjector {
     fun init(awesomeApp: ProjectApplication) {

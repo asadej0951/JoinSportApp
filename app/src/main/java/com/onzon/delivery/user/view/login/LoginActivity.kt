@@ -8,8 +8,7 @@ import com.onzon.delivery.R
 import com.onzon.delivery.user.view.main.MainActivity
 import com.onzon.delivery.user.view.register.RegisterActivity
 
-class LoginActivity : LoginBinder(),
-    SubScriptLoginBinder {
+class LoginActivity : LoginBinder(), SubScriptLoginBinder {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
