@@ -2,8 +2,8 @@ package com.onzon.delivery.user.view.register
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.Observer
-import com.onzon.delivery.R
-import com.onzon.delivery.databinding.ActivityRegisterBinding
+import com.onzon.delivery.user.R
+import com.onzon.delivery.user.databinding.ActivityRegisterBinding
 import com.onzon.delivery.user.view.base.BaseActivity
 import com.onzon.delivery.user.vo.enumClass.Status
 import javax.inject.Inject

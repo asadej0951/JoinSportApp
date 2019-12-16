@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import com.onzon.delivery.user.view.main.MainActivity
 import com.onzon.delivery.user.view.register.RegisterActivity
 

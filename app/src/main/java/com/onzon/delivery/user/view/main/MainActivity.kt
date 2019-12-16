@@ -2,7 +2,7 @@ package com.onzon.delivery.user.view.main
 
 import android.content.Intent
 import android.os.Bundle
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import com.onzon.delivery.user.utils.rxBus.RxBus
 import com.onzon.delivery.user.utils.rxBus.RxEvent
 import com.onzon.delivery.user.view.base.BaseActivity
@@ -18,7 +18,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.main_activity)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(R.id.container,
+            supportFragmentManager.beginTransaction().replace(
+                R.id.container,
                 MainFragment.newInstance()
             ).commitNow()
         }

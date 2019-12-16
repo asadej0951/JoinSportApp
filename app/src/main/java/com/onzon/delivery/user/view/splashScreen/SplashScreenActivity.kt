@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.databinding.DataBindingUtil
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import com.onzon.delivery.user.data.Constants
-import com.onzon.delivery.databinding.ActivitySplashScreenBinding
+import com.onzon.delivery.user.databinding.ActivitySplashScreenBinding
 import com.onzon.delivery.user.view.base.BaseActivity
 import com.onzon.delivery.user.view.login.LoginActivity
 import com.onzon.delivery.user.view.main.MainActivity

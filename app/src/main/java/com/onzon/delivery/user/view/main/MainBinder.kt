@@ -3,8 +3,8 @@ package com.onzon.delivery.user.view.main
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.onzon.delivery.R
-import com.onzon.delivery.databinding.MainFragmentBinding
+import com.onzon.delivery.user.R
+import com.onzon.delivery.user.databinding.MainFragmentBinding
 import com.onzon.delivery.user.utils.Utils
 import com.onzon.delivery.user.utils.dialog.DialogPresenter
 import com.onzon.delivery.user.utils.imageManagement.ImageViewUtils

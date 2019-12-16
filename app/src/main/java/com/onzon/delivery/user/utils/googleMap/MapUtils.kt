@@ -9,7 +9,7 @@ import android.location.LocationManager
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import java.util.*
 import javax.inject.Inject
 

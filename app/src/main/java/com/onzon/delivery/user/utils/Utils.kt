@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import qiu.niorgai.StatusBarCompat
 import java.util.*
 import javax.inject.Inject
@@ -35,6 +35,13 @@ class Utils @Inject constructor() {
         } else {
             activity.overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out)
         }
+    }
+
+
+    fun getRandomString() : Int {
+        val ranDomNumber = (0..10).random()
+        val ranDomNumber2 = (0..99).random()
+        return (ranDomNumber * ranDomNumber2) * 1000000000
     }
 
 
@@ -60,7 +67,7 @@ class Utils @Inject constructor() {
 
     fun onSetStatusBar(context: Context, colorStatusBar: Boolean) {
         if (colorStatusBar)
-                StatusBarCompat.setStatusBarColor(context as Activity, ContextCompat.getColor(context, R.color.colorPrimary))
+            StatusBarCompat.setStatusBarColor(context as Activity, ContextCompat.getColor(context, R.color.textColorWhite))
         else{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 StatusBarCompat.translucentStatusBar(context as Activity, true)

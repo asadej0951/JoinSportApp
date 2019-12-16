@@ -11,11 +11,11 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import com.onzon.delivery.R
-import com.onzon.delivery.databinding.CustomImageFullscreenBinding
-import com.onzon.delivery.databinding.DialogAlertMessageBinding
-import com.onzon.delivery.databinding.DialogGalleryOrShootingBinding
-import com.onzon.delivery.databinding.DialogMessageNoTitleBinding
+import com.onzon.delivery.user.R
+import com.onzon.delivery.user.databinding.CustomImageFullscreenBinding
+import com.onzon.delivery.user.databinding.DialogAlertMessageBinding
+import com.onzon.delivery.user.databinding.DialogGalleryOrShootingBinding
+import com.onzon.delivery.user.databinding.DialogMessageNoTitleBinding
 import com.onzon.delivery.user.utils.Utils
 import com.onzon.delivery.user.utils.imageManagement.ImageViewUtils
 import javax.inject.Inject

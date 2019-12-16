@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import com.onzon.delivery.user.view.adapter.CustomAdapterOrderList
 
 class MainFragment : MainBinder() {

@@ -18,8 +18,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import com.onzon.delivery.R
-import java.util.ArrayList
+import com.onzon.delivery.user.R
+import java.util.*
 
 class DialogScrollView : ScrollView {
 

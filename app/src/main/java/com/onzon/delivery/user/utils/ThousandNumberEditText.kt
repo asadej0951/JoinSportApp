@@ -8,7 +8,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import java.math.BigDecimal
 import java.text.DecimalFormat
 

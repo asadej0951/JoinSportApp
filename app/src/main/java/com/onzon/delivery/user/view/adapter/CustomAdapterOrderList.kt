@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.onzon.delivery.R
-import com.onzon.delivery.databinding.ItemLoadMoreBinding
-import com.onzon.delivery.databinding.ItemOrderListBinding
+import com.onzon.delivery.user.R
+import com.onzon.delivery.user.databinding.ItemLoadMoreBinding
+import com.onzon.delivery.user.databinding.ItemOrderListBinding
 import com.onzon.delivery.user.vo.model.response.DataOrderList
 import java.util.*
 
@@ -57,7 +57,7 @@ class CustomAdapterOrderList(
         }
     }
 
-    class ViewHolderLoadMore(internal val binding:ItemLoadMoreBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolderLoadMore(internal val binding: ItemLoadMoreBinding) : RecyclerView.ViewHolder(binding.root)
 
     class ViewHolder(internal var binding: ItemOrderListBinding) : RecyclerView.ViewHolder(binding.root)
 

@@ -5,7 +5,7 @@ import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 import javax.inject.Inject
 
 class ImageViewUtils @Inject constructor() {

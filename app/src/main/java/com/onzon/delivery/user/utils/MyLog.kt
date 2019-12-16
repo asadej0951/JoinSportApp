@@ -2,7 +2,7 @@ package com.onzon.delivery.user.utils
 
 import android.content.Context
 import android.util.Log
-import com.onzon.delivery.BuildConfig
+import com.onzon.delivery.user.BuildConfig
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.text.SimpleDateFormat

@@ -1,6 +1,6 @@
 package com.onzon.delivery.user.di.module
 
-import com.onzon.delivery.BuildConfig
+import com.onzon.delivery.user.BuildConfig
 import com.onzon.delivery.user.data.Constants
 import com.onzon.delivery.user.data.rest.APIService
 import dagger.Module

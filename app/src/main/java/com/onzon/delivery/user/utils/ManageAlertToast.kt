@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
-import com.onzon.delivery.R
+import com.onzon.delivery.user.R
 
 object ManageAlertToast {
     fun showToast(context: Context,view:View,message:String){
