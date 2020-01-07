@@ -7,29 +7,29 @@
 
         <variable
             name="viewModel"
-            type="com.onzon.delivery.user.view.register.RegisterViewModel" />
+            type="com.wewillapp.masterproject.view.register.RegisterViewModel" />
 
-        <import type="com.onzon.delivery.user.vo.enumClass.Language" />
+        <import type="com.wewillapp.masterproject.vo.enumClass.Language" />
 
         <import type="android.view.View" />
 
         <import type="android.graphics.drawable.Drawable" />
 
-        <import type="com.onzon.delivery.user.vo.Resource" />
+        <import type="com.wewillapp.masterproject.vo.Resource" />
 
-        <import type="com.onzon.delivery.user.vo.enumClass.Status" />
+        <import type="com.wewillapp.masterproject.vo.enumClass.Status" />
 
         <variable
             name="loadResource"
-            type="com.onzon.delivery.user.vo.Resource" />
+            type="com.wewillapp.masterproject.vo.Resource" />
 
         <variable
             name="settingResource"
-            type="com.onzon.delivery.user.vo.enumClass.Language" />
+            type="com.wewillapp.masterproject.vo.enumClass.Language" />
 
         <variable
             name="dataViewModel"
-            type="com.onzon.delivery.user.view.register.RegisterViewModel" />
+            type="com.wewillapp.masterproject.view.register.RegisterViewModel" />
 
     </data>
 

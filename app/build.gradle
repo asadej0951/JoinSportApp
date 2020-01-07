@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.onzon.delivery.user"
+        applicationId "com.wewillapp.masterproject"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -81,11 +81,11 @@ dependencies {
 
     // rxJava
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
-    implementation "io.reactivex.rxjava2:rxjava:2.2.2"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
     implementation 'com.github.anadea:rxbus:1.0.1'
 
     // Dagger 2
-    implementation 'com.google.dagger:dagger:2.17'
+    implementation 'com.google.dagger:dagger:2.24'
     kapt 'com.google.dagger:dagger-compiler:2.17'
     implementation('com.google.dagger:dagger-android:2.16') {
         exclude group: "com.android.support"
@@ -100,11 +100,11 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     // Glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
     // Round Image View
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
 
     // Hiden Statusbar
     implementation('com.github.niorgai:StatusBarCompat:2.3.0', {
@@ -113,7 +113,7 @@ dependencies {
     })
 
     // Dexter Permission Management
-    implementation 'com.karumi:dexter:5.0.0'
+    implementation 'com.karumi:dexter:6.0.1'
 
     // Image Full Screen
     implementation 'com.jsibbold:zoomage:1.2.0'
@@ -122,7 +122,7 @@ dependencies {
     implementation 'com.loopeer.lib:shadow:0.0.4-beta3'
 
     //facebook login
-    implementation 'com.facebook.android:facebook-login:5.8.0'
+    implementation 'com.facebook.android:facebook-login:5.12.0'
 
     // google map
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
@@ -130,10 +130,10 @@ dependencies {
 
     // firebase
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
-    implementation 'com.google.firebase:firebase-core:16.0.1'
-    implementation 'com.google.firebase:firebase-messaging:17.4.0'
-    implementation 'com.google.firebase:firebase-auth:19.0.0'
-    implementation 'com.google.firebase:firebase-database:19.0.0'
+    implementation 'com.google.firebase:firebase-core:17.2.1'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
 
     // Jackson
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.9"
