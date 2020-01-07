@@ -46,11 +46,10 @@ class RegisterActivity : RegisterBinder(),
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && data != null && data.data != null || requestCode == 2 || requestCode == 1) {
-            data?.let {
+        if (resultCode == Activity.RESULT_OK && data != null && data.data != null && requestCode == 2 || requestCode == 1) {
+            if (resultCode != 0) {
                 mCheckPermission.onSelectPicture(data, binding.ivProfile)
                 viewModel.mLiveDataImageFile.value = mCheckPermission.getFile()
-                viewModel.checkEventButtonClick()
             }
         }
     }
