@@ -35,7 +35,7 @@ class RegisterActivity : RegisterBinder(),
     }
 
     private fun onClickListener() {
-        binding.icView.imgBack.setOnClickListener {
+        binding.icView.layBack.setOnClickListener {
             this.onBackPressed()
         }
     }

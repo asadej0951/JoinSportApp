@@ -39,11 +39,11 @@ open class RegisterBinder : BaseActivity() {
           binding.loadResource = it
                     when(it.status) {
                         Status.SUCCESS -> {
-                            mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {
+                            mDialogPresenter.dialogMessage(resources.getString(R.string.message_alert_dialog),it.message) {
                                 mSubScriptRegisterBinder.onStartAppIntent("intentMain")
                             }
                         }
-                        Status.ERROR -> mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
+                        Status.ERROR -> mDialogPresenter.dialogMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
                     }
         })
     }

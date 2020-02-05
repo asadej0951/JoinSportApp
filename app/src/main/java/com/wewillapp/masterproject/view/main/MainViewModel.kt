@@ -15,8 +15,6 @@ class MainViewModel @Inject constructor(generalRepository: GeneralRepository) : 
 
     val mLastPage = ObservableField(1)
 
-    var mLayoutLoadMore = false
-
     val mOrderBookingCall = SingleLiveData<Void>()
     val mResponseOrderBooking : LiveData<Resource<ResponseOrderList>> = Transformations.switchMap(mOrderBookingCall){
         generalRepository.getOrderList(mCurrentPage.get()!!)

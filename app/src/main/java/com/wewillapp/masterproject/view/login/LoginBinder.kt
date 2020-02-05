@@ -35,7 +35,7 @@ open class LoginBinder : BaseActivity() {
                     mPreferences.saveToken(it.data!!.data.accessToken)
                     subScriptLoginBinder.onStartAppIntent("intentMain")
                 }
-                Status.ERROR -> mDialogPresenter.dialogAlertMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
+                Status.ERROR -> mDialogPresenter.dialogMessage(resources.getString(R.string.message_alert_dialog),it.message) {}
             }
         })
 

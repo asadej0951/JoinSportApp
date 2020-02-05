@@ -60,7 +60,6 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     }
 
-
     fun onSetStatusBar() {
         StatusBarCompat.translucentStatusBar(this, true)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -78,9 +77,11 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
         mUtils.eventStartAnimationIntent(this, isStatus)
     }
 
+
     fun setTitleToolBar(textViewTitle: TextView, messageTitle: String) {
         textViewTitle.text = messageTitle
     }
+
 
     override fun supportFragmentInjector() = fragmentDispatchingAndroidInjector
 }

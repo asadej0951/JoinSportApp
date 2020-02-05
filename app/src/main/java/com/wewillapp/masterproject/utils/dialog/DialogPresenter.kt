@@ -1,9 +1,8 @@
 package com.wewillapp.masterproject.utils.dialog
 
-import android.annotation.SuppressLint
-import android.app.ActionBar
 import android.app.Dialog
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,10 +11,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import com.wewillapp.masterproject.R
-import com.wewillapp.masterproject.databinding.CustomImageFullscreenBinding
-import com.wewillapp.masterproject.databinding.DialogAlertMessageBinding
-import com.wewillapp.masterproject.databinding.DialogGalleryOrShootingBinding
-import com.wewillapp.masterproject.databinding.DialogMessageNoTitleBinding
+import com.wewillapp.masterproject.databinding.*
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
 import javax.inject.Inject
@@ -25,32 +21,92 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
     @Inject
     lateinit var mUtils: Utils
 
-    fun dialogAlertMessage(title: String, text: String?, ClickCallback: ((Boolean) -> Unit)) {
-            val dialog = getDialog()
-            dialog.setCanceledOnTouchOutside(false)
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-            val binding: DialogAlertMessageBinding =
-                DataBindingUtil.inflate(
-                    LayoutInflater.from(fragmentActivity),
-                    R.layout.dialog_alert_message, null, false
-                )
-            dialog.setContentView(binding.root)
+    fun dialogMessage(title: String, text: String?, ClickCallback: ((Boolean) -> Unit)) {
+        val dialog = getDialog()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val binding: DialogAlertMessageBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(fragmentActivity),
+                R.layout.dialog_alert_message, null, false
+            )
+        dialog.setContentView(binding.root)
+        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
 
-            binding.title = title
-            binding.text = text
+        binding.title = title
+        binding.text = text
 
-            binding.tvOkey.setOnClickListener {
-                dialog.dismiss()
-                ClickCallback.invoke(true)
-            }
+        binding.tvOkey.setOnClickListener {
+            dialog.dismiss()
+            ClickCallback.invoke(true)
+        }
 
-            dialog.show()
+        dialog.show()
+    }
+
+    fun dialogMessage(
+        message: String,
+        messageBtn: String,
+        iconDialog: Drawable,
+        ClickCallback: ((Boolean) -> Unit)
+    ) {
+        val dialog = getDialog()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val binding: DialogAlertMessageDefaultBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(fragmentActivity),
+                R.layout.dialog_alert_message_default, null, false
+            )
+        dialog.setContentView(binding.root)
+        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+
+        binding.text = message
+        binding.messageBtn = messageBtn
+        binding.ivLogoApp.setImageDrawable(iconDialog)
+
+        binding.tvOkey.setOnClickListener {
+            dialog.dismiss()
+            ClickCallback.invoke(true)
+        }
+
+        dialog.show()
     }
 
 
-    @SuppressLint("RtlHardcoded")
-    fun dialogAlertMessageNotitle(message: String?, ClickCallback: ((Boolean) -> Unit)) {
+    fun dialogMessageTwoButton(title: String?, ClickCallback: ((Boolean) -> Unit)) {
+        val dialog = getDialog()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+        val binding: DialogTwoButtonBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(fragmentActivity),
+                R.layout.dialog_two_button, null, false
+            )
+        dialog.setContentView(binding.root)
+        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+
+        binding.tvText.text = title
+
+        binding.tvOkey.setOnClickListener {
+            dialog.dismiss()
+            ClickCallback.invoke(true)
+        }
+
+        binding.tvCancel.setOnClickListener {
+            dialog.dismiss()
+            ClickCallback.invoke(false)
+        }
+
+        dialog.show()
+    }
+
+
+    fun dialogMessageNotitle(message: String?, ClickCallback: ((Boolean) -> Unit)) {
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(false)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -60,11 +116,8 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
                 R.layout.dialog_message_no_title, null, false
             )
         dialog.setContentView(binding.root)
-        dialog.window?.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT)
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-        dialog.window?.attributes!!.width =
-            (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
         binding.message = message
 
         binding.tvOkey.setOnClickListener {
@@ -75,15 +128,8 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
         dialog.show()
     }
 
-    private fun getDeviceMetrics(context: Context): DisplayMetrics {
-        val metrics = DisplayMetrics()
-        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = wm.defaultDisplay
-        display.getMetrics(metrics)
-        return metrics
-    }
 
-    fun showAlertDialogFullScreen(context: Context, mImageUrl: String) {
+    fun dialogShowImageFullScreen(context: Context, mImageUrl: String) {
         val mImageViewUtils = ImageViewUtils()
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(false)
@@ -138,7 +184,16 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
         dialog.show()
     }
 
-    fun getDialog(): Dialog = Dialog(fragmentActivity)
+    private fun getDeviceMetrics(context: Context): DisplayMetrics {
+        val metrics = DisplayMetrics()
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display = wm.defaultDisplay
+        display.getMetrics(metrics)
+        return metrics
+    }
+
+
+    private fun getDialog(): Dialog = Dialog(fragmentActivity)
 
     fun getDialogFullScreen(): Dialog = Dialog(fragmentActivity, R.style.Dialog_FullScreen)
 }

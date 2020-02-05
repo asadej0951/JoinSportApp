@@ -20,6 +20,7 @@ object BindingAdapters {
         }
     }
 
+
     @SuppressLint("CheckResult")
     @JvmStatic
     @BindingAdapter("bind:imageUrl")
@@ -29,7 +30,25 @@ object BindingAdapters {
         requestOptions.placeholder(R.mipmap.ic_launcher_round)
         requestOptions.error(R.mipmap.ic_launcher_round)
         requestOptions.diskCacheStrategy
-        requestOptions.fitCenter()
+        requestOptions.centerCrop()
+
+        Glide.with(view.context)
+            .load(url)
+            .apply(requestOptions)
+            .into(view)
+    }
+
+
+    @SuppressLint("CheckResult")
+    @JvmStatic
+    @BindingAdapter("bind:imageUrl")
+    fun viewImage(view: ImageView, url: Int) {
+
+        val requestOptions = RequestOptions()
+        requestOptions.placeholder(R.mipmap.ic_launcher_round)
+        requestOptions.error(R.mipmap.ic_launcher_round)
+        requestOptions.diskCacheStrategy
+        requestOptions.centerCrop()
 
         Glide.with(view.context)
             .load(url)

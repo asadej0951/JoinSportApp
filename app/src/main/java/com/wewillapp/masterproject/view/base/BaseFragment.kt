@@ -9,6 +9,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.wewillapp.masterproject.di.Injectable
+import com.wewillapp.masterproject.utils.Utils
+import com.wewillapp.masterproject.utils.dialog.DialogPresenter
+import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -19,6 +22,16 @@ abstract class BaseFragment: DaggerFragment(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var mUtils: Utils
+
+    @Inject
+    lateinit var mDialogPresenter: DialogPresenter
+
+    @Inject
+    lateinit var mImageViewUtils: ImageViewUtils
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //val view = inflater.inflate(layoutRes(), container, false)
