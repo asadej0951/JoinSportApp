@@ -19,7 +19,7 @@ open class RegisterBinder : BaseActivity() {
 
     lateinit var binding: ActivityRegisterBinding
 
-    lateinit var mSubScriptRegisterBinder: SubScriptRegisterBinder
+    private lateinit var mSubScriptRegisterBinder: SubScriptRegisterBinder
 
     fun onSubScriptRegisterBinder(objects:Any){
         mSubScriptRegisterBinder = objects as SubScriptRegisterBinder

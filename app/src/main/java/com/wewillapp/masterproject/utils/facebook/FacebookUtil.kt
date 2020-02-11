@@ -11,8 +11,6 @@ import com.wewillapp.masterproject.AppExecutors
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
-import java.util.*
-import kotlin.collections.HashMap
 
 class FacebookUtil {
 
@@ -23,7 +21,7 @@ class FacebookUtil {
             callbackManager: CallbackManager,
             Callback: ((HashMap<String, Any>) -> Unit)
         ) {
-            loginButton.setReadPermissions(Arrays.asList("public_profile", "email"))
+            loginButton.setReadPermissions(listOf("public_profile", "email"))
             loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
                 override fun onSuccess(loginResult: LoginResult) {
                     val callbackData = HashMap<String, Any>()

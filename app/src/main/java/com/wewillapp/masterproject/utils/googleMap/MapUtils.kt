@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class MapUtils @Inject constructor() {
     private var mMapZoomLevel = 15f
-    var mLocationManager: LocationManager? = null
+    private var mLocationManager: LocationManager? = null
 
     fun mapAddMarker(mMap: GoogleMap, mLatitude:Double, mLongitude:Double){
 //        val icon = BitmapDescriptorFactory.fromResource(R.drawable.pin1)

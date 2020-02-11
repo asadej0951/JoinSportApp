@@ -34,9 +34,9 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
     @Inject
     lateinit var mDialogPresenter: DialogPresenter
 
-    var mShooting: Uri? = null
+    private var mShooting: Uri? = null
 
-    var mRealPath: String? = null
+    private var mRealPath: String? = null
 
     fun checkPermissionCameraAndStorage() {
         Dexter.withActivity(fragmentActivity)
@@ -62,7 +62,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
 
                     private fun hasDeniedPermission(report: MultiplePermissionsReport): Boolean {
                         val denyPermission = report.deniedPermissionResponses
-                        return denyPermission != null && !denyPermission.isEmpty()
+                        return denyPermission != null && denyPermission.isNotEmpty()
                     }
                 }).check()
     }
@@ -152,7 +152,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         if (!hasDeniedPermission(report)) {
-                            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tel))
+                            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$tel"))
                             ClickCallback.invoke(intent)
                         } else {
                             showSnackbar(fragmentActivity.resources.getString(R.string.permission_call_phone))
@@ -165,7 +165,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
 
                     private fun hasDeniedPermission(report: MultiplePermissionsReport): Boolean {
                         val denyPermission = report.deniedPermissionResponses
-                        return denyPermission != null && !denyPermission.isEmpty()
+                        return denyPermission != null && denyPermission.isNotEmpty()
                     }
                 }).check()
     }
@@ -191,7 +191,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
 
                     private fun hasDeniedPermission(report: MultiplePermissionsReport): Boolean {
                         val denyPermission = report.deniedPermissionResponses
-                        return denyPermission != null && !denyPermission.isEmpty()
+                        return denyPermission != null && denyPermission.isNotEmpty()
                     }
                 }).check()
     }
@@ -217,7 +217,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
 
                     private fun hasDeniedPermission(report: MultiplePermissionsReport): Boolean {
                         val denyPermission = report.deniedPermissionResponses
-                        return denyPermission != null && !denyPermission.isEmpty()
+                        return denyPermission != null && denyPermission.isNotEmpty()
                     }
                 }).check()
     }

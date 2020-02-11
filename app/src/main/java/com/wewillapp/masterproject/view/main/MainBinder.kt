@@ -1,5 +1,6 @@
 package com.wewillapp.masterproject.view.main
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ open class MainBinder : BaseFragment() {
 
     var mListDataOrderList = ArrayList<DataOrderList>()
 
+    @SuppressLint("FragmentLiveDataObserve")
     fun onSubScriptViewModel() {
         mListDataOrderList.clear()
         viewModel.mOrderBookingCall.call()

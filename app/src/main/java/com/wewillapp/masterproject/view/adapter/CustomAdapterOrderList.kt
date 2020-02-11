@@ -1,6 +1,5 @@
 package com.wewillapp.masterproject.view.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -11,9 +10,9 @@ import com.wewillapp.masterproject.vo.model.response.DataOrderList
 import java.util.*
 
 class CustomAdapterOrderList(
-    private var context: Context,
     private var mListProduct: ArrayList<DataOrderList>,
-    private var mOnClickList: (String) -> (Unit)) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var mOnClickList: (String) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return mListProduct.size

@@ -40,9 +40,6 @@ class MainActivity : BaseActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
 
     override fun onDestroy() {
         super.onDestroy()

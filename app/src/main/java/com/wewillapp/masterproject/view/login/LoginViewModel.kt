@@ -4,7 +4,6 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.Constants
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
 import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.utils.TextHelper
@@ -18,9 +17,9 @@ import javax.inject.Inject
 class LoginViewModel @Inject
 constructor(private val generalRepository: GeneralRepository) : ViewModel() {
 
-    val etUserName = ObservableField<String>(if (Constants.MODE_DEBUG) "gobank@gmail.com" else "")
+    val etUserName = ObservableField<String>("gobank@gmail.com")
 
-    val etPassWord = ObservableField<String>(if (Constants.MODE_DEBUG) "password" else "")
+    val etPassWord = ObservableField<String>("password")
 
     val isStatusButtonClick = ObservableField<Boolean>(false)
 

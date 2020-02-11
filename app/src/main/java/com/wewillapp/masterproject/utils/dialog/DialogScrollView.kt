@@ -38,7 +38,7 @@ class DialogScrollView : ScrollView {
 
     private var items: MutableList<String>? = null
 
-    var offset = OFF_SET_DEFAULT
+    private var offset = OFF_SET_DEFAULT
 
     private var displayItemCount: Int = 0
 
@@ -66,7 +66,7 @@ class DialogScrollView : ScrollView {
     val seletedIndex: Int
         get() = selectedIndex - offset
 
-    var onWheelViewListener: OnWheelViewListener? = null
+    private var onWheelViewListener: OnWheelViewListener? = null
 
     class OnWheelViewListener {
         internal fun onSelected(selectedIndex: Int, item: String) {}
@@ -156,7 +156,7 @@ class DialogScrollView : ScrollView {
 
     }
 
-    fun startScrollerTask() {
+    private fun startScrollerTask() {
 
         initialY = scrollY
         this.postDelayed(scrollerTask, newCheck.toLong())
@@ -205,14 +205,12 @@ class DialogScrollView : ScrollView {
 
         refreshItemView(t)
 
-        if (t > oldt) {
+        scrollDirection = if (t > oldt) {
             //            Log.d(TAG, "向下滚动");
-            scrollDirection =
-                SCROLL_DIRECTION_DOWN
+            SCROLL_DIRECTION_DOWN
         } else {
             //            Log.d(TAG, "向上滚动");
-            scrollDirection =
-                SCROLL_DIRECTION_UP
+            SCROLL_DIRECTION_UP
 
         }
 

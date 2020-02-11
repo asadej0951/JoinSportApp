@@ -13,7 +13,7 @@ import android.provider.MediaStore
 
 object ImageFilePath {
 
-    private val nopath = "Select Video Only"
+    private const val nopath = "Select Video Only"
 
     @SuppressLint("ObsoleteSdkInt")
     @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -114,8 +114,9 @@ object ImageFilePath {
      * (Optional) Selection arguments used in the query.
      * @return The value of the _data column, which is typically a file path.
      */
+    @SuppressLint("Recycle")
     private fun getDataColumn(context: Context, uri: Uri?,
-                      selection: String?, selectionArgs: Array<String>?): String {
+                              selection: String?, selectionArgs: Array<String>?): String {
 
         var cursor: Cursor? = null
         val column = "_data"
@@ -129,8 +130,9 @@ object ImageFilePath {
                 return cursor.getString(index)
             }
         } finally {
-            if (cursor != null)
-                cursor.close()
+            cursor?.let {
+                it.close()
+            }
         }
         return nopath
     }

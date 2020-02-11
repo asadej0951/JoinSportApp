@@ -5,63 +5,63 @@
     <dimen name="radius_5" tools:keep="@dimen/radius_5">5dp</dimen>
     <dimen name="radius_10">10dp</dimen>
     <dimen name="radius_15" tools:keep="@dimen/radius_15">15dp</dimen>
-    <dimen name="radius_20">2dp</dimen>
+    <dimen name="radius_20" tools:keep="@dimen/radius_20">2dp</dimen>
 
     <!-- Margins & Padding, 8 dp baseline, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-baseline-grids -->
     <dimen name="margin_padding_size_small">8dp</dimen>
     <dimen name="margin_padding_size_medium">16dp</dimen>
     <dimen name="margin_padding_size_large">24dp</dimen>
-    <dimen name="margin_padding_size_xlarge">32dp</dimen>
-    <dimen name="margin_padding_size_xxlarge">40dp</dimen>
+    <dimen name="margin_padding_size_xlarge" tools:keep="@dimen/margin_padding_size_xlarge">32dp</dimen>
+    <dimen name="margin_padding_size_xxlarge" tools:keep="@dimen/margin_padding_size_xxlarge">40dp</dimen>
 
-    <dimen name="margin_padding_size_nano">1.8dp</dimen>
-    <dimen name="margin_padding_size_micro">3.6dp</dimen>
-    <dimen name="margin_padding_minus_size_micro">-3.6dp</dimen>
-    <dimen name="margin_padding_minus_size_small">-7.2dp</dimen>
-    <dimen name="margin_padding_minus_size_medium">-14.4dp</dimen>
-    <dimen name="margin_padding_minus_size_large">-21.6dp</dimen>
-    <dimen name="margin_padding_minus_size_xlarge">-28.8dp</dimen>
-    <dimen name="margin_padding_minus_size_xxlarge">-36dp</dimen>
+    <dimen name="margin_padding_size_nano" tools:keep="@dimen/margin_padding_size_nano">1.8dp</dimen>
+    <dimen name="margin_padding_size_micro" tools:keep="@dimen/margin_padding_size_micro">3.6dp</dimen>
+    <dimen name="margin_padding_minus_size_micro" tools:keep="@dimen/margin_padding_minus_size_micro">-3.6dp</dimen>
+    <dimen name="margin_padding_minus_size_small" tools:keep="@dimen/margin_padding_minus_size_small">-7.2dp</dimen>
+    <dimen name="margin_padding_minus_size_medium" tools:keep="@dimen/margin_padding_minus_size_medium">-14.4dp</dimen>
+    <dimen name="margin_padding_minus_size_large" tools:keep="@dimen/margin_padding_minus_size_large">-21.6dp</dimen>
+    <dimen name="margin_padding_minus_size_xlarge" tools:keep="@dimen/margin_padding_minus_size_xlarge">-28.8dp</dimen>
+    <dimen name="margin_padding_minus_size_xxlarge" tools:keep="@dimen/margin_padding_minus_size_xxlarge">-36dp</dimen>
 
     <!-- Launcher Icon Size, https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size -->
-    <dimen name="launcher_icon_size">@dimen/standard_touch_size</dimen>
+    <dimen name="launcher_icon_size" tools:keep="@dimen/launcher_icon_size">@dimen/standard_touch_size</dimen>
 
     <!-- Touch Target Size, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-touch-target-size-->
-    <dimen name="standard_touch_size">48dp</dimen>
+    <dimen name="standard_touch_size" tools:keep="@dimen/standard_touch_size">48dp</dimen>
 
     <!-- Toolbar, 4 dp baseline, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-baseline-grids -->
-    <dimen name="toolbar_margin_size">4dp</dimen>
+    <dimen name="toolbar_margin_size" tools:keep="@dimen/toolbar_margin_size">4dp</dimen>
     <dimen name="toolbar_icon_size">24dp</dimen>
 
     <!-- Font sizes, https://material.io/guidelines/style/typography.html#typography-typeface -->
-    <dimen name="text_size_micro">12sp</dimen>
+    <dimen name="text_size_micro" tools:keep="@dimen/text_size_micro">12sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_large">20sp</dimen>
-    <dimen name="text_size_xlarge">34sp</dimen>
-    <dimen name="text_size_xxlarge">45sp</dimen>
-    <dimen name="text_size_xxxlarge">56sp</dimen>
+    <dimen name="text_size_xlarge" tools:keep="@dimen/text_size_xlarge">34sp</dimen>
+    <dimen name="text_size_xxlarge" tools:keep="@dimen/text_size_xxlarge">45sp</dimen>
+    <dimen name="text_size_xxxlarge" tools:keep="@dimen/text_size_xxxlarge">56sp</dimen>
 
-    <dimen name="text_size_8dp">8sp</dimen>
-    <dimen name="text_size_9dp">9sp</dimen>
-    <dimen name="text_size_10dp">10sp</dimen>
-    <dimen name="text_size_11dp">11sp</dimen>
+    <dimen name="text_size_8dp" tools:keep="@dimen/text_size_8dp">8sp</dimen>
+    <dimen name="text_size_9dp" tools:keep="@dimen/text_size_9dp">9sp</dimen>
+    <dimen name="text_size_10dp" tools:keep="@dimen/text_size_10dp">10sp</dimen>
+    <dimen name="text_size_11dp" tools:keep="@dimen/text_size_11dp">11sp</dimen>
     <dimen name="text_size_12dp">12sp</dimen>
-    <dimen name="text_size_13dp">13sp</dimen>
-    <dimen name="text_size_14dp">14sp</dimen>
+    <dimen name="text_size_13dp" tools:keep="@dimen/text_size_13dp">13sp</dimen>
+    <dimen name="text_size_14dp" tools:keep="@dimen/text_size_14dp">14sp</dimen>
     <dimen name="text_size_15dp">15sp</dimen>
-    <dimen name="text_size_16dp">16sp</dimen>
-    <dimen name="text_size_17dp">17sp</dimen>
+    <dimen name="text_size_16dp" tools:keep="@dimen/text_size_16dp">16sp</dimen>
+    <dimen name="text_size_17dp" tools:keep="@dimen/text_size_17dp">17sp</dimen>
     <dimen name="text_size_18dp">18sp</dimen>
-    <dimen name="text_size_19dp">19sp</dimen>
+    <dimen name="text_size_19dp" tools:keep="@dimen/text_size_19dp">19sp</dimen>
     <dimen name="text_size_20dp">20sp</dimen>
 
-    <dimen name="activity_horizontal_margin">17.6dp</dimen>
-    <dimen name="activity_vertical_margin">17.6dp</dimen>
-    <dimen name="nav_header_vertical_spacing">8.8dp</dimen>
-    <dimen name="nav_header_height">193.6dp</dimen>
-    <dimen name="fab_margin">17.6dp</dimen>
-    <dimen name="d3dp">3.3dp</dimen>
+    <dimen name="activity_horizontal_margin" tools:keep="@dimen/activity_horizontal_margin">17.6dp</dimen>
+    <dimen name="activity_vertical_margin" tools:keep="@dimen/activity_vertical_margin">17.6dp</dimen>
+    <dimen name="nav_header_vertical_spacing" tools:keep="@dimen/nav_header_vertical_spacing">8.8dp</dimen>
+    <dimen name="nav_header_height" tools:keep="@dimen/nav_header_height">193.6dp</dimen>
+    <dimen name="fab_margin" tools:keep="@dimen/fab_margin">17.6dp</dimen>
+    <dimen name="d3dp" tools:keep="@dimen/d3dp">3.3dp</dimen>
     <dimen name="d5dp">5.5dp</dimen>
     <dimen name="d10dp">11dp</dimen>
     <dimen name="d15dp">16.5dp</dimen>
@@ -69,94 +69,94 @@
     <dimen name="d22dp">24.2dp</dimen>
     <dimen name="d24dp">26.4dp</dimen>
     <dimen name="d30dp">33dp</dimen>
-    <dimen name="d18dp">19.8dp</dimen>
+    <dimen name="d18dp" tools:keep="@dimen/d18dp">19.8dp</dimen>
     <dimen name="d50dp">55dp</dimen>
     <dimen name="d40dp">44dp</dimen>
-    <dimen name="d25dp">27.5dp</dimen>
-    <dimen name="d100dp">110dp</dimen>
+    <dimen name="d25dp" tools:keep="@dimen/d25dp">27.5dp</dimen>
+    <dimen name="d100dp" tools:keep="@dimen/d100dp">110dp</dimen>
     <dimen name="d80dp">88dp</dimen>
     <dimen name="d250dp">275dp</dimen>
-    <dimen name="d200dp">220dp</dimen>
-    <dimen name="d180dp">198dp</dimen>
-    <dimen name="d150dp">165dp</dimen>
+    <dimen name="d200dp" tools:keep="@dimen/d200dp">220dp</dimen>
+    <dimen name="d180dp" tools:keep="@dimen/d180dp">198dp</dimen>
+    <dimen name="d150dp" tools:keep="@dimen/d150dp">165dp</dimen>
     <dimen name="d2dp">2.2dp</dimen>
     <dimen name="d8dp">8.8dp</dimen>
-    <dimen name="d16dp">17.6dp</dimen>
-    <dimen name="d35dp">38.5dp</dimen>
-    <dimen name="d32dp">35.2dp</dimen>
-    <dimen name="d90dp">99dp</dimen>
-    <dimen name="d60dp">66dp</dimen>
+    <dimen name="d16dp" tools:keep="@dimen/d16dp">17.6dp</dimen>
+    <dimen name="d35dp" tools:keep="@dimen/d35dp">38.5dp</dimen>
+    <dimen name="d32dp" tools:keep="@dimen/d32dp">35.2dp</dimen>
+    <dimen name="d90dp" tools:keep="@dimen/d90dp">99dp</dimen>
+    <dimen name="d60dp" tools:keep="@dimen/d60dp">66dp</dimen>
     <dimen name="d120dp">132dp</dimen>
-    <dimen name="d14dp">15.4dp</dimen>
+    <dimen name="d14dp" tools:keep="@dimen/d14dp">15.4dp</dimen>
     <dimen name="d12dp">13.2dp</dimen>
-    <dimen name="d13dp">14.3dp</dimen>
-    <dimen name="d160dp">176dp</dimen>
-    <dimen name="d190dp">209dp</dimen>
-    <dimen name="d17dp">18.7dp</dimen>
-    <dimen name="d70dp">77dp</dimen>
-    <dimen name="d110dp">121dp</dimen>
-    <dimen name="d105dp">115.5dp</dimen>
-    <dimen name="d6dp">6.6dp</dimen>
-    <dimen name="d45dp">49.5dp</dimen>
-    <dimen name="d48dp">52.8dp</dimen>
-    <dimen name="d75dp">82.5dp</dimen>
-    <dimen name="d65dp">71.5dp</dimen>
-    <dimen name="d140dp">154dp</dimen>
-    <dimen name="d130dp">143dp</dimen>
-    <dimen name="d55dp">60.5dp</dimen>
-    <dimen name="d4dp">4.4dp</dimen>
-    <dimen name="d58dp">63.8dp</dimen>
-    <dimen name="d95dp">104.5dp</dimen>
-    <dimen name="d102dp">112.2dp</dimen>
-    <dimen name="d85dp">93.5dp</dimen>
-    <dimen name="d170dp">187dp</dimen>
-    <dimen name="d28dp">30.8dp</dimen>
-    <dimen name="d115dp">126.5dp</dimen>
-    <dimen name="d125dp">137.5dp</dimen>
-    <dimen name="d26dp">28.6dp</dimen>
+    <dimen name="d13dp" tools:keep="@dimen/d13dp">14.3dp</dimen>
+    <dimen name="d160dp" tools:keep="@dimen/d160dp">176dp</dimen>
+    <dimen name="d190dp" tools:keep="@dimen/d190dp">209dp</dimen>
+    <dimen name="d17dp" tools:keep="@dimen/d17dp">18.7dp</dimen>
+    <dimen name="d70dp" tools:keep="@dimen/d70dp">77dp</dimen>
+    <dimen name="d110dp" tools:keep="@dimen/d110dp">121dp</dimen>
+    <dimen name="d105dp" tools:keep="@dimen/d105dp">115.5dp</dimen>
+    <dimen name="d6dp" tools:keep="@dimen/d6dp">6.6dp</dimen>
+    <dimen name="d45dp" tools:keep="@dimen/d45dp">49.5dp</dimen>
+    <dimen name="d48dp" tools:keep="@dimen/d48dp">52.8dp</dimen>
+    <dimen name="d75dp" tools:keep="@dimen/d75dp">82.5dp</dimen>
+    <dimen name="d65dp" tools:keep="@dimen/d65dp">71.5dp</dimen>
+    <dimen name="d140dp" tools:keep="@dimen/d140dp">154dp</dimen>
+    <dimen name="d130dp" tools:keep="@dimen/d130dp">143dp</dimen>
+    <dimen name="d55dp" tools:keep="@dimen/d55dp">60.5dp</dimen>
+    <dimen name="d4dp" tools:keep="@dimen/d4dp">4.4dp</dimen>
+    <dimen name="d58dp" tools:keep="@dimen/d58dp">63.8dp</dimen>
+    <dimen name="d95dp" tools:keep="@dimen/d95dp">104.5dp</dimen>
+    <dimen name="d102dp" tools:keep="@dimen/d102dp">112.2dp</dimen>
+    <dimen name="d85dp" tools:keep="@dimen/d85dp">93.5dp</dimen>
+    <dimen name="d170dp" tools:keep="@dimen/d170dp">187dp</dimen>
+    <dimen name="d28dp" tools:keep="@dimen/d28dp">30.8dp</dimen>
+    <dimen name="d115dp" tools:keep="@dimen/d115dp">126.5dp</dimen>
+    <dimen name="d125dp" tools:keep="@dimen/d125dp">137.5dp</dimen>
+    <dimen name="d26dp" tools:keep="@dimen/d26dp">28.6dp</dimen>
     <dimen name="d1dp">1dp</dimen>
-    <dimen name="d42dp">46.2dp</dimen>
-    <dimen name="spacing">550dp</dimen>
-    <dimen name="d135dp">148.5dp</dimen>
-    <dimen name="global_margin">8.8dp</dimen>
-    <dimen name="x5dp">5.5dp</dimen>
-    <dimen name="x10dp">11dp</dimen>
-    <dimen name="d260dp">286dp</dimen>
-    <dimen name="d0dp">0dp</dimen>
-    <dimen name="radius_corner">11dp</dimen>
-    <dimen name="d230dp">253dp</dimen>
-    <dimen name="d7dp">7.7dp</dimen>
-    <dimen name="width_icon_sale_cart">38.5dp</dimen>
-    <dimen name="height_icon_sale_cart">33dp</dimen>
-    <dimen name="d220dp">242dp</dimen>
-    <dimen name="d05dp">0.6dp</dimen>
-    <dimen name="d240dp">264dp</dimen>
-    <dimen name="d36dp">39.6dp</dimen>
-    <dimen name="d400dp">440dp</dimen>
-    <dimen name="d300dp">330dp</dimen>
-    <dimen name="dots_height">33dp</dimen>
-    <dimen name="dots_margin_bottom">22dp</dimen>
-    <dimen name="img_width_height">132dp</dimen>
-    <dimen name="slide_title">33dp</dimen>
-    <dimen name="slide_desc">17.6dp</dimen>
-    <dimen name="desc_padding">44dp</dimen>
-    <dimen name="d280dp">308dp</dimen>
-    <dimen name="d350dp">385dp</dimen>
-    <dimen name="d1024dp">1126.4dp</dimen>
-    <dimen name="d11dp">12.1dp</dimen>
-    <dimen name="d330dp">330dp</dimen>
-    <dimen name="d340dp">340dp</dimen>
-    <dimen name="height_calendar">285dp</dimen>
-    <dimen name="bagde_left_margin">8dp</dimen>
-    <dimen name="magin_bage">13dp</dimen>
-    <dimen name="d37dp">37dp</dimen>
-    <dimen name="d38dp">38dp</dimen>
-    <dimen name="d9dp">9dp</dimen>
-    <dimen name="d320dp">320</dimen>
+    <dimen name="d42dp" tools:keep="@dimen/d42dp">46.2dp</dimen>
+    <dimen name="spacing" tools:keep="@dimen/spacing">550dp</dimen>
+    <dimen name="d135dp" tools:keep="@dimen/d135dp">148.5dp</dimen>
+    <dimen name="global_margin" tools:keep="@dimen/global_margin">8.8dp</dimen>
+    <dimen name="x5dp" tools:keep="@dimen/x5dp">5.5dp</dimen>
+    <dimen name="x10dp" tools:keep="@dimen/x10dp">11dp</dimen>
+    <dimen name="d260dp" tools:keep="@dimen/d260dp">286dp</dimen>
+    <dimen name="d0dp" tools:keep="@dimen/d0dp">0dp</dimen>
+    <dimen name="radius_corner" tools:keep="@dimen/radius_corner">11dp</dimen>
+    <dimen name="d230dp" tools:keep="@dimen/d230dp">253dp</dimen>
+    <dimen name="d7dp" tools:keep="@dimen/d7dp">7.7dp</dimen>
+    <dimen name="width_icon_sale_cart" tools:keep="@dimen/width_icon_sale_cart">38.5dp</dimen>
+    <dimen name="height_icon_sale_cart" tools:keep="@dimen/height_icon_sale_cart">33dp</dimen>
+    <dimen name="d220dp" tools:keep="@dimen/d220dp">242dp</dimen>
+    <dimen name="d05dp" tools:keep="@dimen/d05dp">0.6dp</dimen>
+    <dimen name="d240dp" tools:keep="@dimen/d240dp">264dp</dimen>
+    <dimen name="d36dp" tools:keep="@dimen/d36dp">39.6dp</dimen>
+    <dimen name="d400dp" tools:keep="@dimen/d400dp">440dp</dimen>
+    <dimen name="d300dp" tools:keep="@dimen/d300dp">330dp</dimen>
+    <dimen name="dots_height" tools:keep="@dimen/dots_height">33dp</dimen>
+    <dimen name="dots_margin_bottom" tools:keep="@dimen/dots_margin_bottom">22dp</dimen>
+    <dimen name="img_width_height" tools:keep="@dimen/img_width_height">132dp</dimen>
+    <dimen name="slide_title" tools:keep="@dimen/slide_title">33dp</dimen>
+    <dimen name="slide_desc" tools:keep="@dimen/slide_desc">17.6dp</dimen>
+    <dimen name="desc_padding" tools:keep="@dimen/desc_padding">44dp</dimen>
+    <dimen name="d280dp" tools:keep="@dimen/d280dp">308dp</dimen>
+    <dimen name="d350dp" tools:keep="@dimen/d350dp">385dp</dimen>
+    <dimen name="d1024dp" tools:keep="@dimen/d1024dp">1126.4dp</dimen>
+    <dimen name="d11dp" tools:keep="@dimen/d11dp">12.1dp</dimen>
+    <dimen name="d330dp" tools:keep="@dimen/d330dp">330dp</dimen>
+    <dimen name="d340dp" tools:keep="@dimen/d340dp">340dp</dimen>
+    <dimen name="height_calendar" tools:keep="@dimen/height_calendar">285dp</dimen>
+    <dimen name="bagde_left_margin" tools:keep="@dimen/bagde_left_margin">8dp</dimen>
+    <dimen name="magin_bage" tools:keep="@dimen/magin_bage">13dp</dimen>
+    <dimen name="d37dp" tools:keep="@dimen/d37dp">37dp</dimen>
+    <dimen name="d38dp" tools:keep="@dimen/d38dp">38dp</dimen>
+    <dimen name="d9dp" tools:keep="@dimen/d9dp">9dp</dimen>
+    <dimen name="d320dp" tools:keep="@dimen/d320dp">320</dimen>
 
-    <dimen name="d122dp">122dp</dimen>
-    <dimen name="d380dp">380dp</dimen>
-    <dimen name="d420dp">420dp</dimen>
-    <dimen name="d450dp">450dp</dimen>
-    <dimen name="d360dp">360dp</dimen>
+    <dimen name="d122dp" tools:keep="@dimen/d122dp">122dp</dimen>
+    <dimen name="d380dp" tools:keep="@dimen/d380dp">380dp</dimen>
+    <dimen name="d420dp" tools:keep="@dimen/d420dp">420dp</dimen>
+    <dimen name="d450dp" tools:keep="@dimen/d450dp">450dp</dimen>
+    <dimen name="d360dp" tools:keep="@dimen/d360dp">360dp</dimen>
 </resources>

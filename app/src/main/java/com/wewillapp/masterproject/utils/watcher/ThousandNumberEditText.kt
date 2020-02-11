@@ -1,4 +1,4 @@
-package com.wewillapp.masterproject.utils
+package com.wewillapp.masterproject.utils.watcher
 
 import android.content.Context
 import android.text.Editable
@@ -73,8 +73,7 @@ class ThousandNumberEditText @JvmOverloads constructor(
 
         private fun formatInteger(str: String): String {
             val parsed = BigDecimal(str)
-            val formatter: DecimalFormat
-            formatter = DecimalFormat("#,###")
+            val formatter = DecimalFormat("#,###")
             return formatter.format(parsed)
         }
 

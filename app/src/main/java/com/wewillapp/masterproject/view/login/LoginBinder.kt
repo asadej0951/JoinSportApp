@@ -20,7 +20,7 @@ open class LoginBinder : BaseActivity() {
 
     lateinit var binding: ActivityLoginBinding
 
-    lateinit var subScriptLoginBinder: SubScriptLoginBinder
+    private lateinit var subScriptLoginBinder: SubScriptLoginBinder
 
     private fun onSubScriptLoginBinder(mLogin:Any){
         subScriptLoginBinder = mLogin as SubScriptLoginBinder

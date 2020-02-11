@@ -4,7 +4,7 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 
-class CreditCardNumberTextWatcherAdapter(private var field: (String) -> Unit) : TextWatcher {
+class PhoneNumberTextWatcherAdapter(private var field: (String) -> Unit) : TextWatcher {
 
     private var isInEditMode = false
     private var current = ""
@@ -19,10 +19,10 @@ class CreditCardNumberTextWatcherAdapter(private var field: (String) -> Unit) : 
     override fun afterTextChanged(s: Editable) {
         if (s.toString() != current) {
             val userInput = s.toString().replace("[^\\d]".toRegex(), "")
-            if (userInput.length <= 16) {
+            if (userInput.length <= 10) {
                 val sb = StringBuilder()
                 for (i in userInput.indices) {
-                    if (i % 4 == 0 && i > 0) {
+                    if (i % 3 == 0 && i <= 6) {
                         sb.append(" ")
                     }
                     sb.append(userInput[i])

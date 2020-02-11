@@ -25,7 +25,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
 
-        val notification = remoteMessage!!.notification
+        val notification = remoteMessage.notification
         val data = remoteMessage.data
 
         sendNotification(data,notification)

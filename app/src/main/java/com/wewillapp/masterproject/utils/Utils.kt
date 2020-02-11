@@ -5,9 +5,11 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +31,13 @@ class Utils @Inject constructor() {
     }
 
 
+    fun setImageAutoMetrics(context: Context,imageView: ImageView){
+        val displayMetrics = DisplayMetrics()
+        (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val width: Int = displayMetrics.widthPixels
+        imageView.layoutParams.height = width / 3
+    }
+
     fun eventStartAnimationIntent(activity: AppCompatActivity, isCheck: Boolean) {
         if (isCheck) {
             activity.overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out)
@@ -47,7 +56,7 @@ class Utils @Inject constructor() {
 
     fun closeKeyborad(context: AppCompatActivity,view: View) {
         val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0)
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun setFormatNumber(number:Double):String{

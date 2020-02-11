@@ -55,7 +55,6 @@ class MainFragment : MainBinder() {
 
     private fun onSetDataOrderList() {
         mCustomAdapterOrderList = CustomAdapterOrderList(
-            getBaseActivity()!!,
             mListDataOrderList
         ) {
             Toast.makeText(getBaseActivity(), it, Toast.LENGTH_LONG).show()

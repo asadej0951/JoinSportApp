@@ -52,7 +52,6 @@ constructor(
 
     private fun onConvertObjectToMap(fromValue: Any?): MutableMap<String, RequestBody?>? {
         val map = ObjectMapper().convertValue<MutableMap<String, Any?>>(fromValue, object : TypeReference<Map<String, Any?>>() {})
-        while (map.values.remove(null));
         return onConvertMapToRequestBody(map)
     }
 
