@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.view.adapter.CustomAdapterOrderList
+import kotlinx.android.synthetic.main.custom_toolbar_view.view.*
 
 class MainFragment : MainBinder() {
 

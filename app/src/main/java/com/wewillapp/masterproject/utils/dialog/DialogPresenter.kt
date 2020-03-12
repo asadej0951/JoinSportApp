@@ -32,7 +32,7 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
                 R.layout.dialog_alert_message, null, false
             )
         dialog.setContentView(binding.root)
-        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+        dialog.window?.attributes!!.width = (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
 
         binding.title = title
         binding.text = text
@@ -62,7 +62,7 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
                 R.layout.dialog_alert_message_default, null, false
             )
         dialog.setContentView(binding.root)
-        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+        dialog.window?.attributes!!.width = (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
 
         binding.text = message
         binding.messageBtn = messageBtn
@@ -88,7 +88,7 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
                 R.layout.dialog_two_button, null, false
             )
         dialog.setContentView(binding.root)
-        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+        dialog.window?.attributes!!.width = (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
 
         binding.tvText.text = title
 
@@ -117,7 +117,7 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
             )
         dialog.setContentView(binding.root)
 
-        dialog.window?.attributes!!.width = (getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+        dialog.window?.attributes!!.width = (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
         binding.message = message
 
         binding.tvOkey.setOnClickListener {
@@ -183,15 +183,6 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
 
         dialog.show()
     }
-
-    private fun getDeviceMetrics(context: Context): DisplayMetrics {
-        val metrics = DisplayMetrics()
-        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = wm.defaultDisplay
-        display.getMetrics(metrics)
-        return metrics
-    }
-
 
     private fun getDialog(): Dialog = Dialog(fragmentActivity)
 

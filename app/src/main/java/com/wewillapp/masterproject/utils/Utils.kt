@@ -8,6 +8,7 @@ import android.os.Build
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
@@ -23,6 +24,7 @@ import javax.inject.Inject
 
 class Utils @Inject constructor() {
 
+
     @SuppressLint("DefaultLocale")
     fun setDefaultLanguage(context:Context, language:String){
         val config = Configuration()
@@ -31,12 +33,21 @@ class Utils @Inject constructor() {
     }
 
 
-    fun setImageAutoMetrics(context: Context,imageView: ImageView){
+    fun setImageAutoMetrics(context: Context,imageView: ImageView, divide:Int){
         val displayMetrics = DisplayMetrics()
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
         val width: Int = displayMetrics.widthPixels
-        imageView.layoutParams.height = width / 3
+        imageView.layoutParams.height = width / divide
     }
+
+    fun getDeviceMetrics(context: Context): DisplayMetrics {
+        val metrics = DisplayMetrics()
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display = wm.defaultDisplay
+        display.getMetrics(metrics)
+        return metrics
+    }
+
 
     fun eventStartAnimationIntent(activity: AppCompatActivity, isCheck: Boolean) {
         if (isCheck) {
