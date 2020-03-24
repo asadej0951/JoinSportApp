@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">an_master_projects</string>
 
     <!-- Permission -->
@@ -21,10 +21,16 @@
     <string name="input_username" translatable="false">Username</string>
     <string name="message_login" translatable="false">Login</string>
     <string name="message_alert_dialog" translatable="false">Message</string>
-    <string name="message_done" translatable="false" tools:keep="@string/message_done">Done</string>
+    <string name="message_done" translatable="false">Done</string>
     <string name="message_register" translatable="false"><u>Register</u></string>
     <string name="message_input_email" translatable="false">email</string>
     <string name="message_input_fullname" translatable="false">full name</string>
     <string name="message_password" translatable="false">password</string>
     <string name="message_confirm_password" translatable="false">confirm password</string>
+
+    <!--    set number format-->
+    <string name="format_number" translatable="false">%,.0f</string>
+    <string name="format_bath" translatable="false"><b>%,.0f</b> บาท</string>
+    <string name="format_list" translatable="false">%s รายการ</string>
+
 </resources>

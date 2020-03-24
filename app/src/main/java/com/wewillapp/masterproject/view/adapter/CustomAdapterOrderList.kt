@@ -11,8 +11,7 @@ import java.util.*
 
 class CustomAdapterOrderList(
     private var mListProduct: ArrayList<DataOrderList>,
-    private var mOnClickList: (String) -> Unit
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var mOnClickList: (String) -> Unit) : RecyclerView.Adapter<CustomAdapterOrderList.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return mListProduct.size
@@ -20,24 +19,27 @@ class CustomAdapterOrderList(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
-        val binding: ItemOrderListBinding =
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_order_list, parent, false)
+        val binding: ItemOrderListBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.item_order_list,
+            parent,
+            false
+        )
 
         return ViewHolder(binding)
     }
 
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is ViewHolder) {
-            holder.binding.dataViewModel = mListProduct[position]
+    override fun onBindViewHolder(holder:ViewHolder, position: Int) {
+        holder.binding.dataViewModel = mListProduct[position]
 
-            holder.binding.root.setOnClickListener {
-                mOnClickList.invoke(mListProduct[position].id.toString())
-            }
+        holder.binding.root.setOnClickListener {
+            mOnClickList.invoke(mListProduct[position].id.toString())
         }
     }
 
 
-    class ViewHolder(internal var binding: ItemOrderListBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(internal var binding: ItemOrderListBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
 }

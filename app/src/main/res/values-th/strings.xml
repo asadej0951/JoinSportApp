@@ -1,12 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">an_master_projects</string>
 
     <!-- Permission -->
-    <string name="permission_location">Please enable the use of location permission.</string>
-    <string name="permission_camera_storage">Please enable the use of cameras and personal files.</string>
-    <string name="permission_call_phone">Please enable the use of call permission.</string>
-    <string name="permission_setting">Setting</string>
+    <string name="permission_location">กรุณาเปิดใช้งานการอนุญาตให้แอปเข้าถึงตำแหน่งของผู้ใช้งาน</string>
+    <string name="permission_camera_storage">กรุณาเปิดใช้งานการใช้กล้องและไฟล์ส่วนตัว</string>
+    <string name="permission_call_phone">กรุณาเปิดใช้งานการอนุญาตการโทร</string>
+    <string name="permission_setting">ตั้งค่า</string>
+
+
+    <!-- Dialog Screen -->
+    <string name="txt_button_okey" translatable="false">โอเคร</string>
+    <string name="txt_button_cancel" translatable="false">ยกเลิก</string>
+    <string name="txt_button_camera" translatable="false">กล้อง</string>
+    <string name="txt_button_gallery" translatable="false">อัลบั้ม</string>
+    <string name="imageClose" translatable="false">imageClose</string>
+    <string name="location_m" translatable="false">ม.</string>
+    <string name="location_mm" translatable="false">มม.</string>
+    <string name="location_km" translatable="false">กม.</string>
+    <string name="input_password" translatable="false">รหัสผ่าน</string>
+    <string name="input_username" translatable="false">ผู้ใช้งาน</string>
+    <string name="message_login" translatable="false">เข้าสู่ระบบ</string>
+    <string name="message_alert_dialog" translatable="false">ข้อความ</string>
+    <string name="message_done" translatable="false">เสร็จสิ้น</string>
+    <string name="message_register" translatable="false"><u>ลงทะเบียน</u></string>
+    <string name="message_input_email" translatable="false">อีเมล</string>
+    <string name="message_input_fullname" translatable="false">ชื่อ-นามสกุล</string>
+    <string name="message_password" translatable="false">รหัสผ่าน</string>
+    <string name="message_confirm_password" translatable="false">ยืนยันรหัสผ่าน</string>
+
+    <!--    set number format-->
+    <string name="format_number" translatable="false">%,.0f</string>
+    <string name="format_bath" translatable="false"><b>%,.0f</b> บาท</string>
+    <string name="format_list" translatable="false">%s รายการ</string>
 
 </resources>

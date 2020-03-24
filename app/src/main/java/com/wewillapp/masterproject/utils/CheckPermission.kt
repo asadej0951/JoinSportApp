@@ -40,8 +40,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
 
     fun checkPermissionCameraAndStorage() {
         Dexter.withActivity(fragmentActivity)
-                .withPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.CAMERA)
+                .withPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         if (!hasDeniedPermission(report)) {
@@ -74,8 +73,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
             val values = ContentValues()
             values.put(MediaStore.Images.Media.TITLE, "New Picture")
             values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera")
-            mShooting = fragmentActivity.contentResolver.insert(
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+            mShooting = fragmentActivity.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
             photoShootingIntent.putExtra(MediaStore.EXTRA_OUTPUT, mShooting)
             fragmentActivity.startActivityForResult(photoShootingIntent, Constants.ACTION_GET_CAMERA)
         } else {

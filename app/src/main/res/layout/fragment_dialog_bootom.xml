@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/contentDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="@dimen/d10dp"
+            android:paddingTop="@dimen/d10dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_border_dialog_bottom"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvTitleDialog"
+                    android:gravity="center_vertical"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_18dp"
+                    android:fontFamily="@font/font_sf_pro_semibold"
+                    android:paddingEnd="@dimen/d15dp"
+                    android:paddingStart="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d3dp"
+                    android:paddingTop="@dimen/d2dp"/>
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="bottom"
+                    android:id="@+id/txtSelect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_button_okey"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_14dp"
+                    android:fontFamily="@font/font_sf_pro_semibold"
+                    android:paddingEnd="@dimen/d15dp"
+                    android:paddingStart="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d3dp"
+                    android:paddingTop="@dimen/d2dp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/d5dp"
+                android:layout_marginBottom="@dimen/d5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lineColorGray" />
+
+
+            <com.super_rabbit.wheel_picker.WheelPicker
+                android:id="@+id/picker"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d150dp"
+                app:align="CENTER"
+                app:textSize="@dimen/text_size_16dp"
+                app:selectedTextColor="@color/textColorBlack"
+                app:textColor="@color/lineColor" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

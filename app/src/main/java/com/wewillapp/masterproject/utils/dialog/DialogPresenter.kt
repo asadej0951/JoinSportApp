@@ -10,10 +10,14 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
+import com.super_rabbit.wheel_picker.OnValueChangeListener
+import com.super_rabbit.wheel_picker.WheelPicker
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.*
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
+import com.wewillapp.masterproject.view.adapter.WPWeekDaysPickerAdapter
+import java.util.ArrayList
 import javax.inject.Inject
 
 
@@ -183,6 +187,48 @@ class DialogPresenter @Inject constructor(private var fragmentActivity: Fragment
 
         dialog.show()
     }
+
+
+    fun dialogBottom(arrayList: ArrayList<String>, mSelectPosition: Int,
+                     mTitle: String, mClickCallBack: (String) -> Unit) {
+
+        val dialog = getDialog()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val binding: FragmentDialogBootomBinding = DataBindingUtil.inflate(LayoutInflater.from(fragmentActivity), R.layout.fragment_dialog_bootom, null, false)
+        dialog.setContentView(binding.root)
+        dialog.window?.attributes!!.width = (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+
+
+        binding.tvTitleDialog!!.text = mTitle
+
+        binding.picker.setSelectorRoundedWrapPreferred(false)
+        binding.picker.setWheelItemCount(3)
+        binding.picker.setMin(0)
+        binding.picker.setMax(arrayList.size)
+        binding.picker.setAdapter(WPWeekDaysPickerAdapter(arrayList))
+        binding.picker.scrollTo(mSelectPosition)
+
+        binding.picker.setOnValueChangeListener(object : OnValueChangeListener {
+            override fun onValueChange(picker: WheelPicker, oldVal: String, newVal: String) {
+                mClickCallBack.invoke(picker.getCurrentItem())
+            }
+        })
+
+
+        binding.txtSelect.setOnClickListener {
+            dialog.cancel()
+        }
+
+        dialog.setCancelable(true)
+        dialog.show()
+
+    }
+
+
+
 
     private fun getDialog(): Dialog = Dialog(fragmentActivity)
 
