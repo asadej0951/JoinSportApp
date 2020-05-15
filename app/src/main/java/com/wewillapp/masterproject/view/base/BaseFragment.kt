@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.wewillapp.masterproject.di.Injectable
+import com.wewillapp.masterproject.utils.TokenExpired
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.dialog.DialogPresenter
 import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
@@ -31,6 +32,12 @@ abstract class BaseFragment: DaggerFragment(), Injectable {
 
     @Inject
     lateinit var mImageViewUtils: ImageViewUtils
+
+    @Inject
+    lateinit var toolbarViewModel: ToolbarViewModel
+
+    @Inject
+    lateinit var mTokenExpiredDisposable: TokenExpired
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

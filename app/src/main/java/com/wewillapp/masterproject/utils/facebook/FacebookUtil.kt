@@ -1,6 +1,7 @@
 package com.wewillapp.masterproject.utils.facebook
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
@@ -19,7 +20,7 @@ class FacebookUtil {
             getType: FacebookGetType,
             loginButton: LoginButton,
             callbackManager: CallbackManager,
-            Callback: ((HashMap<String, Any>) -> Unit)
+            callback: ((HashMap<String, Any>) -> Unit)
         ) {
             loginButton.setReadPermissions(listOf("public_profile", "email"))
             loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
@@ -27,15 +28,17 @@ class FacebookUtil {
                     val callbackData = HashMap<String, Any>()
                     callbackData["FacebookToken"] = loginResult.accessToken.token
                     callbackData["FacebookId"] = loginResult.accessToken.userId
-                    if (getType == FacebookGetType.LOGIN) Callback.invoke(callbackData)
+                    if (getType == FacebookGetType.LOGIN) callback.invoke(callbackData)
                     else {
-                        val request = GraphRequest.newMeRequest(loginResult.accessToken) { data, response ->
-                            val facebook = Gson().fromJson(data.toString(), Facebook::class.java)
-                            callbackData["FacebookProfile"] = facebook.picture.data.url
-                            callbackData["FacebookName"] = facebook.name
-                            callbackData["FacebookEmail"] = facebook.email ?: ""
-                            Callback.invoke(callbackData)
-                        }
+                        val request =
+                            GraphRequest.newMeRequest(loginResult.accessToken) { data, response ->
+                                val facebook =
+                                    Gson().fromJson(data.toString(), Facebook::class.java)
+                                callbackData["FacebookProfile"] = facebook.picture.data.url
+                                callbackData["FacebookName"] = facebook.name
+                                callbackData["FacebookEmail"] = facebook.email ?: ""
+                                callback.invoke(callbackData)
+                            }
                         val parameters = Bundle()
                         parameters.putString("fields", "id, picture.type(large), name, email")
                         request.parameters = parameters
@@ -44,7 +47,7 @@ class FacebookUtil {
                 }
 
                 override fun onCancel() {
-
+                    Log.i(FacebookUtil::class.java.name, "onCancel")
                 }
 
                 override fun onError(error: FacebookException) {
@@ -62,16 +65,17 @@ class FacebookUtil {
             fragmentActivity: FragmentActivity,
             appExecutors: AppExecutors,
             src: String,
-            Callback: ((File) -> Unit)
+            callback: ((File) -> Unit)
         ) {
             appExecutors.networkIO().execute {
                 val url = URL(src)
                 val input = url.openStream()
                 val photo =
-                    File(fragmentActivity.cacheDir, String.format("FacebookImage_%d.jpg", System.currentTimeMillis()))
+                    File(
+                        fragmentActivity.cacheDir,
+                        String.format("FacebookImage_%d.jpg", System.currentTimeMillis())
+                    )
                 input.use { inputData ->
-                    //The sdcard directory e.g. '/sdcard' can be used directly, or
-                    //more safely abstracted with getExternalStorageDirectory()
                     val output = FileOutputStream(photo)
                     output.use { outputData ->
                         var read: Int? = null
@@ -82,7 +86,7 @@ class FacebookUtil {
                         }
                     }
                 }
-                Callback.invoke(photo)
+                callback.invoke(photo)
             }
         }
     }

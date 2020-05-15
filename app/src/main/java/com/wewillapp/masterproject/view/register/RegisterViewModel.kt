@@ -17,12 +17,15 @@ import javax.inject.Inject
 class RegisterViewModel
 @Inject constructor(generalRepository: GeneralRepository) : ViewModel() {
 
-    val etEmail = ObservableField<String>("")
-    val etFullName = ObservableField<String>("")
-    val etPassword = ObservableField<String>("")
-    val etConfirmPass = ObservableField<String>("")
+    val etEmail = ObservableField("")
 
-    val isStatusButtonClick =  ObservableField<Boolean>(false)
+    val etFullName = ObservableField("")
+
+    val etPassword = ObservableField("")
+
+    val etConfirmPass = ObservableField("")
+
+    val isStatusButtonClick = ObservableField(false)
 
     val mLiveDataOnClickRegister = SingleLiveData<String>()
 
@@ -42,24 +45,27 @@ class RegisterViewModel
         etPassword.set(s)
         checkEventButtonClick()
     }
-    val onConfirmPasswordTextChanged =
-        TextWatcherAdapter { s ->
+    val onConfirmPasswordTextChanged = TextWatcherAdapter { s ->
             etConfirmPass.set(s)
             checkEventButtonClick()
-        }
+    }
 
     var mRegisterCall = SingleLiveData<Void>()
     val mResponseRegister: LiveData<Resource<BaseResponse>> = Transformations
         .switchMap(mRegisterCall) {
             generalRepository.onRegister(
-                BodyRegister(
-                    etEmail.get()!!,
-                    etFullName.get()!!,
-                    etPassword.get()!!,
-                    etConfirmPass.get()!!
-                ), mLiveDataImageFile.value
+                postDataRegister(), mLiveDataImageFile.value
             )
         }
+
+    private fun postDataRegister(): BodyRegister {
+        return BodyRegister(
+            etEmail.get()!!,
+            etFullName.get()!!,
+            etPassword.get()!!,
+            etConfirmPass.get()!!
+        )
+    }
 
     fun onClickEventRegister() {
         mRegisterCall.call()
@@ -70,17 +76,21 @@ class RegisterViewModel
         mLiveDataOnClickRegister.value = "addImageProfile"
     }
 
-    fun checkEventButtonClick() {
+    private fun checkEventButtonClick() {
         mLiveDataImageFile.value?.let {
-            if (etEmail.get()!!.isNotEmpty()
-                && etFullName.get()!!.isNotEmpty()
-                && etPassword.get()!!.isNotEmpty() && etConfirmPass.get()!!.isNotEmpty()
-                && etPassword.get()!! == etConfirmPass.get() && mLiveDataImageFile.value!!.exists()){
+            if (isCheckFieldEntry() && mLiveDataImageFile.value!!.exists()) {
                 isStatusButtonClick.set(true)
-            }else{
+            } else {
                 isStatusButtonClick.set(false)
             }
         }
+    }
+
+    private fun isCheckFieldEntry(): Boolean {
+        return etEmail.get()!!.isNotEmpty()
+                && etFullName.get()!!.isNotEmpty()
+                && etPassword.get()!!.isNotEmpty() && etConfirmPass.get()!!.isNotEmpty()
+                && etPassword.get()!! == etConfirmPass.get()
     }
 
 }

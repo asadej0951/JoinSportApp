@@ -36,14 +36,6 @@ class Utils @Inject constructor(private val mPreferences: Preferences) {
         return metrics
     }
 
-    @SuppressLint("DefaultLocale")
-    fun setDefaultLanguage(context: Context, language: String) {
-        val config = Configuration()
-        config.locale = Locale(language.toLowerCase())
-        context.resources.updateConfiguration(config, null)
-    }
-
-
     fun setImageAutoMetrics(context: Context, imageView: ImageView) {
         val displayMetrics = DisplayMetrics()
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
@@ -67,97 +59,15 @@ class Utils @Inject constructor(private val mPreferences: Preferences) {
         }
     }
 
-    fun phoneNumberFormat(s: String): String {
-        val userInput = s.replace("[^\\d]".toRegex(), "")
-        if (userInput.length <= 10) {
-            val sb = StringBuilder()
-            for (i in userInput.indices) {
-                if (i % 3 == 0 && i > 0 && i < 9) {
-                    sb.append("-")
-                } else if (i % 3 == 0 && i > 9)
-                    sb.append("-")
-
-                sb.append(userInput[i])
-            }
-            return sb.toString()
-        }
-        return s
-    }
-
-
-    fun isEmailValid(email: String): Boolean {
-        val expression = "^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
-        val pattern: Pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
-        val matcher: Matcher = pattern.matcher(email)
-        return matcher.matches()
-    }
-
-
-    @SuppressLint("SimpleDateFormat")
-    fun setFormatData(dateTime: String): String {
-        var mTempDate = ""
-        val dateFormat = SimpleDateFormat(
-            "yyyy-MM-dd'T'HH:mm:ss", Locale(
-                mPreferences.getLanguage() ?: "EN".toLowerCase(),
-                mPreferences.getLanguage() ?: "EN"
-            )
-        )
-
-        return try {
-            val dateInput = dateFormat.parse(dateTime)
-
-            val pattern = "dd/MM/yy, HH.mm"
-
-            val setFormatDataSelected = SimpleDateFormat(
-                pattern,
-                Locale(
-                    mPreferences.getLanguage() ?: "EN".toLowerCase(),
-                    mPreferences.getLanguage() ?: "EN"
-                )
-            )
-            mTempDate = setFormatDataSelected.format(dateInput!!) + " น."
-
-            mTempDate
-        } catch (ex: Exception) {
-            dateTime
-        }
-    }
-
-
-    fun getRandomString(): Int {
-        val ranDomNumber = (0..10).random()
-        val ranDomNumber2 = (0..99).random()
-        return (ranDomNumber * ranDomNumber2) * 1000000000
-    }
-
-
     fun closeKeyborad(context: AppCompatActivity, view: View) {
         val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    fun setFormatNumber(number: Double): String {
-        val mResult: String
-        val mCheckDecimal = number.toString().split(".")
-        mResult = if (mCheckDecimal.isNotEmpty()) {
-            if (mCheckDecimal[1].toDouble() > 0.0) {
-                String.format("%,.2f", number)
-            } else {
-                String.format("%,.0f", number)
-            }
-        } else {
-            String.format("%,.2f", number)
-        }
-        return mResult
-    }
-
     @SuppressLint("ObsoleteSdkInt")
     fun onSetStatusBar(context: Context, colorStatusBar: Boolean) {
         if (colorStatusBar)
-            StatusBarCompat.setStatusBarColor(
-                context as Activity,
-                ContextCompat.getColor(context, R.color.textColorWhite)
-            )
+            StatusBarCompat.setStatusBarColor(context as Activity, ContextCompat.getColor(context, R.color.textColorWhite))
         else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 StatusBarCompat.translucentStatusBar(context as Activity, true)

@@ -2,7 +2,7 @@ package com.wewillapp.masterproject.data.rest
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.wewillapp.masterproject.data.rest.ApiResponse.Companion.onErrorResponseServer
+import com.wewillapp.masterproject.data.rest.ApiResponse.onErrorResponseServer
 import com.wewillapp.masterproject.vo.Resource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

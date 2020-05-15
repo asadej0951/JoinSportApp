@@ -2,17 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="android.view.View"/>
 
-        <import type="android.graphics.drawable.Drawable"/>
-
-        <import type="com.wewillapp.masterproject.vo.Resource"/>
-
-        <import type="com.wewillapp.masterproject.vo.enumClass.Status"/>
-
-        <variable
-            name="loadResource"
-            type="com.wewillapp.masterproject.vo.Resource"/>
     </data>
 
     <RelativeLayout

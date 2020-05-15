@@ -33,19 +33,19 @@
         android:layout_height="match_parent">
 
         <ScrollView
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:fitsSystemWindows="true"
             android:overScrollMode="never"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
 
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -54,17 +54,22 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/lineTopVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.2" />
+
                 <ImageView
                     android:id="@+id/ivLogoApp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/app_name"
                     android:src="@mipmap/ic_launcher"
-                    app:layout_constraintBottom_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    app:layout_constraintTop_toBottomOf="@+id/lineTopVertical" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lyContentUser"
@@ -168,10 +173,10 @@
                     android:layout_marginTop="@dimen/d30dp"
                     android:baselineAligned="false"
                     android:fontFamily="@font/font_sv_bold"
+                    android:gravity="center"
                     android:onClick="@{()-> handler.onClickRegister()}"
                     android:text="@string/message_register"
                     android:textAllCaps="false"
-                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text_size_large"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -179,7 +184,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ScrollView>
 
         <FrameLayout

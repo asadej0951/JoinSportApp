@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.Application
 import androidx.multidex.MultiDex
 import com.wewillapp.masterproject.di.AppInjector
-import com.wewillapp.masterproject.utils.TypefaceUtil
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject

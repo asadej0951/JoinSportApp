@@ -1,7 +1,5 @@
 package com.wewillapp.masterproject.vo.model.response
 
-import com.wewillapp.masterproject.vo.BaseType
-
 data class ResponseOrderList(
     val `data`: List<DataOrderList>,
     val links: LinksOrderListdata,
@@ -11,7 +9,7 @@ data class ResponseOrderList(
 data class LinksOrderListdata(
     val first: String,
     val last: String,
-    val next: Any,
+    val next: String?,
     val prev: Any
 )
 
@@ -35,7 +33,7 @@ data class DataOrderList(
     val serviceLabel:String,
     val bookingUsername:String,
     val totalPrice: Int,
-    val userId: Int): BaseType()
+    val userId: Int)
 
 data class UserOrder(var profileImage:String? = "")
 

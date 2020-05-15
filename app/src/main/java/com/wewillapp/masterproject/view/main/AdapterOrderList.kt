@@ -1,4 +1,4 @@
-package com.wewillapp.masterproject.view.adapter
+package com.wewillapp.masterproject.view.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,12 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.ItemOrderListBinding
+import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.vo.model.response.DataOrderList
 import java.util.*
 
-class CustomAdapterOrderList(
+class AdapterOrderList(
     private var mListProduct: ArrayList<DataOrderList>,
-    private var mOnClickList: (String) -> Unit) : RecyclerView.Adapter<CustomAdapterOrderList.ViewHolder>() {
+    private var mOnClickList: SingleLiveData<String>
+) : RecyclerView.Adapter<AdapterOrderList.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return mListProduct.size
@@ -26,15 +28,17 @@ class CustomAdapterOrderList(
             false
         )
 
-        return ViewHolder(binding)
+        return ViewHolder(
+            binding
+        )
     }
 
 
-    override fun onBindViewHolder(holder:ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.dataViewModel = mListProduct[position]
 
         holder.binding.root.setOnClickListener {
-            mOnClickList.invoke(mListProduct[position].id.toString())
+            mOnClickList.value = mListProduct[position].id.toString()
         }
     }
 

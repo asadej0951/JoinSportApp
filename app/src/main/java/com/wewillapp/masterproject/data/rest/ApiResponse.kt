@@ -1,50 +1,46 @@
 package com.wewillapp.masterproject.data.rest
 
+import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
+import com.wewillapp.masterproject.vo.model.response.ModelError
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.adapter.rxjava2.HttpException
 
-sealed class ApiResponse<T> {
-    companion object {
-        fun onErrorResponseServer(e: Throwable): String {
-            var mMessageError: String
-            try {
-                mMessageError = when (e) {
-                    is HttpException -> {
-                        val responseBody = (e).response()!!.errorBody()
-                        val jObjError = JSONObject(responseBody!!.string())
-                        when {
-                            e.code() in 400..500 -> {
-                                if (jObjError.getJSONObject("errors").getString("message").isNotEmpty())
-                                    jObjError.getJSONObject("errors").getString("message").toString()
-                                else
-                                    "Something went wrong ${e.code()}"
-                            }
-                            else ->
-                                getErrorMessage(responseBody)
-                        }
-                    }
-                    else -> {
-                        val responseBody = e.message
-                        if (responseBody!!.contains("No address associated with hostname")) {
-                            "กรุณาตรวจสอบการเชื่อมต่ออินเตอร์เน็ต"
-                        } else
-                            responseBody.toString()
-                    }
-                }
-            }catch (ex:Exception){
-                mMessageError = "Something went wrong ${e.message}"
-            }
-            return mMessageError
-        }
-        private fun getErrorMessage(responseBody: ResponseBody): String {
-            return try {
-                val jsonObject = JSONObject(responseBody.string())
-                jsonObject.getString("message")
-            } catch (e: Exception) {
-                "Something went wrong"
-            }
+object ApiResponse {
 
+    private val mGson = Gson()
+
+    fun onErrorResponseServer(e: Throwable): String {
+        val mMessageError: String
+
+        mMessageError = when (e) {
+            is retrofit2.HttpException -> {
+                val responseBody = (e).response()!!
+                if (responseBody.code() == 401){
+                    "401"
+                }else {
+                    val dataMessage = responseBody.errorBody()!!.string()
+                    deseRializeObject(dataMessage)
+                }
+            }
+            else -> {
+                val responseBody = e.message
+                if (responseBody!!.contains("No address associated with hostname")) {
+                    "กรุณาตรวจสอบการเชื่อมต่ออินเตอร์เน็ต"
+                } else
+                    responseBody.toString()
+            }
+        }
+        return mMessageError
+    }
+
+    private fun deseRializeObject(errorString: String): String {
+        return try {
+            mGson.fromJson(errorString, ModelError::class.java).errors.message
+                ?: "som ting went wrong"
+        } catch (e: JsonSyntaxException) {
+            e.message.toString()
         }
     }
 }

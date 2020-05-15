@@ -1,8 +1,6 @@
 package com.wewillapp.masterproject.view.base
 
-import android.content.Context
 import android.os.Build
-import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,11 +9,15 @@ import androidx.lifecycle.ViewModelProvider
 import com.wewillapp.masterproject.data.local.Preferences
 import com.wewillapp.masterproject.utils.CheckPermission
 import com.wewillapp.masterproject.utils.LanguagesSetting
+import com.wewillapp.masterproject.utils.TokenExpired
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.dialog.DialogPresenter
 import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
+import com.wewillapp.masterproject.utils.rxBus.RxBus
+import com.wewillapp.masterproject.vo.RxEvent
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import io.reactivex.disposables.Disposable
 import qiu.niorgai.StatusBarCompat
 import javax.inject.Inject
 
@@ -28,7 +30,11 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    lateinit var getBaseActivity: Context
+    @Inject
+    lateinit var viewModelFactoryToolbar: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var toolbarViewModel: ToolbarViewModel
 
     @Inject
     lateinit var mDialogPresenter: DialogPresenter
@@ -48,17 +54,8 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var mImageUtils: ImageViewUtils
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        getBaseActivity = this
-        onSetEventView()
-    }
-
-    private fun onSetEventView() {
-
-    }
+    @Inject
+    lateinit var mTokenExpiredDisposable: TokenExpired
 
     fun onSetStatusBar() {
         StatusBarCompat.translucentStatusBar(this, true)

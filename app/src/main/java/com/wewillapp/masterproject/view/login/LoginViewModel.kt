@@ -1,27 +1,24 @@
 package com.wewillapp.masterproject.view.login
 
 import androidx.databinding.ObservableField
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
 import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.utils.TextHelper
 import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
-import com.wewillapp.masterproject.vo.Resource
 import com.wewillapp.masterproject.vo.model.body.BodyLogin
-import com.wewillapp.masterproject.vo.model.response.ResponseLogin
 import javax.inject.Inject
 
 
 class LoginViewModel @Inject
 constructor(private val generalRepository: GeneralRepository) : ViewModel() {
 
-    val etUserName = ObservableField<String>("gobank@gmail.com")
+    val etUserName = ObservableField("gobank@gmail.com")
 
-    val etPassWord = ObservableField<String>("password")
+    val etPassWord = ObservableField("password")
 
-    val isStatusButtonClick = ObservableField<Boolean>(false)
+    val isStatusButtonClick = ObservableField(false)
 
     var mLoginCall = SingleLiveData<Void>()
 
@@ -37,15 +34,15 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
         checkEventButtonClick()
     }
 
-    fun onClickLogin(){
+    fun onClickLogin() {
         mLoginCall.call()
     }
 
-    fun onClickRegister(){
+    fun onClickRegister() {
         mOnClickListener.value = "intentRegister"
     }
 
-    val mResponseLogin : LiveData<Resource<ResponseLogin>> = Transformations.switchMap(mLoginCall) {
+    val mResponseLogin = Transformations.switchMap(mLoginCall) {
         generalRepository.onLogin(
             BodyLogin(
                 etUserName.get()!!, etPassWord.get()!!
@@ -56,7 +53,10 @@ constructor(private val generalRepository: GeneralRepository) : ViewModel() {
 
 
     fun checkEventButtonClick() {
-        if (TextHelper.isNotEmptyStrings(etUserName.get()) && TextHelper.isNotEmptyStrings(etPassWord.get()))
+        if (TextHelper.isNotEmptyStrings(etUserName.get()) && TextHelper.isNotEmptyStrings(
+                etPassWord.get()
+            )
+        )
             isStatusButtonClick.set(true)
         else
             isStatusButtonClick.set(false)

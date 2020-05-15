@@ -13,11 +13,15 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(generalRepository: GeneralRepository) : ViewModel() {
     val mCurrentPage = ObservableField(1)
 
-    val mLastPage = ObservableField(1)
+    val isLoadDuplicate = ObservableField(true)
 
     val mOrderBookingCall = SingleLiveData<Void>()
+
     val mResponseOrderBooking : LiveData<Resource<ResponseOrderList>> = Transformations.switchMap(mOrderBookingCall){
         generalRepository.getOrderList(mCurrentPage.get()!!)
     }
+
+    val onClickItemList = SingleLiveData<String>()
+
 
 }

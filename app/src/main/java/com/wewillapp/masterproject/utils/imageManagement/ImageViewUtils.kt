@@ -11,7 +11,7 @@ import javax.inject.Inject
 class ImageViewUtils @Inject constructor() {
 
     @SuppressLint("CheckResult")
-    fun setImageView(mContext:Context, urlImage:String,viewImage:ImageView){
+    fun setImageView(mContext: Context, urlImage: String, viewImage: ImageView) {
         val requestOptions = RequestOptions()
         requestOptions.placeholder(R.mipmap.ic_launcher_round)
         requestOptions.error(R.mipmap.ic_launcher_round)
@@ -25,7 +25,7 @@ class ImageViewUtils @Inject constructor() {
     }
 
     @SuppressLint("CheckResult")
-    fun setImageViewRotate(mContext:Context, urlImage:String,viewImage:ImageView){
+    fun setImageViewRotate(mContext: Context, urlImage: String, viewImage: ImageView) {
         val requestOptions = RequestOptions()
         requestOptions.placeholder(R.mipmap.ic_launcher_round)
         requestOptions.error(R.mipmap.ic_launcher_round)

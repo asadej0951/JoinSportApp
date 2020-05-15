@@ -17,9 +17,9 @@
             name="loadResource"
             type="com.wewillapp.masterproject.vo.Resource"/>
 
-        <variable name="dataViewModel"
-            type="com.wewillapp.masterproject.view.main.MainViewModel"/>
-
+        <variable
+            name="toolbarViewModel"
+            type="com.wewillapp.masterproject.view.base.ToolbarViewModel" />
     </data>
 
     <com.google.android.material.appbar.AppBarLayout
@@ -46,8 +46,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/app_bar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                tools:ignore="UselessParent">
+                android:layout_height="?attr/actionBarSize">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layBack"
@@ -58,11 +57,11 @@
                     android:gravity="center_vertical"
                     android:paddingStart="@dimen/margin_padding_size_small"
                     android:paddingEnd="@dimen/margin_padding_size_medium"
+                    android:onClick="@{() -> toolbarViewModel.onClickBack()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tvTitle"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlSymmetry">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/imgBack"
@@ -72,8 +71,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="ContentDescription" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -81,7 +79,7 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="left|center_vertical"
+                    android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColor="@color/textColorBlack"
                     android:textSize="@dimen/text_size_20dp"
@@ -89,8 +87,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/layBackInvisible"
                     app:layout_constraintStart_toEndOf="@id/layBack"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlHardcoded" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layBackInvisible"
@@ -105,8 +102,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvTitle"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlSymmetry">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/imgBackInvisible"

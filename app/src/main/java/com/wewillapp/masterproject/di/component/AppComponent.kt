@@ -2,10 +2,7 @@ package com.wewillapp.masterproject.di.component
 
 import android.app.Application
 import com.wewillapp.masterproject.ProjectApplication
-import com.wewillapp.masterproject.di.module.ActivityModule
-import com.wewillapp.masterproject.di.module.DataModule
-import com.wewillapp.masterproject.di.module.PreferenceModule
-import com.wewillapp.masterproject.di.module.ViewModelModule
+import com.wewillapp.masterproject.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule

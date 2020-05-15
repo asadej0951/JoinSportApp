@@ -11,13 +11,9 @@ import com.wewillapp.masterproject.R
 
 object BindingAdapters {
     @JvmStatic
-    @BindingAdapter(value=["visibleGone", "visibleGoneLoadMore"], requireAll=false)
-    fun showHide(view: View, visibleGone: Boolean,visibleGoneLoadMore:Boolean) {
-        if (!visibleGoneLoadMore) {
-            view.visibility = if (visibleGone) View.VISIBLE else View.GONE
-        }else{
-            view.visibility = View.GONE
-        }
+    @BindingAdapter(value = ["visibleGone"], requireAll = false)
+    fun showHide(view: View, visibleGone: Boolean) {
+        view.visibility = if (visibleGone) View.VISIBLE else View.GONE
     }
 
 

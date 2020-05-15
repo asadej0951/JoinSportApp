@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,22 +21,30 @@ class DataModule {
     @Singleton
     @Provides
     fun provideOkHttp(): OkHttpClient {
-        val httpClient = OkHttpClient.Builder()
-        httpClient.apply {
-            connectTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.SECONDS)
-            readTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.SECONDS)
-            writeTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.SECONDS)
-        }
 
-        httpClient.addInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level =
+            getHttpLoggingInterceptor()
+
+        return OkHttpClient.Builder().addInterceptor {
             val original: Request = it.request()
             val request: Request = original.newBuilder()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .build()
             return@addInterceptor it.proceed(request)
-        }
-        return httpClient.build()
+        }.addInterceptor(interceptor)
+            .connectTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.SECONDS)
+            .build()
+
+    }
+
+    private fun getHttpLoggingInterceptor(): HttpLoggingInterceptor.Level {
+        return if (BuildConfig.DEBUG)
+            HttpLoggingInterceptor.Level.BODY
+        else
+            HttpLoggingInterceptor.Level.NONE
     }
 
     @Singleton
