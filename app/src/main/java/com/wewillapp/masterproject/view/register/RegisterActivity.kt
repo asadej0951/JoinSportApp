@@ -83,7 +83,7 @@ class RegisterActivity : BaseActivity() {
         })
     }
 
-    private fun onStartAppIntent(param: String) {
+    private fun onStartAppIntent(action: String) {
         this.onBackPressed()
     }
 

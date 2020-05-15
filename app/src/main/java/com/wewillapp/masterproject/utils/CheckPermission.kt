@@ -144,14 +144,14 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                 }.show()
     }
 
-    fun checkPermissionPhone(tel: String, ClickCallback: ((Intent) -> Unit)) {
+    fun checkPermissionPhone(tel: String, clickCallback: (Intent) -> Unit) {
         Dexter.withActivity(fragmentActivity)
                 .withPermissions(Manifest.permission.CALL_PHONE)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         if (!hasDeniedPermission(report)) {
                             val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$tel"))
-                            ClickCallback.invoke(intent)
+                            clickCallback.invoke(intent)
                         } else {
                             showSnackbar(fragmentActivity.resources.getString(R.string.permission_call_phone))
                         }
@@ -168,14 +168,14 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                 }).check()
     }
 
-    fun checkPermissionLocation(ClickCallback: ((Boolean) -> Unit)) {
+    fun checkPermissionLocation(clickCallback: (Boolean) -> Unit) {
         Dexter.withActivity(fragmentActivity)
                 .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         if (!hasDeniedPermission(report)) {
-                            ClickCallback.invoke(true)
+                            clickCallback.invoke(true)
                         } else {
 //                            ClickCallback.invoke(false)
                             showSnackbar(fragmentActivity.resources.getString(R.string.permission_location))
@@ -194,16 +194,15 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                 }).check()
     }
 
-    fun checkPermissionReadAndWriteStorage(ClickCallback: ((Boolean) -> Unit)) {
+    fun checkPermissionReadAndWriteStorage(clickCallback: ((Boolean) -> Unit)) {
         Dexter.withActivity(fragmentActivity)
                 .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         if (!hasDeniedPermission(report)) {
-                            ClickCallback.invoke(true)
+                            clickCallback.invoke(true)
                         } else {
-                            ClickCallback.invoke(false)
                             showSnackbar(fragmentActivity.resources.getString(R.string.permission_location))
                         }
                     }

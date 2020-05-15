@@ -68,10 +68,8 @@ class MapUtils @Inject constructor() {
 
         try {
             addresses = geocoder.getFromLocation(mCurrentLat, mCurrentLng, 1)
-            if (addresses.isNotEmpty()) {
-                if (addresses[0].getAddressLine(0) != null) {
-                    mLocation = addresses[0].getAddressLine(0)
-                }
+            if (addresses.isNotEmpty() && addresses[0].getAddressLine(0) != null) {
+                mLocation = addresses[0].getAddressLine(0)
             }
         } catch (ex: Exception) {
             mLocation = "ไม่พบตำแหน่ง"

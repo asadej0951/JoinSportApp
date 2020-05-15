@@ -167,7 +167,7 @@ class DialogPresenter @Inject constructor(
 
     }
 
-    fun dialogSelectImage(ClickCallback: ((Int) -> Unit)) {
+    fun dialogSelectImage(clickCallback: ((Int) -> Unit)) {
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(true)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -181,12 +181,12 @@ class DialogPresenter @Inject constructor(
         dialog.setContentView(binding.root)
 
         binding.btnCamera.setOnClickListener {
-            ClickCallback.invoke(1)
+            clickCallback.invoke(1)
             dialog.dismiss()
         }
 
         binding.btnGallery.setOnClickListener {
-            ClickCallback.invoke(2)
+            clickCallback.invoke(2)
             dialog.dismiss()
         }
 

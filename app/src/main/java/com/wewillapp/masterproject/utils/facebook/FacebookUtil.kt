@@ -51,11 +51,9 @@ class FacebookUtil {
                 }
 
                 override fun onError(error: FacebookException) {
-                    if (error is FacebookAuthorizationException) {
-                        if (AccessToken.getCurrentAccessToken() != null) {
-                            LoginManager.getInstance().logOut()
-                            loginButton.performClick()
-                        }
+                    if (error is FacebookAuthorizationException && AccessToken.getCurrentAccessToken() != null) {
+                        LoginManager.getInstance().logOut()
+                        loginButton.performClick()
                     }
                 }
             })
