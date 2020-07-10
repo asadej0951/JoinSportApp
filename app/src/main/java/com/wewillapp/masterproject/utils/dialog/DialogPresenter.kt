@@ -13,38 +13,36 @@ import com.super_rabbit.wheel_picker.WheelPicker
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.*
 import com.wewillapp.masterproject.utils.Utils
-import com.wewillapp.masterproject.utils.imageManagement.ImageViewUtils
+import com.wewillapp.masterproject.utils.imageManagement.setImageView
 import com.wewillapp.masterproject.utils.rxBus.EventRxBus
 import com.wewillapp.masterproject.view.adapter.WPWeekDaysPickerAdapter
 import com.wewillapp.masterproject.vo.RxEvent
 import java.util.*
 import javax.inject.Inject
 
-
 class DialogPresenter @Inject constructor(
     private var fragmentActivity: FragmentActivity,
     private var mUtils: Utils
 ) {
 
+    private val dialogMessage = getDialog()
+
     fun dialogMessage(title: String, text: String?, clickCallback: ((Boolean) -> Unit)) {
-        val dialog = getDialog()
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialogMessage.setCanceledOnTouchOutside(false)
         val binding: DialogAlertMessageBinding =
             DataBindingUtil.inflate(
                 LayoutInflater.from(fragmentActivity),
                 R.layout.dialog_alert_message, null, false
             )
-        dialog.setContentView(binding.root)
-        dialog.window?.attributes!!.width =
+        dialogMessage.setContentView(binding.root)
+        dialogMessage.window?.attributes!!.width =
             (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
 
         binding.title = title
         binding.text = text
 
         binding.tvOkey.setOnClickListener {
-            dialog.dismiss()
+            dialogMessage.dismiss()
             if (text == "401") {
                 EventRxBus.onAddEventRxBus(RxEvent("log out"))
             } else {
@@ -52,7 +50,10 @@ class DialogPresenter @Inject constructor(
             }
         }
 
-        dialog.show()
+        if (dialogMessage.isShowing)
+            dialogMessage.dismiss()
+
+        dialogMessage.show()
     }
 
     fun dialogMessage(
@@ -87,7 +88,6 @@ class DialogPresenter @Inject constructor(
         dialog.show()
     }
 
-
     fun dialogMessageTwoButton(title: String?, clickCallback: ((Boolean) -> Unit)) {
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(false)
@@ -117,7 +117,6 @@ class DialogPresenter @Inject constructor(
         dialog.show()
     }
 
-
     fun dialogMessageNotitle(message: String?, clickCallback: ((Boolean) -> Unit)) {
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(false)
@@ -141,9 +140,7 @@ class DialogPresenter @Inject constructor(
         dialog.show()
     }
 
-
     fun dialogShowImageFullScreen(context: Context, mImageUrl: String) {
-        val mImageViewUtils = ImageViewUtils()
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(false)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -160,11 +157,10 @@ class DialogPresenter @Inject constructor(
             dialog.cancel()
         }
 
-        mImageViewUtils.setImageView(context, mImageUrl, binding.ivShow)
+        binding.ivShow.setImageView(context, mImageUrl)
 
         dialog.setCancelable(true)
         dialog.show()
-
     }
 
     fun dialogSelectImage(clickCallback: ((Int) -> Unit)) {
@@ -197,10 +193,11 @@ class DialogPresenter @Inject constructor(
         dialog.show()
     }
 
-
     fun dialogBottom(
-        arrayList: ArrayList<String>, mSelectPosition: Int,
-        mTitle: String, mClickCallBack: (String) -> Unit
+        arrayList: ArrayList<String>,
+        mSelectPosition: Int,
+        mTitle: String,
+        mClickCallBack: (String) -> Unit
     ) {
 
         val dialog = getDialog()
@@ -218,8 +215,7 @@ class DialogPresenter @Inject constructor(
         dialog.window?.attributes!!.width =
             (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
 
-
-        binding.tvTitleDialog!!.text = mTitle
+        binding.tvTitleDialog.text = mTitle
 
         binding.picker.setSelectorRoundedWrapPreferred(false)
         binding.picker.setWheelItemCount(3)
@@ -234,16 +230,13 @@ class DialogPresenter @Inject constructor(
             }
         })
 
-
         binding.txtSelect.setOnClickListener {
             dialog.cancel()
         }
 
         dialog.setCancelable(true)
         dialog.show()
-
     }
-
 
     private fun getDialog(): Dialog = Dialog(fragmentActivity)
 

@@ -18,7 +18,6 @@ class ThousandNumberEditText @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.editTextStyle
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
 
-
     companion object {
         private const val MAX_LENGTH = 10
         private const val MAX_DECIMAL = 3
@@ -36,7 +35,7 @@ class ThousandNumberEditText @JvmOverloads constructor(
         )
         inputType = InputType.TYPE_CLASS_NUMBER
         filters = arrayOf<InputFilter>(InputFilter.LengthFilter(MAX_LENGTH))
-        //setHint("0");
+        // setHint("0");
     }
 
     private class ThousandNumberTextWatcher internal constructor(private val mEditText: EditText) :
@@ -83,10 +82,9 @@ class ThousandNumberEditText @JvmOverloads constructor(
             }
             val parsed = BigDecimal(str)
             val formatter = DecimalFormat("#,###." + getDecimalPattern(str))
-            //example patter #,###.00
+            // example patter #,###.00
             return formatter.format(parsed)
         }
-
 
         private fun getDecimalPattern(str: String): String {
             val decimalCount = str.length - 1 - str.indexOf(".")

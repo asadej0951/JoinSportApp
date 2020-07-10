@@ -8,14 +8,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wewillapp.masterproject.R
 
-
 object BindingAdapters {
     @JvmStatic
     @BindingAdapter(value = ["visibleGone"], requireAll = false)
     fun showHide(view: View, visibleGone: Boolean) {
         view.visibility = if (visibleGone) View.VISIBLE else View.GONE
     }
-
 
     @SuppressLint("CheckResult")
     @JvmStatic

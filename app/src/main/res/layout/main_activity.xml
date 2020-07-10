@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <import type="com.wewillapp.masterproject.vo.Resource" />
+
+        <import type="com.wewillapp.masterproject.vo.enumClass.Status" />
+
+        <variable
+            name="loadResource"
+            type="com.wewillapp.masterproject.vo.Resource" />
+
+        <variable
+            name="dataViewModel"
+            type="com.wewillapp.masterproject.view.main.MainViewModel" />
+
+        <variable
+            name="toolbarViewModel"
+            type="com.wewillapp.masterproject.view.base.ToolbarViewModel" />
+
     </data>
 
-    <FrameLayout
-        android:id="@+id/container"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity" />
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/icView"
+            layout="@layout/custom_toolbar_view"
+            app:toolbarViewModel="@{toolbarViewModel}" />
+
+
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icView"
+            tools:context=".MainActivity" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

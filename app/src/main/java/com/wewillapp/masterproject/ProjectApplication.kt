@@ -1,25 +1,15 @@
 package com.wewillapp.masterproject
 
-import android.app.Activity
 import android.app.Application
 import androidx.multidex.MultiDex
-import com.wewillapp.masterproject.di.AppInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import dagger.hilt.android.HiltAndroidApp
 
-
-class ProjectApplication : Application(), HasActivityInjector {
-
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+@HiltAndroidApp
+class ProjectApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         MultiDex.install(this)
-        AppInjector.init(this)
     }
-
-    override fun activityInjector(): DispatchingAndroidInjector<Activity> = dispatchingAndroidInjector
 }

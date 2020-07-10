@@ -12,6 +12,8 @@ object Constants {
     const val ACTION_GET_GALLERY = 2
     const val REQUEST_PERMISSION_SETTING = 999
 
+    const val MESSAGE_NO_INTERNET = "กรุณาตรวจสอบการเชื่อมต่ออินเตอร์เน็ต"
+
     // More Debug
     const val MODE_DEBUG = true
 }

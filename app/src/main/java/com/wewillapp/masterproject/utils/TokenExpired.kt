@@ -5,9 +5,11 @@ import android.content.Intent
 import com.wewillapp.masterproject.utils.rxBus.RxBus
 import com.wewillapp.masterproject.view.login.LoginActivity
 import com.wewillapp.masterproject.vo.RxEvent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import io.reactivex.disposables.Disposable
+import javax.inject.Inject
 
-class TokenExpired constructor(val context: Context) {
+class TokenExpired @Inject constructor(@ApplicationContext val context: Context) {
 
     private var tokenExpiredDisposable: Disposable? = null
 

@@ -1,7 +1,6 @@
 package com.wewillapp.masterproject.utils
 
 import android.Manifest
-import android.app.Dialog
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
@@ -26,7 +25,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import javax.inject.Inject
 
-class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity) {
+class CheckPermission @Inject constructor(private var fragmentActivity: FragmentActivity) {
 
     @Inject
     lateinit var mConvertUriToFile: ConvertUriToFile
@@ -67,7 +66,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
     }
 
     private fun showDialogGetCamera() {
-        //Form Shooting
+        // Form Shooting
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val photoShootingIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             val values = ContentValues()
@@ -83,7 +82,7 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
     }
 
     private fun showDialogGetGallery() {
-        //Form Gallery
+        // Form Gallery
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         galleryIntent.type = "image/*"
         val photoPickerIntent = Intent(Intent.ACTION_CHOOSER)
@@ -182,8 +181,10 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                         }
                     }
 
-                    override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>,
-                                                                    token: PermissionToken) {
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissions: List<PermissionRequest>,
+                        token: PermissionToken
+                    ) {
                         token.continuePermissionRequest()
                     }
 
@@ -207,8 +208,10 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                         }
                     }
 
-                    override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>,
-                                                                    token: PermissionToken) {
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissions: List<PermissionRequest>,
+                        token: PermissionToken
+                    ) {
                         token.continuePermissionRequest()
                     }
 
@@ -218,7 +221,4 @@ class CheckPermission @Inject constructor(var fragmentActivity: FragmentActivity
                     }
                 }).check()
     }
-
-
-    private fun getDialog(): Dialog = Dialog(fragmentActivity)
 }

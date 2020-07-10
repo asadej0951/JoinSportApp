@@ -2,7 +2,6 @@ package com.wewillapp.masterproject.vo
 
 import com.wewillapp.masterproject.vo.enumClass.Status
 
-
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
         fun <T> success(data: T?): Resource<T> {

@@ -1,29 +1,21 @@
 package com.wewillapp.masterproject.view.register
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.ActivityRegisterBinding
 import com.wewillapp.masterproject.view.base.BaseActivity
-import com.wewillapp.masterproject.view.base.ToolbarViewModel
-import com.wewillapp.masterproject.view.login.LoginViewModel
 import com.wewillapp.masterproject.vo.enumClass.Status
-import javax.inject.Inject
 
-
-@SuppressLint("Registered")
 class RegisterActivity : BaseActivity() {
 
-    @Inject
-    lateinit var viewModel: RegisterViewModel
+    private val viewModel: RegisterViewModel by viewModels()
 
-    lateinit var binding: ActivityRegisterBinding
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,13 +26,10 @@ class RegisterActivity : BaseActivity() {
 
     private fun initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
-        setTitleToolBar(binding.icView.tvTitle, resources.getString(R.string.message_register))
-
+        toolbarViewModel.titleToolbarView.set(resources.getString(R.string.message_register))
     }
 
     private fun initViewModel() {
-        viewModel =  ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
-
         binding.dataViewModel = viewModel
         binding.toolbarViewModel = toolbarViewModel
 
@@ -57,17 +46,17 @@ class RegisterActivity : BaseActivity() {
                         resources.getString(R.string.message_alert_dialog),
                         it.message
                     ) {
-                        onStartAppIntent("intentMain")
+                        onStartAppIntent()
                     }
                 }
                 Status.ERROR -> mDialogPresenter.dialogMessage(
                     resources.getString(R.string.message_alert_dialog),
                     it.message
                 ) {}
+                Status.LOADING -> {}
             }
         })
     }
-
 
     private fun onClickListener() {
         viewModel.mLiveDataOnClickRegister.observe(this, Observer {
@@ -79,17 +68,28 @@ class RegisterActivity : BaseActivity() {
         })
 
         toolbarViewModel.onClickToolbar.observe(this, Observer {
-            this.onBackPressed()
+            when (it) {
+                "intentBack" -> {
+                    this.onBackPressed()
+                }
+                else -> {
+                    print("no event")
+                }
+            }
         })
     }
 
-    private fun onStartAppIntent(action: String) {
+    private fun onStartAppIntent() {
         this.onBackPressed()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && isCheckImageNull(requestCode, data) && resultCode != 0) {
+        if (resultCode == Activity.RESULT_OK && isCheckImageNull(
+                requestCode,
+                data
+            ) && resultCode != 0
+        ) {
             mCheckPermission.onSelectPicture(data, binding.ivProfile)
             viewModel.mLiveDataImageFile.value = mCheckPermission.getFile()
         }
@@ -101,6 +101,6 @@ class RegisterActivity : BaseActivity() {
 
     override fun onBackPressed() {
         finish()
-        mUtils.eventStartAnimationIntent(this, false)
+        startIntentAnimation( false)
     }
 }

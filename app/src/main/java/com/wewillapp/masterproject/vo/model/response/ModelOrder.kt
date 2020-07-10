@@ -16,7 +16,7 @@ data class LinksOrderListdata(
 data class DataOrderList(
     val bookingAt: String,
     val id: Int,
-    val bookingNO:String,
+    val bookingNO: String,
     val latitude: String,
     val longitude: String,
     val note: String,
@@ -30,12 +30,13 @@ data class DataOrderList(
     val staffId: Any,
     val staffs: Any,
     val status: String,
-    val serviceLabel:String,
-    val bookingUsername:String,
+    val serviceLabel: String,
+    val bookingUsername: String,
     val totalPrice: Int,
-    val userId: Int)
+    val userId: Int
+)
 
-data class UserOrder(var profileImage:String? = "")
+data class UserOrder(var profileImage: String? = "")
 
 data class ServiceOrderList(
     val id: Int,
@@ -52,4 +53,3 @@ data class MetOrderListdataa(
     val to: Int,
     val total: Int
 )
-

@@ -1,5 +1,6 @@
 package com.wewillapp.masterproject.view.base
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.utils.SingleLiveData
 import javax.inject.Inject
@@ -9,7 +10,9 @@ constructor() : ViewModel() {
 
     val onClickToolbar = SingleLiveData<String>()
 
-    fun onClickBack(){
+    val titleToolbarView = ObservableField("")
+
+    fun onClickBack() {
         onClickToolbar.value = "intentBack"
     }
 }

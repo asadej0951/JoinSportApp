@@ -12,8 +12,7 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-
-abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
+abstract class NetworkBoundResource<RequestType>(val type: String = "default") {
     private val result = MediatorLiveData<Resource<RequestType>>()
 
     @NonNull
@@ -24,7 +23,6 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
         fetchFromNetwork()
     }
 
-
     private fun setValue(newValue: Resource<RequestType>) {
         if (result.value != newValue) {
             result.value = newValue
@@ -33,7 +31,7 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
 
     private fun fetchFromNetwork() {
         val apiResponse = createCall()
-        when (type){
+        when (type) {
             "default" -> {
                 disposable = apiResponse
                     .subscribeOn(Schedulers.io())
@@ -90,16 +88,9 @@ abstract class NetworkBoundResource<RequestType>(val type:String = "default") {
         }
     }
 
-
-
     fun asLiveData() = result as LiveData<Resource<RequestType>>
 
     protected abstract fun createCall(): Observable<RequestType>
 
     abstract fun saveCallResult(item: String)
-
-
 }
-
-
-

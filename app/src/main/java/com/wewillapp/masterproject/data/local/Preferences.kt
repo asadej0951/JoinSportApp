@@ -2,8 +2,12 @@ package com.wewillapp.masterproject.data.local
 
 import android.content.Context
 import android.content.SharedPreferences
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class Preferences constructor(private var context: Context){
+@Singleton
+class Preferences @Inject constructor(@ApplicationContext private var context: Context) {
 
     companion object {
         private const val FILENAME = "wewillapp_project"
@@ -70,7 +74,7 @@ class Preferences constructor(private var context: Context){
             "th_TH"
     }
 
-    fun clearDataLogout(){
+    fun clearDataLogout() {
         saveString(TOKEN, "")
     }
     internal fun clear() {
@@ -100,5 +104,4 @@ class Preferences constructor(private var context: Context){
     private fun getSharedPreferences(): SharedPreferences {
         return context.getSharedPreferences(FILENAME, Context.MODE_PRIVATE)
     }
-
 }

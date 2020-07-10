@@ -4,14 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.MainFragmentBinding
+import com.wewillapp.masterproject.utils.showMessage
 import com.wewillapp.masterproject.view.base.BaseFragment
 import com.wewillapp.masterproject.vo.enumClass.Status
 import com.wewillapp.masterproject.vo.model.response.DataOrderList
@@ -20,11 +21,13 @@ class MainFragment : BaseFragment() {
 
     private lateinit var binding: MainFragmentBinding
 
-    private lateinit var viewModel: MainViewModel
-
-    private lateinit var mCustomAdapterOrderList: AdapterOrderList
+    private val viewModel: MainViewModel by viewModels()
 
     private var mListDataOrderList = ArrayList<DataOrderList>()
+
+    private val mCustomAdapterOrderList by lazy {
+        AdapterOrderList(binding.root.context, mListDataOrderList, viewModel.onClickItemOrderList)
+    }
 
     companion object {
         fun newInstance(loadPage: String? = ""): MainFragment {
@@ -48,40 +51,30 @@ class MainFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
         binding.dataViewModel = viewModel
-        binding.toolbarViewModel = toolbarViewModel
 
         initView()
         initViewModel()
     }
 
     private fun initView() {
-        setTitleToolBar(binding.icView.tvTitle, resources.getString(R.string.app_name))
+
     }
 
     private fun initViewModel() {
-        mTokenExpiredDisposable.doCheckTokenExpire()
         onClickListener()
-        onSetDataOrderList()
+        initOrderList()
         onSubScriptViewModel()
     }
 
     private fun onClickListener() {
-        toolbarViewModel.onClickToolbar.observe(requireActivity(), Observer {
-            Toast.makeText(activity, "onClickBack", Toast.LENGTH_SHORT).show()
-        })
-
-        viewModel.onClickItemList.observe(requireActivity(), Observer {
-            Toast.makeText(requireActivity(), it, Toast.LENGTH_LONG).show()
+        viewModel.onClickItemOrderList.observe(requireActivity(), Observer {
+           binding.root.showMessage(it)
         })
     }
 
-    private fun onSetDataOrderList() {
-        mCustomAdapterOrderList =
-            AdapterOrderList(mListDataOrderList, viewModel.onClickItemList)
-
+    private fun initOrderList() {
         binding.recyclerViewOrderList.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             addOnScrollListener(onScrollListener())
@@ -89,7 +82,6 @@ class MainFragment : BaseFragment() {
             mCustomAdapterOrderList.notifyDataSetChanged()
         }
     }
-
 
     private fun onSubScriptViewModel() {
         viewModel.mOrderBookingCall.call()
@@ -105,6 +97,8 @@ class MainFragment : BaseFragment() {
                     resources.getString(R.string.message_alert_dialog),
                     it.message
                 ) {}
+                Status.LOADING -> {
+                }
             }
         })
     }
@@ -123,10 +117,4 @@ class MainFragment : BaseFragment() {
             }
         }
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mTokenExpiredDisposable.onDestroyDisposable()
-    }
-
 }

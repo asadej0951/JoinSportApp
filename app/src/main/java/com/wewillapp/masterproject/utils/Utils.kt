@@ -3,7 +3,6 @@ package com.wewillapp.masterproject.utils
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.content.res.Configuration
 import android.os.Build
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -19,14 +18,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.data.local.Preferences
-import qiu.niorgai.StatusBarCompat
-import java.text.SimpleDateFormat
-import java.util.*
-import java.util.regex.Matcher
-import java.util.regex.Pattern
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import javax.inject.Singleton
+import qiu.niorgai.StatusBarCompat
 
-class Utils @Inject constructor(private val mPreferences: Preferences) {
+@Singleton
+class Utils @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val mPreferences: Preferences
+) {
 
     fun getDeviceMetrics(context: Context): DisplayMetrics {
         val metrics = DisplayMetrics()
@@ -42,7 +43,6 @@ class Utils @Inject constructor(private val mPreferences: Preferences) {
         val width: Int = displayMetrics.widthPixels
         imageView.layoutParams.height = width / 3
     }
-
 
     fun setImageAutoMetrics(context: Context, imageView: View, number: Int) {
         val displayMetrics = DisplayMetrics()
@@ -67,7 +67,10 @@ class Utils @Inject constructor(private val mPreferences: Preferences) {
     @SuppressLint("ObsoleteSdkInt")
     fun onSetStatusBar(context: Context, colorStatusBar: Boolean) {
         if (colorStatusBar)
-            StatusBarCompat.setStatusBarColor(context as Activity, ContextCompat.getColor(context, R.color.textColorWhite))
+            StatusBarCompat.setStatusBarColor(
+                context as Activity,
+                ContextCompat.getColor(context, R.color.textColorWhite)
+            )
         else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 StatusBarCompat.translucentStatusBar(context as Activity, true)
@@ -78,7 +81,8 @@ class Utils @Inject constructor(private val mPreferences: Preferences) {
 
     fun showBadge(
         context: Context,
-        bottomNavigationView: BottomNavigationView, @IdRes itemId: Int,
+        bottomNavigationView: BottomNavigationView,
+        @IdRes itemId: Int,
         value: String
     ) {
         val valueBadge: String
@@ -101,7 +105,7 @@ class Utils @Inject constructor(private val mPreferences: Preferences) {
         }
     }
 
-    fun removeBadge(bottomNavigationView: BottomNavigationView, @IdRes itemId: Int) {
+    private fun removeBadge(bottomNavigationView: BottomNavigationView, @IdRes itemId: Int) {
         val itemView = bottomNavigationView.findViewById<BottomNavigationItemView>(itemId)
         if (itemView.childCount == 3) { // position menu
             itemView.removeViewAt(2)

@@ -44,7 +44,6 @@ class MapUtils @Inject constructor() {
         )
     }
 
-
     @SuppressLint("MissingPermission")
     fun mapGetLocationCurrent(context: Context): Location? {
         mLocationManager =

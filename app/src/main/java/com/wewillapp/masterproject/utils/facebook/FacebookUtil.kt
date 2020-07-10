@@ -1,17 +1,12 @@
 package com.wewillapp.masterproject.utils.facebook
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.FragmentActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.gson.Gson
-import com.wewillapp.masterproject.AppExecutors
-import java.io.File
-import java.io.FileOutputStream
-import java.net.URL
+import timber.log.Timber
 
 class FacebookUtil {
 
@@ -47,7 +42,7 @@ class FacebookUtil {
                 }
 
                 override fun onCancel() {
-                    Log.i(FacebookUtil::class.java.name, "onCancel")
+                    Timber.e("onCancel")
                 }
 
                 override fun onError(error: FacebookException) {
@@ -57,35 +52,6 @@ class FacebookUtil {
                     }
                 }
             })
-        }
-
-        fun facebookImage(
-            fragmentActivity: FragmentActivity,
-            appExecutors: AppExecutors,
-            src: String,
-            callback: ((File) -> Unit)
-        ) {
-            appExecutors.networkIO().execute {
-                val url = URL(src)
-                val input = url.openStream()
-                val photo =
-                    File(
-                        fragmentActivity.cacheDir,
-                        String.format("FacebookImage_%d.jpg", System.currentTimeMillis())
-                    )
-                input.use { inputData ->
-                    val output = FileOutputStream(photo)
-                    output.use { outputData ->
-                        var read: Int? = null
-                        val buffer = ByteArray(1024)
-
-                        while ({ read = inputData.read(buffer); read }() != -1) {
-                            outputData.write(buffer, 0, read!!)
-                        }
-                    }
-                }
-                callback.invoke(photo)
-            }
         }
     }
 }

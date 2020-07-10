@@ -14,7 +14,7 @@ import qiu.niorgai.StatusBarCompat
 
 class SplashScreenActivity : BaseActivity() {
 
-    lateinit var binding: ActivitySplashScreenBinding
+    private lateinit var binding: ActivitySplashScreenBinding
 
     private var mHandler = Handler()
 
@@ -35,7 +35,7 @@ class SplashScreenActivity : BaseActivity() {
     }
 
     private fun onCheckTokenIntentMain() {
-        startApp(if(mPreferences.getToken().isNotEmpty()) "intentMain" else "login")
+        startApp(if (mPreferences.getToken().isNotEmpty()) "intentMain" else "login")
     }
 
     private fun startApp(statusIntent: String) {
@@ -53,5 +53,4 @@ class SplashScreenActivity : BaseActivity() {
             finishAffinity()
         }, Constants.mTimeLoadPage)
     }
-
 }

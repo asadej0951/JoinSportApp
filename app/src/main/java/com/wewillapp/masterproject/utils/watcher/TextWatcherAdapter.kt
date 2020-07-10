@@ -6,7 +6,7 @@ import android.text.TextWatcher
 class TextWatcherAdapter(private var field: (String) -> Unit) : TextWatcher {
 
     private var isInEditMode = false
-    private var tmp = ""
+    private var tmpSearch = ""
 
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
     }
@@ -19,10 +19,10 @@ class TextWatcherAdapter(private var field: (String) -> Unit) : TextWatcher {
     }
 
     fun setText(s: String) {
-        if (tmp != s) {
+        if (tmpSearch != s) {
             isInEditMode = true
             field.invoke(s)
-            tmp = s
+            tmpSearch = s
             isInEditMode = false
         }
     }

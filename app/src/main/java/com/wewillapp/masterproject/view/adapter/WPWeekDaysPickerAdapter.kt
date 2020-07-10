@@ -8,12 +8,12 @@ class WPWeekDaysPickerAdapter(private val arrayList: ArrayList<String>) : WheelA
     override fun getValue(position: Int): String {
         return if (position < arrayList.size && position >= 0) {
             arrayList[position]
-        }else
+        } else
             ""
     }
 
     override fun getMaxIndex(): Int {
-        return arrayList.size-1
+        return arrayList.size - 1
     }
 
     override fun getMinIndex(): Int {

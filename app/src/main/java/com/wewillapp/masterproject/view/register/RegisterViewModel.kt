@@ -1,6 +1,7 @@
 package com.wewillapp.masterproject.view.register
 
 import androidx.databinding.ObservableField
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -12,10 +13,9 @@ import com.wewillapp.masterproject.vo.Resource
 import com.wewillapp.masterproject.vo.model.body.BodyRegister
 import com.wewillapp.masterproject.vo.model.response.BaseResponse
 import java.io.File
-import javax.inject.Inject
 
 class RegisterViewModel
-@Inject constructor(generalRepository: GeneralRepository) : ViewModel() {
+@ViewModelInject constructor(generalRepository: GeneralRepository) : ViewModel() {
 
     val etEmail = ObservableField("")
 
@@ -71,7 +71,6 @@ class RegisterViewModel
         mRegisterCall.call()
     }
 
-
     fun onClickEventAddImage() {
         mLiveDataOnClickRegister.value = "addImageProfile"
     }
@@ -87,10 +86,9 @@ class RegisterViewModel
     }
 
     private fun isCheckFieldEntry(): Boolean {
-        return etEmail.get()!!.isNotEmpty()
-                && etFullName.get()!!.isNotEmpty()
-                && etPassword.get()!!.isNotEmpty() && etConfirmPass.get()!!.isNotEmpty()
-                && etPassword.get()!! == etConfirmPass.get()
+        return etEmail.get()!!.isNotEmpty() &&
+                etFullName.get()!!.isNotEmpty() &&
+                etPassword.get()!!.isNotEmpty() && etConfirmPass.get()!!.isNotEmpty() &&
+                etPassword.get()!! == etConfirmPass.get()
     }
-
 }

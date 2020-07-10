@@ -1,5 +1,7 @@
 package com.wewillapp.masterproject.utils
 
+import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -36,16 +38,12 @@ import java.util.regex.Pattern
         return (ranDomNumber * ranDomNumber2) * 1000000000
     }
 
-    fun String.getDateCurrent(): String {
-        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()).toString()
-    }
-
-    fun Long.timeStampToDateFormat(): String {
-        val pattern = "EEE dd MMMM yyyy"
-        val formatter = SimpleDateFormat(pattern, Locale("th"))
-        return formatter.format(this * 1000)
-    }
-
     fun Double.setFormatNumber(): String {
         return String.format("%,.0f", this)
     }
+
+    fun View.showMessage(message: String) {
+        val snack = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
+        snack.show()
+    }
+

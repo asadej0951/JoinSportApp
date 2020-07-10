@@ -26,22 +26,16 @@ object ImageFilePath {
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
 
             // ExternalStorageProvider
-            if (isExternalStorageDocument(
-                    uri
-                )
-            ) {
+            if (isExternalStorageDocument(uri)) {
                 val docId = DocumentsContract.getDocumentId(uri)
                 val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 val type = split[0]
 
                 if ("primary".equals(type, ignoreCase = true)) {
-                    return (Environment.getExternalStorageDirectory().toString() + "/"
-                            + split[1])
+                    return (Environment.getExternalStorageDirectory().toString() + "/" +
+                            split[1])
                 }
-            } else if (isDownloadsDocument(
-                    uri
-                )
-            ) {
+            } else if (isDownloadsDocument(uri)) {
 
                 val id = DocumentsContract.getDocumentId(uri)
                 val contentUri = ContentUris.withAppendedId(
@@ -49,16 +43,8 @@ object ImageFilePath {
                     java.lang.Long.valueOf(id)
                 )
 
-                return getDataColumn(
-                    context,
-                    contentUri,
-                    null,
-                    null
-                )
-            } else if (isMediaDocument(
-                    uri
-                )
-            ) {
+                return getDataColumn(context, contentUri, null, null)
+            } else if (isMediaDocument(uri)) {
                 val docId = DocumentsContract.getDocumentId(uri)
                 val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 val type = split[0]
@@ -77,7 +63,7 @@ object ImageFilePath {
                     context, contentUri, selection,
                     selectionArgs
                 )
-            }// MediaProvider
+            } // MediaProvider
             // DownloadsProvider
         } else if ("content".equals(uri.scheme, ignoreCase = true)) {
 
@@ -91,10 +77,9 @@ object ImageFilePath {
                 null,
                 null
             )
-
         } else if ("file".equals(uri.scheme, ignoreCase = true)) {
             return uri.path
-        }// File
+        } // File
         // MediaStore (and general)
 
         return nopath
@@ -115,8 +100,12 @@ object ImageFilePath {
      * @return The value of the _data column, which is typically a file path.
      */
     @SuppressLint("Recycle")
-    private fun getDataColumn(context: Context, uri: Uri?,
-                              selection: String?, selectionArgs: Array<String>?): String {
+    private fun getDataColumn(
+        context: Context,
+        uri: Uri?,
+        selection: String?,
+        selectionArgs: Array<String>?
+    ): String {
 
         var cursor: Cursor? = null
         val column = "_data"
@@ -176,5 +165,4 @@ object ImageFilePath {
         return "com.google.android.apps.photos.content" == uri
                 .authority
     }
-
 }

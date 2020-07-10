@@ -59,7 +59,6 @@ object ExifUtils {
                 e.printStackTrace()
                 bitmap
             }
-
         } catch (e: IOException) {
             e.printStackTrace()
         } catch (e: NoSuchFieldException) {

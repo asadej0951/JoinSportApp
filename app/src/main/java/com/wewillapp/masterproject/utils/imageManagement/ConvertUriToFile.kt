@@ -44,7 +44,7 @@ class ConvertUriToFile @Inject constructor(private var fragmentActivity: Fragmen
         return null
     }
 
-    fun decodeMultipleFile(filePath: String, position: Int): File {
+    fun decodeMultipleFile(filePath: String): File {
         // Decode image size
         val o = BitmapFactory.Options()
         o.inJustDecodeBounds = true

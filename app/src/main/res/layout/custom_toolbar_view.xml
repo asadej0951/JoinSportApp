@@ -75,7 +75,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -83,6 +83,7 @@
                     android:singleLine="true"
                     android:textColor="@color/textColorBlack"
                     android:textSize="@dimen/text_size_20dp"
+                    android:text="@{toolbarViewModel.titleToolbarView}"
                     android:fontFamily="@font/font_quark_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/layBackInvisible"

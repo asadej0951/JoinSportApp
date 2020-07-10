@@ -2,24 +2,21 @@ package com.wewillapp.masterproject.view.login
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.ActivityLoginBinding
 import com.wewillapp.masterproject.view.base.BaseActivity
 import com.wewillapp.masterproject.view.main.MainActivity
 import com.wewillapp.masterproject.view.register.RegisterActivity
 import com.wewillapp.masterproject.vo.enumClass.Status
-import javax.inject.Inject
 
 class LoginActivity : BaseActivity() {
 
-    @Inject
-    lateinit var viewModel: LoginViewModel
+    private val viewModel: LoginViewModel by viewModels()
 
-    lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +27,9 @@ class LoginActivity : BaseActivity() {
 
     private fun initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
         binding.handler = viewModel
 
         onSubscriptViewModel()
@@ -53,6 +48,7 @@ class LoginActivity : BaseActivity() {
                     resources.getString(R.string.message_alert_dialog),
                     it.message
                 ) {}
+                Status.LOADING -> {}
             }
         })
     }
@@ -76,6 +72,6 @@ class LoginActivity : BaseActivity() {
                 startActivity(intentApp)
             }
         }
-        mUtils.eventStartAnimationIntent(this, true)
+        startIntentAnimation( true)
     }
 }

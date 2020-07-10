@@ -1,15 +1,13 @@
 package com.wewillapp.masterproject.utils
 
-class TextHelper {
-    companion object {
-        fun isNotEmptyStrings(vararg s: String?): Boolean {
-            val list = s.filter { s ->
-                if (s == null) {
-                    return false
-                }
-                s.isNotBlank()
+object TextHelper {
+    fun isNotEmptyStrings(vararg value: String?): Boolean {
+        val list = value.filter { valueSearch ->
+            if (valueSearch == null) {
+                return false
             }
-            return list.size == s.count()
+            valueSearch.isNotBlank()
         }
+        return list.size == value.count()
     }
 }

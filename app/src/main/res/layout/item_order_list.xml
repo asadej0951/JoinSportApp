@@ -1,70 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
-
-    <data>
-        <variable name="dataViewModel"
-            type="com.wewillapp.masterproject.vo.model.response.DataOrderList"/>
-    </data>
-
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_marginRight="@dimen/d5dp"
-        android:layout_marginLeft="@dimen/d5dp"
         android:id="@+id/card_view"
-        android:layout_marginTop="@dimen/d1dp"
-        android:layout_marginBottom="@dimen/d15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d5dp"
+        android:layout_marginTop="@dimen/d1dp"
+        android:layout_marginRight="@dimen/d5dp"
+        android:layout_marginBottom="@dimen/d15dp"
         android:orientation="vertical"
         card_view:cardBackgroundColor="@color/textColorWhite"
         card_view:cardCornerRadius="@dimen/d10dp"
         card_view:cardElevation="@dimen/d5dp">
 
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/d10dp"
             android:paddingTop="@dimen/d5dp"
             android:paddingBottom="@dimen/d5dp"
-            android:paddingStart="@dimen/d10dp"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
             tools:ignore="RtlSymmetry">
 
             <FrameLayout
-                android:layout_centerVertical="true"
-                android:id="@+id/parent_layout"
+                android:id="@+id/viewImage"
                 android:layout_width="@dimen/d80dp"
                 android:layout_height="@dimen/d80dp"
-                app:cardCornerRadius="8dp">
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="8dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/ivCircleOut"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
             </FrameLayout>
 
-            <TextView
-                android:layout_toEndOf="@+id/parent_layout"
-                android:id="@+id/tvOrderNo"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/d10dp"
-                android:layout_width="match_parent"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOrderName"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{dataViewModel.bookingUsername}"
+                android:layout_marginStart="@dimen/d10dp"
+                android:fontFamily="@font/font_quark_bold"
                 android:textColor="@color/lineColorBlack"
-                android:textSize="@dimen/text_size_12dp"
-                android:fontFamily="@font/font_quark_bold" />
+                android:textSize="@dimen/text_size_16dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/viewImage"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintBottom_toBottomOf="parent"/>
 
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>
