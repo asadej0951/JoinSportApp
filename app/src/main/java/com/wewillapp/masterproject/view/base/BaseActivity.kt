@@ -9,30 +9,25 @@ import com.wewillapp.masterproject.utils.CheckPermission
 import com.wewillapp.masterproject.utils.TokenExpired
 import com.wewillapp.masterproject.utils.Utils
 import com.wewillapp.masterproject.utils.dialog.DialogPresenter
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import qiu.niorgai.StatusBarCompat
 
-@AndroidEntryPoint
 abstract class BaseActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var toolbarViewModel: ToolbarViewModel
 
-    @Inject
-    lateinit var mDialogPresenter: DialogPresenter
+    val toolbarViewModel: ToolbarViewModel by viewModel()
 
-    @Inject
-    lateinit var mUtils: Utils
+    //val mDialogPresenter: DialogPresenter by inject()
 
-    @Inject
-    lateinit var mPreferences: Preferences
+    val mUtils: Utils by inject()
 
-    @Inject
-    lateinit var mCheckPermission: CheckPermission
+    val mPreferences: Preferences by inject()
 
-    @Inject
-    lateinit var mTokenExpiredDisposable: TokenExpired
+    val mCheckPermission: CheckPermission by inject()
+
+    val mTokenExpiredDisposable: TokenExpired by inject()
 
     fun onSetStatusBar() {
         StatusBarCompat.translucentStatusBar(this, true)

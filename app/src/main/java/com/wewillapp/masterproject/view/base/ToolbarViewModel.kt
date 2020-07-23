@@ -5,8 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.utils.SingleLiveData
 import javax.inject.Inject
 
-class ToolbarViewModel @Inject
-constructor() : ViewModel() {
+class ToolbarViewModel : ViewModel() {
 
     val onClickToolbar = SingleLiveData<String>()
 

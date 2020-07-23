@@ -9,7 +9,7 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 import javax.inject.Inject
 
-class ConvertUriToFile @Inject constructor(private var fragmentActivity: FragmentActivity) {
+class ConvertUriToFile constructor(private var fragmentActivity: FragmentActivity) {
 
     fun decodeFile(filePath: String): File? {
         // Decode image size

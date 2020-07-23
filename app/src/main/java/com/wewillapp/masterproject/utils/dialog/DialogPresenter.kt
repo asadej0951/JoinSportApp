@@ -13,6 +13,7 @@ import com.super_rabbit.wheel_picker.WheelPicker
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.*
 import com.wewillapp.masterproject.utils.Utils
+import com.wewillapp.masterproject.utils.getDeviceMetrics
 import com.wewillapp.masterproject.utils.imageManagement.setImageView
 import com.wewillapp.masterproject.utils.rxBus.EventRxBus
 import com.wewillapp.masterproject.view.adapter.WPWeekDaysPickerAdapter
@@ -20,9 +21,8 @@ import com.wewillapp.masterproject.vo.RxEvent
 import java.util.*
 import javax.inject.Inject
 
-class DialogPresenter @Inject constructor(
-    private var fragmentActivity: FragmentActivity,
-    private var mUtils: Utils
+class DialogPresenter constructor(
+    private var fragmentActivity: FragmentActivity
 ) {
 
     private val dialogMessage = getDialog()
@@ -36,7 +36,7 @@ class DialogPresenter @Inject constructor(
             )
         dialogMessage.setContentView(binding.root)
         dialogMessage.window?.attributes!!.width =
-            (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
 
         binding.title = title
         binding.text = text
@@ -60,7 +60,7 @@ class DialogPresenter @Inject constructor(
         message: String,
         messageBtn: String,
         iconDialog: Drawable,
-        clickCallback: ((Boolean) -> Unit)
+        clickCallback: ((Boolean) -> Unit?)
     ) {
         val dialog = getDialog()
         dialog.setCanceledOnTouchOutside(false)
@@ -74,7 +74,7 @@ class DialogPresenter @Inject constructor(
             )
         dialog.setContentView(binding.root)
         dialog.window?.attributes!!.width =
-            (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
 
         binding.text = message
         binding.messageBtn = messageBtn
@@ -100,7 +100,7 @@ class DialogPresenter @Inject constructor(
             )
         dialog.setContentView(binding.root)
         dialog.window?.attributes!!.width =
-            (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
 
         binding.tvText.text = title
 
@@ -129,7 +129,7 @@ class DialogPresenter @Inject constructor(
         dialog.setContentView(binding.root)
 
         dialog.window?.attributes!!.width =
-            (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
         binding.message = message
 
         binding.tvOkey.setOnClickListener {
@@ -213,7 +213,7 @@ class DialogPresenter @Inject constructor(
         )
         dialog.setContentView(binding.root)
         dialog.window?.attributes!!.width =
-            (mUtils.getDeviceMetrics(fragmentActivity).widthPixels * 0.8).toInt()
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
 
         binding.tvTitleDialog.text = mTitle
 

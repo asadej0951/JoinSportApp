@@ -1,8 +1,9 @@
 package com.wewillapp.masterproject.data
 
 object Constants {
-    // retrofit request timeout
-    const val REQUEST_TIMEOUT = 30L
+    const val TIME_CONNECT = 30L
+    const val TIME_INTERVAL = 1000L * 600L
+    const val TIME_INTERVAL_UNIT = 1000L
 
     // time splash screen
     const val mTimeLoadPage = 3000L
@@ -16,4 +17,10 @@ object Constants {
 
     // More Debug
     const val MODE_DEBUG = true
+
+    private const val API_ENDPOINT_SSL = "http://"
+
+    const val URL_PRO = API_ENDPOINT_SSL + "dev.easily.wewillapp.support/api/"
+
+    const val URL_DEV = API_ENDPOINT_SSL + "dev.easily.wewillapp.support/api/"
 }

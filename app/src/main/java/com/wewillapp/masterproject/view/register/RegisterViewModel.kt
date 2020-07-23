@@ -1,7 +1,6 @@
 package com.wewillapp.masterproject.view.register
 
 import androidx.databinding.ObservableField
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -14,8 +13,7 @@ import com.wewillapp.masterproject.vo.model.body.BodyRegister
 import com.wewillapp.masterproject.vo.model.response.BaseResponse
 import java.io.File
 
-class RegisterViewModel
-@ViewModelInject constructor(generalRepository: GeneralRepository) : ViewModel() {
+class RegisterViewModel (generalRepository: GeneralRepository) : ViewModel() {
 
     val etEmail = ObservableField("")
 

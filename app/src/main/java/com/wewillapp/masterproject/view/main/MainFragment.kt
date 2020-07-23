@@ -5,23 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.MainFragmentBinding
+import com.wewillapp.masterproject.utils.dialog.DialogPresenter
 import com.wewillapp.masterproject.utils.showMessage
 import com.wewillapp.masterproject.view.base.BaseFragment
 import com.wewillapp.masterproject.vo.enumClass.Status
 import com.wewillapp.masterproject.vo.model.response.DataOrderList
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class MainFragment : BaseFragment() {
 
     private lateinit var binding: MainFragmentBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModel()
+
+    private val mDialogPresenter: DialogPresenter by inject { parametersOf(binding.root.context) }
 
     private var mListDataOrderList = ArrayList<DataOrderList>()
 
@@ -70,7 +74,7 @@ class MainFragment : BaseFragment() {
 
     private fun onClickListener() {
         viewModel.onClickItemOrderList.observe(requireActivity(), Observer {
-           binding.root.showMessage(it)
+            binding.root.showMessage(it)
         })
     }
 

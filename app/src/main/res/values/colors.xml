@@ -7,6 +7,7 @@
     <color name="transparent">@android:color/transparent</color>
 
     <color name="colorBgApp">#F7F7F8</color>
+    <color name="colorBgLoading">#2C595959</color>
 
     // Text Color
     <color name="textColorBlack">#000000</color>

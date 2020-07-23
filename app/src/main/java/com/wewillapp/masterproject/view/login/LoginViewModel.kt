@@ -1,7 +1,6 @@
 package com.wewillapp.masterproject.view.login
 
 import androidx.databinding.ObservableField
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
@@ -10,8 +9,7 @@ import com.wewillapp.masterproject.utils.TextHelper
 import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
 import com.wewillapp.masterproject.vo.model.body.BodyLogin
 
-class LoginViewModel @ViewModelInject
-constructor(private val generalRepository: GeneralRepository) : ViewModel() {
+class LoginViewModel (private val generalRepository: GeneralRepository) : ViewModel() {
 
     val etUserName = ObservableField("gobank@gmail.com")
 

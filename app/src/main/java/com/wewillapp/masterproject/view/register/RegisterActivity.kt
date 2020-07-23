@@ -3,19 +3,24 @@ package com.wewillapp.masterproject.view.register
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.ActivityRegisterBinding
+import com.wewillapp.masterproject.utils.dialog.DialogPresenter
 import com.wewillapp.masterproject.view.base.BaseActivity
 import com.wewillapp.masterproject.vo.enumClass.Status
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class RegisterActivity : BaseActivity() {
 
-    private val viewModel: RegisterViewModel by viewModels()
+    private val viewModel: RegisterViewModel by viewModel()
 
     private lateinit var binding: ActivityRegisterBinding
+
+    private val mDialogPresenter: DialogPresenter by inject { parametersOf(binding.root.context) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

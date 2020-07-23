@@ -18,24 +18,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.data.local.Preferences
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 import qiu.niorgai.StatusBarCompat
 
-@Singleton
-class Utils @Inject constructor(
-    @ApplicationContext private val context: Context,
+class Utils constructor(
+    private val context: Context,
     private val mPreferences: Preferences
 ) {
-
-    fun getDeviceMetrics(context: Context): DisplayMetrics {
-        val metrics = DisplayMetrics()
-        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = wm.defaultDisplay
-        display.getMetrics(metrics)
-        return metrics
-    }
 
     fun setImageAutoMetrics(context: Context, imageView: ImageView) {
         val displayMetrics = DisplayMetrics()

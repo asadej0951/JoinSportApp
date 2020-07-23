@@ -25,7 +25,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import javax.inject.Inject
 
-class CheckPermission @Inject constructor(private var fragmentActivity: FragmentActivity) {
+class CheckPermission constructor(private var fragmentActivity: FragmentActivity) {
 
     @Inject
     lateinit var mConvertUriToFile: ConvertUriToFile

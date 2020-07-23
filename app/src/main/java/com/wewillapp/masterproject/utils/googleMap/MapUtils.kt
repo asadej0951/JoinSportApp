@@ -13,9 +13,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.wewillapp.masterproject.R
 import java.util.*
-import javax.inject.Inject
 
-class MapUtils @Inject constructor() {
+class MapUtils constructor(private var context: Context) {
     private var mMapZoomLevel = 15f
     private var mLocationManager: LocationManager? = null
 
@@ -60,23 +59,22 @@ class MapUtils @Inject constructor() {
         return bestLocation
     }
 
-    fun getLocaltionAddress(context: Context, mCurrentLat: Double, mCurrentLng: Double): String {
-        var mLocation = ""
+    fun getLocaltionAddress(mCurrentLat: Double, mCurrentLng: Double): String {
         val geocoder = Geocoder(context, Locale.getDefault())
         val addresses: List<Address>
 
-        try {
-            addresses = geocoder.getFromLocation(mCurrentLat, mCurrentLng, 1)
-            if (addresses.isNotEmpty() && addresses[0].getAddressLine(0) != null) {
-                mLocation = addresses[0].getAddressLine(0)
-            }
-        } catch (ex: Exception) {
-            mLocation = "ไม่พบตำแหน่ง"
+
+        addresses = geocoder.getFromLocation(mCurrentLat, mCurrentLng, 1)
+        val mLocation = if (addresses.isNotEmpty() && addresses[0].getAddressLine(0) != null) {
+            addresses[0].getAddressLine(0)
+        } else {
+            "ไม่พบตำแหน่ง"
         }
+
         return mLocation
     }
 
-    fun formatNumbers(context: Context, distance: Double): String {
+    fun formatNumbers(distance: Double): String {
         var unit = context.resources.getString(R.string.location_m)
         var mDistance = distance
         // 1 m = 1000 mm
