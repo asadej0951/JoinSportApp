@@ -23,13 +23,13 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", '"http://dev.easily.wewillapp.support/api/"'
+            buildConfigField "String", "SERVER_URL", '"https://dev.easily.wewillapp.support/api/"'
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", '"http://dev.easily.wewillapp.support/api/"'
+            buildConfigField "String", "SERVER_URL", '"https://dev.easily.wewillapp.support/api/"'
             signingConfig signingConfigs.debug
         }
     }
