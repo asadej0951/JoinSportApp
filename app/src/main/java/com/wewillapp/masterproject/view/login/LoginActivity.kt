@@ -14,6 +14,7 @@ import com.wewillapp.masterproject.vo.enumClass.Status
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.util.*
 
 class LoginActivity : BaseActivity() {
 
@@ -47,7 +48,8 @@ class LoginActivity : BaseActivity() {
             when (it.status) {
                 Status.SUCCESS -> {
                     mPreferences.saveToken(it.data!!.data.accessToken)
-                    onStartAppIntent("intentMain")
+                    //onStartAppIntent("intentMain")
+                    mDialogPresenter.dialogMessage("Title","Login Success") {}
                 }
                 Status.ERROR -> mDialogPresenter.dialogMessage(
                     resources.getString(R.string.message_alert_dialog),

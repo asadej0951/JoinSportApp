@@ -30,7 +30,7 @@ object OkHttpClientBuilder {
 
     private fun getHttpLoggingInterceptor(): HttpLoggingInterceptor.Level {
         return if (BuildConfig.DEBUG)
-            HttpLoggingInterceptor.Level.BODY
+            HttpLoggingInterceptor.Level.NONE
         else
             HttpLoggingInterceptor.Level.NONE
     }

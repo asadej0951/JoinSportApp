@@ -91,10 +91,7 @@ class RegisterActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && isCheckImageNull(
-                requestCode,
-                data
-            ) && resultCode != 0
-        ) {
+                requestCode, data) && resultCode != 0) {
             mCheckPermission.onSelectPicture(data, binding.ivProfile)
             viewModel.mLiveDataImageFile.value = mCheckPermission.getFile()
         }

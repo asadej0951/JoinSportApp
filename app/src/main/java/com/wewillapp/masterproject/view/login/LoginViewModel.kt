@@ -3,13 +3,13 @@ package com.wewillapp.masterproject.view.login
 import androidx.databinding.ObservableField
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
+import com.wewillapp.masterproject.data.rest.useCase.GeneralUseCase
 import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.utils.TextHelper
 import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
 import com.wewillapp.masterproject.vo.model.body.BodyLogin
 
-class LoginViewModel (private val generalRepository: GeneralRepository) : ViewModel() {
+class LoginViewModel (private val generalUseCase: GeneralUseCase) : ViewModel() {
 
     val etUserName = ObservableField("gobank@gmail.com")
 
@@ -17,7 +17,7 @@ class LoginViewModel (private val generalRepository: GeneralRepository) : ViewMo
 
     val isStatusButtonClick = ObservableField(false)
 
-    var mLoginCall = SingleLiveData<Void>()
+    var mLoginCall = SingleLiveData<BodyLogin>()
 
     var mOnClickListener = SingleLiveData<String>()
 
@@ -32,7 +32,8 @@ class LoginViewModel (private val generalRepository: GeneralRepository) : ViewMo
     }
 
     fun onClickLogin() {
-        mLoginCall.call()
+        mLoginCall.value = BodyLogin( etUserName.get()!!, etPassWord.get()!!,
+            "7C57196B27D826A2165F382821CF37C57196B27D826A2165F382821CF3", "th")
     }
 
     fun onClickRegister() {
@@ -40,12 +41,7 @@ class LoginViewModel (private val generalRepository: GeneralRepository) : ViewMo
     }
 
     val mResponseLogin = Transformations.switchMap(mLoginCall) {
-        generalRepository.onLogin(
-            BodyLogin(
-                etUserName.get()!!, etPassWord.get()!!,
-                "7C57196B27D826A2165F382821CF37C57196B27D826A2165F382821CF3", "th"
-            )
-        )
+        generalUseCase.doLogin(it)
     }
 
     fun checkEventButtonClick() {

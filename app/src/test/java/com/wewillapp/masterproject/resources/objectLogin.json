@@ -1,0 +1,57 @@
+{
+  "data": {
+    "id": 1,
+    "email": "gobank@gmail.com",
+    "fullname": "Vittavach",
+    "notification": true,
+    "language": "th",
+    "role": "owner",
+    "tel": null,
+    "shops": {
+      "id": 1,
+      "name": "gobankShop fsdfsdfsdf",
+      "ownerName": "Vittavach",
+      "tel": "0866666666",
+      "openedAt": "10:10",
+      "closedAt": "22:50",
+      "address": "272 Thanon Rama VI, Khwaeng Thung Phaya Thai, Khet Ratchathewi, Krung Thep Maha Nakhon 10400, Thailand",
+      "latitude": "13.763614290113098",
+      "longitude": "100.52548673003912",
+      "addressDescription": null,
+      "description": "บริเวณอนุสาวรีย์ชัยสมรภูมิ",
+      "distance": "0.000000",
+      "coverImage": "http://dev.easily.wewillapp.support/storage/avatars/shops/202002111847_guXAEadVBJb7JDNI.jpg",
+      "categoryId": 3,
+      "categories": {
+        "id": 3,
+        "name": "Gardening",
+        "color": {
+          "main": "#FC323B",
+          "secondary": "#FD5C63"
+        }
+      },
+      "services": [
+        {
+          "id": 291,
+          "name": "ตู้ 545",
+          "price": 2000
+        }
+      ],
+      "images": [
+        {
+          "id": 225,
+          "file": "http://dev.easily.wewillapp.support/storage/avatars/shops/201910091716_hXYjcqI9uUwOMi0N.jpg"
+        },
+        {
+          "id": 227,
+          "file": "http://dev.easily.wewillapp.support/storage/avatars/shops/201910091716_6cV16uSJfjhBixGS.jpg"
+        }
+      ],
+      "serviceFee": {
+        "min": 2000,
+        "max": 2000
+      }
+    },
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRiZDBiYTg4MDEyMThjNjE1MTEyYmM5YmVhZWIyMzMwMGU4OTkwZjA3N2M4YjJkNDBhMmM1YmE1OWEwM2Y4MGMyYThhNjU1YzNiM2FjMGJjIn0.eyJhdWQiOiIxIiwianRpIjoiZGJkMGJhODgwMTIxOGM2MTUxMTJiYzliZWFlYjIzMzAwZTg5OTBmMDc3YzhiMmQ0MGEyYzViYTU5YTAzZjgwYzJhOGE2NTVjM2IzYWMwYmMiLCJpYXQiOjE1OTU0MTY4NTMsIm5iZiI6MTU5NTQxNjg1MywiZXhwIjoxNjI2OTUyODUzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.hQWytj-XOFVpVtPv21V2_WbkXCTpNqBhgJ8yxtpu7lD5DCY9FhwzrD44nI685o0dnRAd5Bt_sDUeh5mECtlV-l78PXgENBYN6Mjh9DxBp41Kgq4ANAGXA1IDb4JQM08HYsx_DlMEi8XzDenZTbA_q2II0zpBMmi2Zxpv4IaT03cH2T-uJRtLVtgdejiEZefo52MWilnExO-U_6Rfh41mc_gm8nSxDBBoZpTE_Tn6lrgP0HvgrcbEbNZYrnN6pJSlteTlhvpdfXdyBoZIHdj78psQhqnKlSkqEXD91xJD4chtdf5VJ6VGHKYzTFfMQBwdnkjuuaxYnp7IkH95VJjS7KhXQEQ2jRm5nLuX6POs0jjkzfzNi_93mLLr1qJvC8E2gKGfcT87nO3c0OcErulsDBkrM88NcU3Z9uqeffFLw6Nl3p_SQxDyhvyDbOpHYzP6yIDPUyxo82roOK3efWvJoWDzgxGYgEP7XB7yqYjljQ8n_b-Iki7XDmLpRqVKJLdoekDgcnolPqk7HvT6l3a7AE0R1kYq-nLlDEWiia6ICjn0IdSh92dVH3iGjlN81vjNjfl6ZEb0WQ-CnH_HIhXVB8l2Y7diF8TjC6WLVxqrhF8z6RHW5C8COAe-QT7DaTbEwO_u2hH9OQuzqW_s-YXx5_gJcK3e3v0GGRe5fYWPScc"
+  }
+}

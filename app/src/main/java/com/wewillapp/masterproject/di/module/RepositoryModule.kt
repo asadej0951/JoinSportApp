@@ -1,10 +1,13 @@
 package com.wewillapp.masterproject.di.module
 
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
+import com.wewillapp.masterproject.data.rest.useCase.GeneralUseCase
 import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    single { GeneralRepository(get(), get()) }
+    single { GeneralRepository(get()) }
+
+    single { GeneralUseCase(get(), get()) }
 
 }

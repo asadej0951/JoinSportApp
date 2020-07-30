@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
+import com.wewillapp.masterproject.data.rest.useCase.GeneralUseCase
 import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
 import com.wewillapp.masterproject.vo.Resource
@@ -13,7 +14,7 @@ import com.wewillapp.masterproject.vo.model.body.BodyRegister
 import com.wewillapp.masterproject.vo.model.response.BaseResponse
 import java.io.File
 
-class RegisterViewModel (generalRepository: GeneralRepository) : ViewModel() {
+class RegisterViewModel (generalUseCase: GeneralUseCase) : ViewModel() {
 
     val etEmail = ObservableField("")
 
@@ -51,9 +52,7 @@ class RegisterViewModel (generalRepository: GeneralRepository) : ViewModel() {
     var mRegisterCall = SingleLiveData<Void>()
     val mResponseRegister: LiveData<Resource<BaseResponse>> = Transformations
         .switchMap(mRegisterCall) {
-            generalRepository.onRegister(
-                postDataRegister(), mLiveDataImageFile.value
-            )
+            generalUseCase.doRegister(postDataRegister(), mLiveDataImageFile.value)
         }
 
     private fun postDataRegister(): BodyRegister {

@@ -15,7 +15,7 @@ val utilityModule = module {
 
     factory { (activity: AppCompatActivity) -> DialogPresenter(activity) }
 
-    single { (activity: AppCompatActivity) -> MapUtils(activity) }
+    single { MapUtils(androidApplication()) }
 
     single { TokenExpired(androidApplication()) }
 
