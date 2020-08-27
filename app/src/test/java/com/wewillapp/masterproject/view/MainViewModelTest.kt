@@ -28,7 +28,8 @@ class MainViewModelTest : BaseUTTest() {
 
     private val generalRepository: GeneralRepository by inject()
 
-    private var token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjdjYTRlNzQ" +
+    private var token = "Bearer " +
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjdjYTRlNzQ" +
             "3YjhiNDEzMTAyNzgxNTVkM2IyNTc5ZDUyOTdiMTJhYWY4OTdlYmMyMGRhMjEwZjNkNDgwNmM5NDhkYjBhYWMwN" +
             "2RiMmNlM2U2In0.eyJhdWQiOiIxIiwianRpIjoiN2NhNGU3NDdiOGI0MTMxMDI3ODE1NWQzYjI1NzlkNTI5N2IxMm" +
             "FhZjg5N2ViYzIwZGEyMTBmM2Q0ODA2Yzk0OGRiMGFhYzA3ZGIyY2UzZTYiLCJpYXQiOjE1OTU1ODIwMjAsIm5iZiI6MTU5N" +

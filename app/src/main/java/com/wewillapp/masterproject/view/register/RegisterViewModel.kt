@@ -5,8 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
-import com.wewillapp.masterproject.data.rest.useCase.GeneralUseCase
+import com.wewillapp.masterproject.domain.GeneralUseCase
 import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter
 import com.wewillapp.masterproject.vo.Resource

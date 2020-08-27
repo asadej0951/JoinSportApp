@@ -3,7 +3,7 @@ package com.wewillapp.masterproject.view.main
 import androidx.databinding.ObservableField
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.rest.useCase.GeneralUseCase
+import com.wewillapp.masterproject.domain.GeneralUseCase
 import com.wewillapp.masterproject.utils.SingleLiveData
 
 class MainViewModel constructor(generalUseCase: GeneralUseCase) : ViewModel() {

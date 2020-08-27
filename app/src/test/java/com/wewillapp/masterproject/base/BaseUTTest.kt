@@ -7,7 +7,6 @@ import org.junit.After
 import org.junit.Before
 import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
-import java.io.File
 import java.io.InputStream
 
 /**

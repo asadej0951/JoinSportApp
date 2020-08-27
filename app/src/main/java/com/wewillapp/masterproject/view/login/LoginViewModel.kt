@@ -3,7 +3,7 @@ package com.wewillapp.masterproject.view.login
 import androidx.databinding.ObservableField
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.wewillapp.masterproject.data.rest.useCase.GeneralUseCase
+import com.wewillapp.masterproject.domain.GeneralUseCase
 import com.wewillapp.masterproject.utils.SingleLiveData
 import com.wewillapp.masterproject.utils.TextHelper
 import com.wewillapp.masterproject.utils.watcher.TextWatcherAdapter

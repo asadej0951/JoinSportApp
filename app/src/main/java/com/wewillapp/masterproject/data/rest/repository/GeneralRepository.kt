@@ -18,7 +18,6 @@ constructor(
         return apiService.doLogin(paramLogin)
     }
 
-
     fun onRegister(data: BodyRegister, profileImage: File?) =
         apiService.registerUser(
             "th",

@@ -1,4 +1,4 @@
-package com.wewillapp.masterproject.data.rest.useCase
+package com.wewillapp.masterproject.domain
 
 import com.wewillapp.masterproject.data.local.Preferences
 import com.wewillapp.masterproject.data.rest.NetworkBoundResource

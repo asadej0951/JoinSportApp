@@ -2,9 +2,8 @@ package com.wewillapp.masterproject.utils.googleMap
 
 import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.wewillapp.masterproject.base.BaseUTTest
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.not
@@ -12,9 +11,9 @@ import org.hamcrest.Matchers.isEmptyString
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.koin.core.parameter.parametersOf
 import org.koin.test.inject
 import org.robolectric.annotation.Config
+
 
 
 @RunWith(AndroidJUnit4::class)

@@ -1,6 +1,7 @@
 package com.wewillapp.masterproject.view
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import com.wewillapp.masterproject.base.BaseUTTest
 import com.wewillapp.masterproject.data.rest.repository.GeneralRepository
 import com.wewillapp.masterproject.di.module.networkModule
@@ -9,16 +10,19 @@ import com.wewillapp.masterproject.di.module.utilityModule
 import com.wewillapp.masterproject.di.module.viewModelModule
 import com.wewillapp.masterproject.vo.model.body.BodyLogin
 import com.wewillapp.masterproject.vo.model.response.ResponseLogin
+import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.hamcrest.CoreMatchers.notNullValue
+import org.hamcrest.Matchers.`is`
+import org.junit.*
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import org.koin.test.inject
+import org.mockito.Mockito.`when`
+import org.robolectric.res.android.Asset
 import java.net.HttpURLConnection
 
 
@@ -48,11 +52,11 @@ class LoginViewModelTest: BaseUTTest() {
         mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
 
         val dataReceived = generalRepository.onLogin(BodyLogin(userName, password,token,language))
-        dataReceived.subscribe()
+
         val testObserver = TestObserver<ResponseLogin>()
         dataReceived.subscribe(testObserver)
 
-        Assert.assertNotNull(testObserver.values()[0].data)
+        assertThat(testObserver.values()[0].data, `is`(notNullValue()))
     }
 
     @Test
@@ -64,7 +68,7 @@ class LoginViewModelTest: BaseUTTest() {
         val testObserver = TestObserver<ResponseLogin>()
         dataReceived.subscribe(testObserver)
 
-        Assert.assertEquals(testObserver.values()[0].data.fullname,"Vittavach")
+        assertThat(testObserver.values()[0].data.fullname, `is`("Vittavach"))
     }
 
     @Test
@@ -76,8 +80,12 @@ class LoginViewModelTest: BaseUTTest() {
         val testObserver = TestObserver<ResponseLogin>()
         dataReceived.subscribe(testObserver)
 
-        Assert.assertNotNull(testObserver.values())
+        assertThat(testObserver.values().isEmpty(), `is`(true))
     }
 
+    @After
+    override fun tearDown() {
+        stopKoin()
+    }
 
 }

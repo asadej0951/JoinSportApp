@@ -1,10 +1,7 @@
-package com.wewillapp.masterproject.utils
+package com.wewillapp.masterproject.utils.extension
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
-import java.text.SimpleDateFormat
-import java.util.*
-import java.util.concurrent.TimeUnit
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 

@@ -1,4 +1,4 @@
-package com.wewillapp.masterproject.utils
+package com.wewillapp.masterproject.utils.extension
 
 import android.content.Context
 import android.util.DisplayMetrics
