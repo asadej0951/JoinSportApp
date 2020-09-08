@@ -83,7 +83,6 @@ class MainFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(requireActivity())
             addOnScrollListener(onScrollListener())
             adapter = mCustomAdapterOrderList
-            mCustomAdapterOrderList.notifyDataSetChanged()
         }
     }
 

@@ -52,7 +52,7 @@ class MainViewModelTest : BaseUTTest() {
 
     @Test
     fun testOrderListSuccess_returnResponse() = runBlocking {
-        mockNetworkResponseWithFileContent("objectOrderList.json", HttpURLConnection.HTTP_OK)
+        //mockNetworkResponseWithFileContent("objectOrderList.json", HttpURLConnection.HTTP_OK)
 
         val dataReceived = generalRepository.getOrderList("TH", 1, token)
         dataReceived.subscribe()

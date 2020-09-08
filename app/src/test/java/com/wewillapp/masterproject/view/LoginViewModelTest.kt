@@ -49,7 +49,7 @@ class LoginViewModelTest: BaseUTTest() {
 
     @Test
     fun testLoginSuccess_returnResponse() =  runBlocking {
-        mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
+        //mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
 
         val dataReceived = generalRepository.onLogin(BodyLogin(userName, password,token,language))
 
@@ -61,7 +61,7 @@ class LoginViewModelTest: BaseUTTest() {
 
     @Test
     fun testLoginCheckName_returnResponseFullName() =  runBlocking {
-        mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
+        //mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
 
         val dataReceived = generalRepository.onLogin(BodyLogin(userName,
             password,token,language))
@@ -73,7 +73,7 @@ class LoginViewModelTest: BaseUTTest() {
 
     @Test
     fun testLoginError_returnNoResponse() =  runBlocking {
-        mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
+        //mockNetworkResponseWithFileContent("objectLogin.json", HttpURLConnection.HTTP_OK)
 
         val dataReceived = generalRepository.onLogin(BodyLogin("gobank2@gmail.com",
             "password","","th"))
