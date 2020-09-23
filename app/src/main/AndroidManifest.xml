@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
-        android:name="com.wewillapp.masterproject.ProjectApplication"
+        android:name=".ProjectApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="${appIcon}"
@@ -22,8 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBars"
         android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m">
+        tools:targetApi="q">
 
         <activity
             android:name="com.wewillapp.masterproject.view.register.RegisterActivity"

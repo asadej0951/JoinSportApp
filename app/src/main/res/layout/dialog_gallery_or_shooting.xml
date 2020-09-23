@@ -24,7 +24,7 @@
                 android:text="@string/txt_button_camera"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/quark_bold"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
             <View
@@ -42,7 +42,7 @@
                 android:textColor="@color/textColorBlack"
                 android:text="@string/txt_button_gallery"
                 android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/quark_bold"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
@@ -66,7 +66,7 @@
                 android:text="@string/txt_button_cancel"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/quark_bold"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>

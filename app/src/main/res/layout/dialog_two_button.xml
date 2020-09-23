@@ -34,7 +34,7 @@
             android:text="@string/app_name"
             android:textColor="@color/textColorBlack"
             android:textSize="@dimen/text_size_20dp"
-            android:fontFamily="@font/font_sf_pro_semibold"
+            android:fontFamily="@font/font_sv_set_semibold"
             tools:ignore="RelativeOverlap" />
 
         <View
@@ -59,7 +59,7 @@
                 android:text="@string/txt_button_cancel"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_15dp"
-                android:fontFamily="@font/font_sf_pro_semibold"
+                android:fontFamily="@font/font_sv_set_semibold"
                 tools:ignore="RelativeOverlap" />
 
             <View
@@ -78,7 +78,7 @@
                 android:text="@string/txt_button_okey"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_15dp"
-                android:fontFamily="@font/font_sf_pro_semibold"
+                android:fontFamily="@font/font_sv_set_semibold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>

@@ -43,7 +43,7 @@
             android:textSize="@dimen/d24dp"
             android:lines="1"
             android:ellipsize="end"
-            android:fontFamily="@font/font_quark_bold"
+            android:fontFamily="@font/font_sv_set_bold"
             tools:ignore="RelativeOverlap,SpUsage" />
 
 
@@ -67,7 +67,7 @@
             android:textColor="@color/textColorWhite"
             android:background="@drawable/bg_btn_login"
             android:textSize="@dimen/text_size_medium"
-            android:fontFamily="@font/font_sv_bold"
+            android:fontFamily="@font/font_sv_set_bold"
             tools:ignore="RelativeOverlap" />
 
 

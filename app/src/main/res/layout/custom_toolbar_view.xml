@@ -84,7 +84,7 @@
                     android:textColor="@color/textColorBlack"
                     android:textSize="@dimen/text_size_20dp"
                     android:text="@{toolbarViewModel.titleToolbarView}"
-                    android:fontFamily="@font/font_quark_bold"
+                    android:fontFamily="@font/font_sv_set_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/layBackInvisible"
                     app:layout_constraintStart_toEndOf="@id/layBack"

@@ -2,14 +2,13 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="UnusedAttribute"
-    tools:keep="@font/font_sf_pro_semibold">
+    tools:ignore="UnusedAttribute">
 
     <font
-        android:font="@font/sf_pro_semibold"
+        android:font="@font/sukhumvit_set_text"
         android:fontStyle="normal"
         android:fontWeight="400"
-        app:font="@font/sf_pro_semibold"
+        app:font="@font/sukhumvit_set_text"
         app:fontStyle="normal"
         app:fontWeight="400" />
 

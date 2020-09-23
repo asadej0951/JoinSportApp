@@ -50,7 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/d10dp"
-                android:fontFamily="@font/font_quark_bold"
+                android:fontFamily="@font/font_sv_set_bold"
                 android:textColor="@color/lineColorBlack"
                 android:textSize="@dimen/text_size_16dp"
                 card_view:layout_constraintEnd_toEndOf="parent"

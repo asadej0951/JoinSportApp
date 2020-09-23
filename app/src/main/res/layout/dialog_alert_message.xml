@@ -33,7 +33,7 @@
             android:text="@{title}"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/d22dp"
-            android:fontFamily="@font/quark_bold"
+            android:fontFamily="@font/font_sv_set_bold"
             tools:ignore="RelativeOverlap,SpUsage" />
 
         <TextView
@@ -47,7 +47,7 @@
             android:text="@{text}"
             android:textSize="@dimen/d15dp"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/quark_bold"
+            android:fontFamily="@font/font_sv_set_bold"
             tools:ignore="RelativeOverlap,SpUsage" />
 
 
@@ -71,7 +71,7 @@
                 android:textColor="@color/textColorWhite"
                 android:background="@drawable/custom_btn_alert"
                 android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/quark_bold"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
 

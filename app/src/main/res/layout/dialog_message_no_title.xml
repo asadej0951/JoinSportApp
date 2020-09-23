@@ -31,7 +31,7 @@
             android:textSize="@dimen/text_size_15dp"
             android:lineHeight="@dimen/d2dp"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/font_quark_lighr"
+            android:fontFamily="@font/font_sv_set_light"
             tools:ignore="RelativeOverlap,SpUsage"
             tools:targetApi="p" />
 
@@ -51,7 +51,7 @@
             android:textColor="@color/colorPrimary"
             android:background="@color/lineColorWhite"
             android:textSize="@dimen/text_size_18dp"
-            android:fontFamily="@font/font_quark_bold"
+            android:fontFamily="@font/font_sv_set_light"
             tools:ignore="RelativeOverlap" />
 
     </LinearLayout>

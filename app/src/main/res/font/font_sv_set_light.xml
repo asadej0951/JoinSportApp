@@ -5,10 +5,10 @@
     tools:ignore="UnusedAttribute">
 
     <font
-        android:font="@font/quark_bold"
+        android:font="@font/sukhumvit_set_light"
         android:fontStyle="normal"
         android:fontWeight="400"
-        app:font="@font/quark_bold"
+        app:font="@font/sukhumvit_set_light"
         app:fontStyle="normal"
         app:fontWeight="400" />
 
