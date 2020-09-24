@@ -19,15 +19,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
     val toolbarViewModel: ToolbarViewModel by viewModel()
 
-    //val mDialogPresenter: DialogPresenter by inject()
-
     val mUtils: Utils by inject()
 
     val mPreferences: Preferences by inject()
 
-    val mCheckPermission: CheckPermission by inject()
+    val mCheckPermission: CheckPermission by inject { parametersOf(this) }
 
     val mTokenExpiredDisposable: TokenExpired by inject()
+
+    val mDialogPresenter: DialogPresenter by inject {  parametersOf(this)}
 
     fun onSetStatusBar() {
         StatusBarCompat.translucentStatusBar(this, true)

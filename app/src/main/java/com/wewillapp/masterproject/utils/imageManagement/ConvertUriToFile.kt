@@ -1,5 +1,6 @@
 package com.wewillapp.masterproject.utils.imageManagement
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
@@ -9,7 +10,7 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 import javax.inject.Inject
 
-class ConvertUriToFile constructor(private var fragmentActivity: FragmentActivity) {
+class ConvertUriToFile constructor(private var fragmentActivity: Context) {
 
     fun decodeFile(filePath: String): File? {
         // Decode image size

@@ -1,6 +1,8 @@
 package com.wewillapp.masterproject.utils.dialog
 
+import android.app.Dialog
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.Window
@@ -12,13 +14,82 @@ import com.wewillapp.masterproject.R
 import com.wewillapp.masterproject.databinding.*
 import com.wewillapp.masterproject.utils.extension.getDeviceMetrics
 import com.wewillapp.masterproject.utils.imageManagement.setImageView
+import com.wewillapp.masterproject.utils.rxBus.EventRxBus
 import com.wewillapp.masterproject.view.adapter.WPWeekDaysPickerAdapter
+import com.wewillapp.masterproject.vo.RxEvent
 import java.util.*
 
 class DialogPresenter constructor(
-    override var fragmentActivity: FragmentActivity
-):DialogFactory(fragmentActivity) {
+    var fragmentActivity: FragmentActivity
+) {
 
+
+    private val dialogMessage = getDialog()
+    private val dialogMessageBtn = getDialog()
+
+    fun dialogMessage(title: String, text: String?, clickCallback: ((Boolean) -> Unit)) {
+        dialogMessage.setCanceledOnTouchOutside(false)
+        val binding: DialogAlertMessageBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(fragmentActivity),
+                R.layout.dialog_alert_message, null, false
+            )
+        dialogMessage.setContentView(binding.root)
+        dialogMessage.window?.attributes!!.width =
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
+
+        binding.title = title
+        binding.text = text
+
+        binding.tvOkey.setOnClickListener {
+            dialogMessage.dismiss()
+            if (text == "401") {
+                EventRxBus.onAddEventRxBus(RxEvent("log out"))
+            } else {
+                clickCallback.invoke(true)
+            }
+        }
+
+        if (dialogMessage.isShowing)
+            dialogMessage.dismiss()
+
+        dialogMessage.show()
+    }
+
+    fun dialogMessage(
+        message: String,
+        messageBtn: String,
+        iconDialog: Drawable,
+        clickCallback: ((Boolean) -> Unit?)
+    ) {
+
+        dialogMessageBtn.setCanceledOnTouchOutside(false)
+        dialogMessageBtn.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialogMessageBtn.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val binding: DialogAlertMessageDefaultBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(fragmentActivity),
+                R.layout.dialog_alert_message_default, null, false
+            )
+        dialogMessageBtn.setContentView(binding.root)
+        dialogMessageBtn.window?.attributes!!.width =
+            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
+
+        binding.text = message
+        binding.messageBtn = messageBtn
+        binding.ivLogoApp.setImageDrawable(iconDialog)
+
+        binding.tvOkey.setOnClickListener {
+            dialogMessageBtn.dismiss()
+            clickCallback.invoke(true)
+        }
+
+        if (dialogMessageBtn.isShowing)
+            dialogMessageBtn.dismiss()
+
+        dialogMessageBtn.show()
+    }
 
     fun dialogMessageTwoButton(title: String?, clickCallback: ((Boolean) -> Unit)) {
         val dialog = getDialog()
@@ -169,4 +240,9 @@ class DialogPresenter constructor(
         dialog.setCancelable(true)
         dialog.show()
     }
+
+
+    fun getDialog(): Dialog = Dialog(fragmentActivity)
+
+    fun getDialogFullScreen(): Dialog = Dialog(fragmentActivity, R.style.Dialog_FullScreen)
 }

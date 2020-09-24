@@ -16,13 +16,15 @@ import org.koin.core.parameter.parametersOf
 
 abstract class BaseFragment : Fragment() {
 
-    val toolbarViewModel: ToolbarViewModel  by viewModel()
+    val toolbarViewModel: ToolbarViewModel by viewModel()
 
     val mUtils: Utils by inject()
 
     val mPreferences: Preferences by inject()
 
-    val mCheckPermission: CheckPermission by inject()
+    val mCheckPermission: CheckPermission by inject { parametersOf(requireActivity()) }
+
+    val mDialogPresenter: DialogPresenter by inject {  parametersOf(requireActivity())}
 
     val mTokenExpiredDisposable: TokenExpired by inject()
 

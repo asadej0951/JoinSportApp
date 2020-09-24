@@ -1,7 +1,6 @@
 package com.wewillapp.masterproject.view.main
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.wewillapp.masterproject.R
