@@ -7,15 +7,15 @@
 
         <import type="android.view.View" />
 
-        <import type="android.graphics.drawable.Drawable"/>
+        <import type="android.graphics.drawable.Drawable" />
 
-        <import type="com.wewillapp.masterproject.vo.Resource"/>
+        <import type="com.wewillapp.masterproject.vo.Resource" />
 
-        <import type="com.wewillapp.masterproject.vo.enumClass.Status"/>
+        <import type="com.wewillapp.masterproject.vo.enumClass.Status" />
 
         <variable
             name="loadResource"
-            type="com.wewillapp.masterproject.vo.Resource"/>
+            type="com.wewillapp.masterproject.vo.Resource" />
 
         <variable
             name="toolbarViewModel"
@@ -55,15 +55,15 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
                     android:gravity="center_vertical"
+                    android:onClick="@{() -> toolbarViewModel.onClickBack()}"
                     android:paddingStart="@dimen/margin_padding_size_small"
                     android:paddingEnd="@dimen/margin_padding_size_medium"
-                    android:onClick="@{() -> toolbarViewModel.onClickBack()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tvTitle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/imgBack"
                         android:layout_width="@dimen/toolbar_icon_size"
                         android:layout_height="@dimen/toolbar_icon_size"
@@ -79,12 +79,12 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/font_sv_set_bold"
                     android:gravity="center_vertical"
                     android:singleLine="true"
+                    android:text="@{toolbarViewModel.titleToolbarView}"
                     android:textColor="@color/textColorBlack"
                     android:textSize="@dimen/text_size_20dp"
-                    android:text="@{toolbarViewModel.titleToolbarView}"
-                    android:fontFamily="@font/font_sv_set_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/layBackInvisible"
                     app:layout_constraintStart_toEndOf="@id/layBack"
@@ -105,7 +105,7 @@
                     app:layout_constraintStart_toEndOf="@id/tvTitle"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/imgBackInvisible"
                         android:layout_width="@dimen/toolbar_icon_size"
                         android:layout_height="@dimen/toolbar_icon_size"

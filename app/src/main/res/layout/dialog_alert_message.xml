@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -7,74 +8,85 @@
         <variable
             name="text"
             type="String" />
+
         <variable
             name="title"
             type="String" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_padding_size_large"
         android:layout_marginStart="@dimen/margin_padding_size_large"
+        android:layout_marginEnd="@dimen/margin_padding_size_large"
         android:background="@drawable/custom_dialog_background"
-        android:paddingRight="@dimen/d15dp"
+        android:orientation="vertical"
         android:paddingLeft="@dimen/d15dp"
-        android:orientation="vertical">
+        android:paddingRight="@dimen/d15dp">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/font_sv_set_bold"
             android:gravity="center"
             android:paddingLeft="@dimen/margin_padding_size_small"
-            android:paddingRight="@dimen/margin_padding_size_small"
             android:paddingTop="@dimen/margin_padding_size_medium"
+            android:paddingRight="@dimen/margin_padding_size_small"
             android:text="@{title}"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/d22dp"
-            android:fontFamily="@font/font_sv_set_bold"
-            tools:ignore="RelativeOverlap,SpUsage" />
+            android:textSize="@dimen/text_size_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_marginTop="@dimen/d15dp"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d15dp"
+            android:fontFamily="@font/font_sv_set_bold"
             android:gravity="center"
             android:paddingLeft="@dimen/margin_padding_size_small"
             android:paddingRight="@dimen/margin_padding_size_small"
             android:paddingBottom="@dimen/margin_padding_size_medium"
             android:text="@{text}"
-            android:textSize="@dimen/d15dp"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/font_sv_set_bold"
-            tools:ignore="RelativeOverlap,SpUsage" />
-
+            android:textSize="@dimen/text_size_15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
 
         <View
+            android:id="@+id/lineView"
             android:layout_width="match_parent"
             android:layout_height="0.2dp"
             android:layout_gravity="center_vertical"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
 
 
-            <Button
-                android:layout_marginBottom="@dimen/d20dp"
-                android:layout_marginTop="@dimen/d10dp"
-                android:id="@+id/tvOkey"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d30dp"
-                android:gravity="center"
-                android:padding="@dimen/margin_padding_size_small"
-                android:text="@string/txt_button_okey"
-                android:textColor="@color/textColorWhite"
-                android:background="@drawable/custom_btn_alert"
-                android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/font_sv_set_bold"
-                tools:ignore="RelativeOverlap" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tvOkey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d10dp"
+            android:layout_marginBottom="@dimen/d20dp"
+            android:background="@drawable/custom_btn_alert"
+            android:fontFamily="@font/font_sv_set_bold"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="@string/txt_button_okey"
+            android:textColor="@color/textColorWhite"
+            android:textSize="@dimen/text_size_18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineView" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

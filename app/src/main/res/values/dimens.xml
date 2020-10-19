@@ -55,6 +55,10 @@
     <dimen name="text_size_18dp">18sp</dimen>
     <dimen name="text_size_19dp" tools:keep="@dimen/text_size_19dp">19sp</dimen>
     <dimen name="text_size_20dp">20sp</dimen>
+    <dimen name="text_size_22dp">22sp</dimen>
+    <dimen name="text_size_24dp">24sp</dimen>
+    <dimen name="text_size_26dp">26sp</dimen>
+    <dimen name="text_size_28dp">28sp</dimen>
 
     <dimen name="activity_horizontal_margin" tools:keep="@dimen/activity_horizontal_margin">17.6dp</dimen>
     <dimen name="activity_vertical_margin" tools:keep="@dimen/activity_vertical_margin">17.6dp</dimen>

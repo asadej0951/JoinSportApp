@@ -1,6 +1,7 @@
 package com.wewillapp.masterproject.view.base
 
 import android.os.Build
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,10 @@ abstract class BaseActivity : AppCompatActivity() {
     val mTokenExpiredDisposable: TokenExpired by inject()
 
     val mDialogPresenter: DialogPresenter by inject {  parametersOf(this)}
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     fun onSetStatusBar() {
         StatusBarCompat.translucentStatusBar(this, true)

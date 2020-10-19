@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:gravity="center">
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/notifications"
-        android:layout_marginTop="15dp"
         android:layout_width="@dimen/d10dp"
         android:layout_height="@dimen/d10dp"
         android:layout_marginStart="@dimen/d5dp"
-        android:paddingLeft="@dimen/d5dp"
-        android:paddingRight="@dimen/d5dp"
-        android:paddingTop="@dimen/d1dp"
-        android:paddingBottom="@dimen/d1dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/notification_badge"
         android:gravity="center"
+        android:paddingLeft="@dimen/d5dp"
+        android:paddingTop="@dimen/d1dp"
+        android:paddingRight="@dimen/d5dp"
+        android:paddingBottom="@dimen/d1dp"
         android:text=""
         android:textColor="#FC323B"
         android:textSize="@dimen/d10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpUsage" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

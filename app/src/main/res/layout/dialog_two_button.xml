@@ -8,58 +8,68 @@
         <variable
             name="title"
             type="String" />
+
         <variable
             name="text"
             type="String" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_padding_size_large"
         android:layout_marginStart="@dimen/margin_padding_size_large"
+        android:layout_marginEnd="@dimen/margin_padding_size_large"
         android:background="@drawable/custom_dialog_background"
         android:orientation="vertical">
 
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvText"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d15dp"
+            android:fontFamily="@font/font_sv_set_semibold"
             android:gravity="center"
             android:paddingLeft="@dimen/d12dp"
             android:paddingRight="@dimen/d12dp"
             android:paddingBottom="@dimen/d20dp"
-            android:layout_marginTop="@dimen/d15dp"
             android:text="@string/app_name"
             android:textColor="@color/textColorBlack"
             android:textSize="@dimen/text_size_20dp"
-            android:fontFamily="@font/font_sv_set_semibold"
-            tools:ignore="RelativeOverlap" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            android:id="@+id/viewLine"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center_vertical"
-            android:background="@color/lineColorGray" />
+            android:background="@color/lineColorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvText" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewLine"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/font_sv_set_semibold"
                 android:gravity="center"
                 android:padding="@dimen/margin_padding_size_small"
                 android:text="@string/txt_button_cancel"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_15dp"
-                android:fontFamily="@font/font_sv_set_semibold"
                 tools:ignore="RelativeOverlap" />
 
             <View
@@ -68,21 +78,21 @@
                 android:layout_gravity="center_vertical"
                 android:background="@color/lineColorGray" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_okey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/margin_padding_size_small"
                 android:layout_weight="1"
+                android:fontFamily="@font/font_sv_set_semibold"
                 android:gravity="center"
+                android:padding="@dimen/margin_padding_size_small"
                 android:text="@string/txt_button_okey"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_15dp"
-                android:fontFamily="@font/font_sv_set_semibold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
