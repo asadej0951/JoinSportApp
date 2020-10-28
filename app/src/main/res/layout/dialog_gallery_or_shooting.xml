@@ -1,97 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/btn_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_padding_size_large"
             android:layout_marginEnd="@dimen/margin_padding_size_large"
+            android:layout_marginStart="@dimen/margin_padding_size_large"
             android:background="@drawable/custom_dialog_background"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvCamera"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_sv_set_bold"
                 android:gravity="center"
                 android:padding="@dimen/margin_padding_size_small"
                 android:text="@string/txt_button_camera"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
             <View
-                android:id="@+id/viewLine"
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
                 android:layout_gravity="center_vertical"
-                android:background="@color/placeHolderColorGray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCamera" />
+                android:background="@color/placeHolderColorGray" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/btn_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_sv_set_bold"
                 android:gravity="center"
                 android:padding="@dimen/margin_padding_size_small"
-                android:text="@string/txt_button_gallery"
                 android:textColor="@color/textColorBlack"
+                android:text="@string/txt_button_gallery"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewLine"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/btn_cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_padding_size_large"
             android:layout_marginStart="@dimen/margin_padding_size_large"
             android:layout_marginTop="@dimen/margin_padding_size_small"
-            android:layout_marginEnd="@dimen/margin_padding_size_large"
             android:layout_marginBottom="@dimen/margin_padding_size_medium"
             android:background="@drawable/custom_dialog_background"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_camera">
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_sv_set_bold"
                 android:gravity="center"
                 android:padding="@dimen/margin_padding_size_small"
                 android:text="@string/txt_button_cancel"
                 android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/font_sv_set_bold"
                 tools:ignore="RelativeOverlap" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>
