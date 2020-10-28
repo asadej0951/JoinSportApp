@@ -19,70 +19,61 @@ object ImageFilePath {
     @TargetApi(Build.VERSION_CODES.KITKAT)
     fun getPath(context: Context, uri: Uri): String? {
 
-        // check here to KITKAT or new version
         val isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
 
         // DocumentProvider
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
-
-            // ExternalStorageProvider
-            if (isExternalStorageDocument(uri)) {
-                val docId = DocumentsContract.getDocumentId(uri)
-                val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                val type = split[0]
-
-                if ("primary".equals(type, ignoreCase = true)) {
-                    return (Environment.getExternalStorageDirectory().toString() + "/" +
-                            split[1])
-                }
-            } else if (isDownloadsDocument(uri)) {
-
-                val id = DocumentsContract.getDocumentId(uri)
-                val contentUri = ContentUris.withAppendedId(
-                        Uri.parse("content://downloads/public_downloads"),
-                    java.lang.Long.valueOf(id)
-                )
-
-                return getDataColumn(context, contentUri, null, null)
-            } else if (isMediaDocument(uri)) {
-                val docId = DocumentsContract.getDocumentId(uri)
-                val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                val type = split[0]
-
-                var contentUri: Uri? = null
-                when (type) {
-                    "image" -> contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                    "video" -> contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-                    "audio" -> contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-                }
-
-                val selection = "_id=?"
-                val selectionArgs = arrayOf(split[1])
-
-                return getDataColumn(
-                    context, contentUri, selection,
-                    selectionArgs
-                )
-            } // MediaProvider
+            return downloadsProvider(context, uri)
             // DownloadsProvider
         } else if ("content".equals(uri.scheme, ignoreCase = true)) {
-
             // Return the remote address
-            return if (isGooglePhotosUri(
-                    uri
-                )
-            ) uri.lastPathSegment else getDataColumn(
-                context,
-                uri,
-                null,
-                null
-            )
+            return if (isGooglePhotosUri(uri)) uri.lastPathSegment else getDataColumn(
+                context, uri, null, null)
         } else if ("file".equals(uri.scheme, ignoreCase = true)) {
             return uri.path
         } // File
-        // MediaStore (and general)
 
         return nopath
+    }
+
+    private fun downloadsProvider(context: Context, uri: Uri): String? {
+        // ExternalStorageProvider
+        if (isExternalStorageDocument(uri)) {
+            val docId = DocumentsContract.getDocumentId(uri)
+            val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            val type = split[0]
+
+            if ("primary".equals(type, ignoreCase = true)) {
+                return (Environment.getExternalStorageDirectory().toString() + "/" + split[1])
+            }
+        } else if (isDownloadsDocument(uri)) {
+
+            val id = DocumentsContract.getDocumentId(uri)
+            val contentUri = ContentUris.withAppendedId(
+                Uri.parse("content://downloads/public_downloads"), java.lang.Long.valueOf(id))
+
+            return getDataColumn(context, contentUri, null, null)
+        } else if (isMediaDocument(uri)) {
+            val docId = DocumentsContract.getDocumentId(uri)
+            val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            val type = split[0]
+
+            var contentUri: Uri? = null
+            when (type) {
+                "image" -> contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                "video" -> contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+                "audio" -> contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+            }
+
+            val selection = "_id=?"
+            val selectionArgs = arrayOf(split[1])
+
+            return getDataColumn(
+                context, contentUri, selection,
+                selectionArgs
+            )
+        } // MediaProvider
+            return null
     }
 
     /**

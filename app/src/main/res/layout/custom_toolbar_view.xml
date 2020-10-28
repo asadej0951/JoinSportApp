@@ -109,7 +109,7 @@
                         android:id="@+id/imgBackInvisible"
                         android:layout_width="@dimen/toolbar_icon_size"
                         android:layout_height="@dimen/toolbar_icon_size"
-                        android:src="@drawable/ic_launcher_foreground"
+                        android:src="@mipmap/ic_launcher"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
