@@ -1,10 +1,12 @@
 package com.wewillapp.masterproject.view.base
 
+import android.R
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.wewillapp.masterproject.data.local.Preferences
 import com.wewillapp.masterproject.utils.CheckPermission
 import com.wewillapp.masterproject.utils.TokenExpired
@@ -32,6 +34,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    fun onSetStatusBarColor(color:Int) {
+        StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this, color))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 
     fun onSetStatusBar() {
