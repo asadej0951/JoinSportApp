@@ -23,7 +23,7 @@ class RegisterViewModel (generalUseCase: GeneralUseCase) : ViewModel() {
 
     val etConfirmPass = ObservableField("")
 
-    val isStatusButtonClick = ObservableField(false)
+    val isStatusButtonClick = ObservableField(true)
 
     val mLiveDataOnClickRegister = SingleLiveData<String>()
 
@@ -64,11 +64,15 @@ class RegisterViewModel (generalUseCase: GeneralUseCase) : ViewModel() {
     }
 
     fun onClickEventRegister() {
-        mRegisterCall.call()
+//        mRegisterCall.call()
+        mLiveDataOnClickRegister.value = "Register"
     }
 
     fun onClickEventAddImage() {
         mLiveDataOnClickRegister.value = "addImageProfile"
+    }
+    fun onClickSelectStatus(){
+        mLiveDataOnClickRegister.value = "selectStatus"
     }
 
     private fun checkEventButtonClick() {

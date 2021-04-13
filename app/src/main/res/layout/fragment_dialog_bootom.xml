@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_border_dialog_bottom"
+            android:background="@drawable/custom_bg_list_top_bottom_24"
             android:layout_height="wrap_content">
 
             <RelativeLayout android:layout_width="match_parent"
@@ -49,9 +49,9 @@
                     android:id="@+id/txtSelect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_button_okey"
+                    android:text="@string/message_select"
                     android:textColor="@color/textColorBlack"
-                    android:textSize="@dimen/text_size_14dp"
+                    android:textSize="@dimen/text_size_16dp"
                     android:fontFamily="@font/font_sv_set_semibold"
                     android:paddingEnd="@dimen/d15dp"
                     android:paddingStart="@dimen/d5dp"

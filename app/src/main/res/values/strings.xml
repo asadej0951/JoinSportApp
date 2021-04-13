@@ -23,10 +23,11 @@
     <string name="message_alert_dialog" translatable="false">Message</string>
     <string name="message_done" translatable="false">Done</string>
     <string name="message_register" translatable="false"><u>ลงทะเบียน</u></string>
-    <string name="message_input_email" translatable="false">email</string>
+    <string name="message_register2" translatable="false">ลงทะเบียน</string>
+    <string name="message_input_email" translatable="false">อีเมล</string>
     <string name="message_input_fullname" translatable="false">full name</string>
     <string name="message_password" translatable="false">รหัสผ่าน</string>
-    <string name="message_confirm_password" translatable="false">confirm password</string>
+    <string name="message_confirm_password" translatable="false">ยืนยันรหัสผ่าน</string>
 
     <!--    set number format-->
     <string name="format_number" translatable="false">%,.0f</string>
@@ -35,6 +36,13 @@
     <string name="message_username">ชื่อผู้ใช้</string>
     <string name="message_welcome">ยินดีต้อนรับ</string>
     <string name="message_title_register">ยังไม่มีบัญชีใช่หรือไม่?</string>
+    <string name="message_first_name">ชื่อ - นามสกุล</string>
+    <string name="message_number_phone">เบอร์โทรศัพท์</string>
+    <string name="message_status">สถานะเข้าสู่ระบบ</string>
+    <string name="message_select_status">กรุณาเลือกสถานะ</string>
+    <string name="message_address">ที่อยู่ (ที่ติดต่อได้)</string>
+    <string name="message_id_card_number">เลขบัตรประชาชน</string>
+    <string name="message_select">เลือก</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

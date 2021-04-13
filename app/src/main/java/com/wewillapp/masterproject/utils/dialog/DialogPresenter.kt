@@ -216,7 +216,7 @@ class DialogPresenter constructor(
         )
         dialog.setContentView(binding.root)
         dialog.window?.attributes!!.width =
-            (fragmentActivity.getDeviceMetrics().widthPixels * 0.8).toInt()
+            (fragmentActivity.getDeviceMetrics().widthPixels * 1)
 
         binding.tvTitleDialog.text = mTitle
 
@@ -227,13 +227,15 @@ class DialogPresenter constructor(
         binding.picker.setAdapter(WPWeekDaysPickerAdapter(arrayList))
         binding.picker.scrollTo(mSelectPosition)
 
+        var message = arrayList[0]
         binding.picker.setOnValueChangeListener(object : OnValueChangeListener {
             override fun onValueChange(picker: WheelPicker, oldVal: String, newVal: String) {
-                mClickCallBack.invoke(picker.getCurrentItem())
+                message = picker.getCurrentItem()
             }
         })
 
         binding.txtSelect.setOnClickListener {
+            mClickCallBack.invoke(message)
             dialog.cancel()
         }
 
