@@ -27,6 +27,7 @@ class RegisterActivity : BaseActivity() {
     private fun initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         toolbarViewModel.titleToolbarView.set(resources.getString(R.string.message_register))
+        onSetFullScreenStatusBar()
     }
 
     private fun initViewModel() {

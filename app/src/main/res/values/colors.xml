@@ -41,4 +41,6 @@
     <color name="bgBtnFacebook" tools:keep="@color/bgBtnFacebook">#4267B2</color>
     <color name="bgBtnFacebookShadow" tools:keep="@color/bgBtnFacebookShadow">#C84267B2</color>
     <color name="bgBtnWhiteShadows" tools:keep="@color/bgBtnWhiteShadows">#32000000</color>
+    <color name="color_main">#014F7B</color>
+    <color name="color_main_click">#005994</color>
 </resources>

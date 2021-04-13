@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">an_master_projects</string>
+    <string name="app_name">JoinSport</string>
 
     <!-- Permission -->
     <string name="permission_location">กรุณาเปิดใช้งานการอนุญาตให้แอปเข้าถึงตำแหน่งของผู้ใช้งาน</string>
@@ -32,5 +32,8 @@
     <string name="format_number" translatable="false">%,.0f</string>
     <string name="format_bath" translatable="false"><b>%,.0f</b> บาท</string>
     <string name="format_list" translatable="false">%s รายการ</string>
+    <string name="message_username">ชื่อผู้ใช้</string>
+    <string name="message_welcome">ยินดีต้อนรับ</string>
+    <string name="message_title_register">ยังไม่มีบัญชีใช่หรือไม่?</string>
 
 </resources>

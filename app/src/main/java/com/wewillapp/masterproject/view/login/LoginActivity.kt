@@ -27,10 +27,11 @@ class LoginActivity : BaseActivity() {
 
     private fun initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        onSetFullScreenStatusBar()
     }
 
     private fun initViewModel() {
-        binding.handler = viewModel
+        binding.dataViewModel = viewModel
 
         onSubscriptViewModel()
         onSubscriptOnClick()

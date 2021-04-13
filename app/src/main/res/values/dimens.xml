@@ -163,4 +163,7 @@
     <dimen name="d420dp" tools:keep="@dimen/d420dp">420dp</dimen>
     <dimen name="d450dp" tools:keep="@dimen/d450dp">450dp</dimen>
     <dimen name="d360dp" tools:keep="@dimen/d360dp">360dp</dimen>
+    <dimen name="text_size_50dp">50sp</dimen>
+    <dimen name="text_size_80dp">80sp</dimen>
+    <dimen name="text_size_70dp">70sp</dimen>
 </resources>

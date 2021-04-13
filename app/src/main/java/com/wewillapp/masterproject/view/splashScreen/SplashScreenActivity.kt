@@ -51,6 +51,7 @@ class SplashScreenActivity : BaseActivity() {
         mHandler.postDelayed({
             startActivity(intent)
             finishAffinity()
+            startIntentAnimation(true)
         }, Constants.mTimeLoadPage)
     }
 }

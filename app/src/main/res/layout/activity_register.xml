@@ -59,16 +59,41 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/ivProfile"
                     android:layout_width="@dimen/d120dp"
                     android:layout_height="@dimen/d120dp"
-                    android:layout_marginTop="@dimen/d40dp"
+                    android:layout_marginTop="@dimen/d20dp"
                     android:onClick="@{()->dataViewModel.onClickEventAddImage()}"
-                    android:src="@mipmap/ic_launcher_round"
+                    android:src="@drawable/ic_user_image_with_black_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:translationY="-25dp"
+                    android:onClick="@{()->dataViewModel.onClickEventAddImage()}"
+                    android:background="@drawable/custom_bg_btn_oval"
+                    app:layout_constraintEnd_toEndOf="@+id/ivProfile"
+                    app:layout_constraintStart_toStartOf="@+id/ivProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/d30dp"
+                        android:layout_height="@dimen/d30dp"
+                        android:layout_marginStart="@dimen/d10dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginEnd="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d10dp"
+                        android:src="@drawable/ic_camera"
+                        android:tint="@color/color_1_white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -180,22 +205,6 @@
         </androidx.core.widget.NestedScrollView>
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
-            android:translationZ="1dp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:visibleGone="@{loadResource.status == Status.LOADING}">
-
-            <include layout="@layout/item_progress" />
-
-        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

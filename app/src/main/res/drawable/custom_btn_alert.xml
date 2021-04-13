@@ -2,7 +2,7 @@
     <!-- disable state. -->
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <corners android:radius="8dp"/>
+            <corners android:radius="@dimen/d12dp"/>
             <solid android:color="#AAAAAA"/>
             <stroke android:color="#AAAAAA" android:width="2dp"/>
         </shape>
@@ -11,18 +11,18 @@
     <!--released state. -->
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
-            <corners android:radius="8dp"/>
-            <solid android:color="@color/colorPrimary"/>
-            <stroke android:color="@color/colorPrimary" android:width="2dp"/>
+            <corners android:radius="@dimen/d12dp"/>
+            <solid android:color="@color/color_main"/>
+            <stroke android:color="@color/color_main" android:width="2dp"/>
         </shape>
     </item>
 
     <!--pressed state. -->
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners android:radius="8dp"/>
-            <solid android:color="@color/colorPrimary"/>
-            <stroke android:color="@color/colorPrimary" android:width="2dp"/>
+            <corners android:radius="@dimen/d12dp"/>
+            <solid android:color="@color/color_main_click"/>
+            <stroke android:color="@color/color_main_click" android:width="2dp"/>
         </shape>
     </item>
 

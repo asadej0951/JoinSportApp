@@ -29,8 +29,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/white"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main"
             android:contentInsetStart="0dp"
             android:contentInsetLeft="0dp"
             android:contentInsetEnd="0dp"
@@ -45,6 +45,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/app_bar"
+                android:layout_marginTop="@dimen/d20dp"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
 
@@ -59,7 +60,7 @@
                     android:paddingStart="@dimen/margin_padding_size_small"
                     android:paddingEnd="@dimen/margin_padding_size_medium"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tvTitle"
+                    app:layout_constraintEnd_toStartOf="@id/imageIcon"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -67,13 +68,22 @@
                         android:id="@+id/imgBack"
                         android:layout_width="@dimen/toolbar_icon_size"
                         android:layout_height="@dimen/toolbar_icon_size"
-                        android:src="@drawable/ic_back"
+                        android:src="@drawable/ic_back_arrow"
+                        android:tint="@color/textColorWhite"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageIcon"
+                    android:layout_width="@dimen/d30dp"
+                    android:layout_height="@dimen/d30dp"
+                    android:src="@drawable/ic_register"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/layBack"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvTitle"
@@ -83,11 +93,13 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@{toolbarViewModel.titleToolbarView}"
-                    android:textColor="@color/textColorBlack"
+                    android:paddingStart="@dimen/d15dp"
+                    android:paddingEnd="@dimen/d15dp"
+                    android:textColor="@color/textColorWhite"
                     android:textSize="@dimen/text_size_20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/layBackInvisible"
-                    app:layout_constraintStart_toEndOf="@id/layBack"
+                    app:layout_constraintStart_toEndOf="@id/imageIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
