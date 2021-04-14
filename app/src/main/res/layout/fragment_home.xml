@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <import type="com.wewillapp.masterproject.vo.Resource" />
+
+        <import type="com.wewillapp.masterproject.vo.enumClass.Status" />
+
+        <variable
+            name="dataViewModel"
+            type="com.wewillapp.masterproject.view.main.home.HomeViewModel" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_1_white"
+        tools:context=".view.main.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bayLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_bg_barhome"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d25dp"
+                android:layout_marginTop="@dimen/d25dp"
+                android:fontFamily="@font/font_sv_set_semibold"
+                android:text="@string/app_name"
+                android:textColor="@color/textColorWhite"
+                android:textSize="@dimen/text_size_40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/d50dp"
+                android:layout_height="@dimen/d50dp"
+                android:layout_marginStart="@dimen/d10dp"
+                android:src="@drawable/ic_sports"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitleHome"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleHome"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleHome" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutImageUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/d20dp"
+            android:layout_marginTop="@dimen/d20dp"
+            android:background="@drawable/custom_profile_image_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bayLayout">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/d40dp"
+                android:layout_height="@dimen/d40dp"
+                android:layout_marginStart="@dimen/d2dp"
+                android:layout_marginTop="@dimen/d2dp"
+                android:layout_marginEnd="@dimen/d2dp"
+                android:layout_marginBottom="@dimen/d2dp"
+                android:onClick="@{()->dataViewModel.onClickProfile()}"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/edPost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/d15dp"
+            android:layout_marginEnd="@dimen/d20dp"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/font_sv_set_semibold"
+            android:hint="@string/message_post"
+            android:onClick="@{()->dataViewModel.onClickPostMessage()}"
+            android:paddingStart="@dimen/d15dp"
+            android:paddingTop="@dimen/d5dp"
+            android:paddingEnd="@dimen/d15dp"
+            android:paddingBottom="@dimen/d5dp"
+            android:textSize="@dimen/text_size_18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/layoutImageUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/layoutImageUser"
+            app:layout_constraintTop_toTopOf="@+id/layoutImageUser"
+            app:layout_constraintVertical_bias="0.454" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPost"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/d15dp"
+            android:background="#E6E7E8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edPost"
+            tools:listitem="@layout/item_post_message" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

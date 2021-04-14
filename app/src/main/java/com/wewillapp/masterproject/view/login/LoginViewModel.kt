@@ -32,8 +32,9 @@ class LoginViewModel (private val generalUseCase: GeneralUseCase) : ViewModel() 
     }
 
     fun onClickLogin() {
-        mLoginCall.value = BodyLogin( etUserName.get()!!, etPassWord.get()!!,
-            "7C57196B27D826A2165F382821CF37C57196B27D826A2165F382821CF3", "th")
+//        mLoginCall.value = BodyLogin( etUserName.get()!!, etPassWord.get()!!,
+//            "7C57196B27D826A2165F382821CF37C57196B27D826A2165F382821CF3", "th")
+        mOnClickListener.value = "login"
     }
 
     fun onClickRegister() {

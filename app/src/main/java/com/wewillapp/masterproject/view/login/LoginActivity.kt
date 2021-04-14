@@ -64,7 +64,7 @@ class LoginActivity : BaseActivity() {
     private fun onStartAppIntent(actionPage: String) {
         val intentApp: Intent
         when (actionPage) {
-            "intentMain" -> {
+            "login" -> {
                 intentApp = Intent(this, MainActivity::class.java)
                 startActivity(intentApp)
                 finishAffinity()

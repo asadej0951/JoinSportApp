@@ -56,6 +56,9 @@ abstract class BaseActivity : AppCompatActivity() {
     fun startIntentAnimation(isStatus: Boolean) {
         mUtils.eventStartAnimationIntent(this, isStatus)
     }
+    fun startIntentAnimationTopBottom(isStatus: Boolean) {
+        mUtils.eventStartAnimationIntentTopBottom(this, isStatus)
+    }
 
     fun setTitleToolBar(textViewTitle: TextView, messageTitle: String) {
         textViewTitle.text = messageTitle

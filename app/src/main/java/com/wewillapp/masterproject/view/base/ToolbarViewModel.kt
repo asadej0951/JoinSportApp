@@ -11,7 +11,12 @@ class ToolbarViewModel : ViewModel() {
 
     val titleToolbarView = ObservableField("")
 
+    val messageToolbar = ObservableField("")
+
     fun onClickBack() {
         onClickToolbar.value = "intentBack"
+    }
+    fun onClickIconToolbar(){
+        onClickToolbar.value = "iconToolbar"
     }
 }

@@ -82,23 +82,23 @@ class MainFragment : BaseFragment() {
     }
 
     private fun onSubScriptViewModel() {
-        viewModel.mOrderBookingCall.call()
-        viewModel.mResponseOrderBooking.observe(requireActivity(), Observer {
-            binding.loadResource = it
-            when (it.status) {
-                Status.SUCCESS -> {
-                    mListDataOrderList.addAll(it.data!!.data)
-                    viewModel.isLoadDuplicate.set(!it.data.links.next.isNullOrBlank())
-                    mCustomAdapterOrderList.notifyDataSetChanged()
-                }
-                Status.ERROR -> mDialogPresenter.dialogMessage(
-                    resources.getString(R.string.message_alert_dialog),
-                    it.message
-                ) {}
-                Status.LOADING -> {
-                }
-            }
-        })
+//        viewModel.mOrderBookingCall.call()
+//        viewModel.mResponseOrderBooking.observe(requireActivity(), Observer {
+//            binding.loadResource = it
+//            when (it.status) {
+//                Status.SUCCESS -> {
+//                    mListDataOrderList.addAll(it.data!!.data)
+//                    viewModel.isLoadDuplicate.set(!it.data.links.next.isNullOrBlank())
+//                    mCustomAdapterOrderList.notifyDataSetChanged()
+//                }
+//                Status.ERROR -> mDialogPresenter.dialogMessage(
+//                    resources.getString(R.string.message_alert_dialog),
+//                    it.message
+//                ) {}
+//                Status.LOADING -> {
+//                }
+//            }
+//        })
     }
 
     private fun onScrollListener(): RecyclerView.OnScrollListener {

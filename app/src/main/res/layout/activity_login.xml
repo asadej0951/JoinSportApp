@@ -184,6 +184,7 @@
                             android:layout_marginStart="@dimen/d20dp"
                             android:layout_marginTop="@dimen/d15dp"
                             android:layout_marginEnd="@dimen/d20dp"
+                            android:onClick="@{()->dataViewModel.onClickLogin()}"
                             android:background="@drawable/custom_btn_alert"
                             android:fontFamily="@font/font_sv_set_medium"
                             android:text="@string/message_login"

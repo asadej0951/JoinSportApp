@@ -11,20 +11,38 @@
     <dimen name="margin_padding_size_small">8dp</dimen>
     <dimen name="margin_padding_size_medium">16dp</dimen>
     <dimen name="margin_padding_size_large">24dp</dimen>
-    <dimen name="margin_padding_size_xlarge" tools:keep="@dimen/margin_padding_size_xlarge">32dp</dimen>
-    <dimen name="margin_padding_size_xxlarge" tools:keep="@dimen/margin_padding_size_xxlarge">40dp</dimen>
+    <dimen name="margin_padding_size_xlarge" tools:keep="@dimen/margin_padding_size_xlarge">32dp
+    </dimen>
+    <dimen name="margin_padding_size_xxlarge" tools:keep="@dimen/margin_padding_size_xxlarge">40dp
+    </dimen>
 
-    <dimen name="margin_padding_size_nano" tools:keep="@dimen/margin_padding_size_nano">1.8dp</dimen>
-    <dimen name="margin_padding_size_micro" tools:keep="@dimen/margin_padding_size_micro">3.6dp</dimen>
-    <dimen name="margin_padding_minus_size_micro" tools:keep="@dimen/margin_padding_minus_size_micro">-3.6dp</dimen>
-    <dimen name="margin_padding_minus_size_small" tools:keep="@dimen/margin_padding_minus_size_small">-7.2dp</dimen>
-    <dimen name="margin_padding_minus_size_medium" tools:keep="@dimen/margin_padding_minus_size_medium">-14.4dp</dimen>
-    <dimen name="margin_padding_minus_size_large" tools:keep="@dimen/margin_padding_minus_size_large">-21.6dp</dimen>
-    <dimen name="margin_padding_minus_size_xlarge" tools:keep="@dimen/margin_padding_minus_size_xlarge">-28.8dp</dimen>
-    <dimen name="margin_padding_minus_size_xxlarge" tools:keep="@dimen/margin_padding_minus_size_xxlarge">-36dp</dimen>
+    <dimen name="margin_padding_size_nano" tools:keep="@dimen/margin_padding_size_nano">1.8dp
+    </dimen>
+    <dimen name="margin_padding_size_micro" tools:keep="@dimen/margin_padding_size_micro">3.6dp
+    </dimen>
+    <dimen name="margin_padding_minus_size_micro" tools:keep="@dimen/margin_padding_minus_size_micro">
+        -3.6dp
+    </dimen>
+    <dimen name="margin_padding_minus_size_small" tools:keep="@dimen/margin_padding_minus_size_small">
+        -7.2dp
+    </dimen>
+    <dimen name="margin_padding_minus_size_medium" tools:keep="@dimen/margin_padding_minus_size_medium">
+        -14.4dp
+    </dimen>
+    <dimen name="margin_padding_minus_size_large" tools:keep="@dimen/margin_padding_minus_size_large">
+        -21.6dp
+    </dimen>
+    <dimen name="margin_padding_minus_size_xlarge" tools:keep="@dimen/margin_padding_minus_size_xlarge">
+        -28.8dp
+    </dimen>
+    <dimen name="margin_padding_minus_size_xxlarge" tools:keep="@dimen/margin_padding_minus_size_xxlarge">
+        -36dp
+    </dimen>
 
     <!-- Launcher Icon Size, https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size -->
-    <dimen name="launcher_icon_size" tools:keep="@dimen/launcher_icon_size">@dimen/standard_touch_size</dimen>
+    <dimen name="launcher_icon_size" tools:keep="@dimen/launcher_icon_size">
+        @dimen/standard_touch_size
+    </dimen>
 
     <!-- Touch Target Size, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-touch-target-size-->
     <dimen name="standard_touch_size" tools:keep="@dimen/standard_touch_size">48dp</dimen>
@@ -60,9 +78,13 @@
     <dimen name="text_size_26dp">26sp</dimen>
     <dimen name="text_size_28dp">28sp</dimen>
 
-    <dimen name="activity_horizontal_margin" tools:keep="@dimen/activity_horizontal_margin">17.6dp</dimen>
-    <dimen name="activity_vertical_margin" tools:keep="@dimen/activity_vertical_margin">17.6dp</dimen>
-    <dimen name="nav_header_vertical_spacing" tools:keep="@dimen/nav_header_vertical_spacing">8.8dp</dimen>
+    <dimen name="activity_horizontal_margin" tools:keep="@dimen/activity_horizontal_margin">17.6dp
+    </dimen>
+    <dimen name="activity_vertical_margin" tools:keep="@dimen/activity_vertical_margin">17.6dp
+    </dimen>
+    <dimen name="nav_header_vertical_spacing" tools:keep="@dimen/nav_header_vertical_spacing">
+        8.8dp
+    </dimen>
     <dimen name="nav_header_height" tools:keep="@dimen/nav_header_height">193.6dp</dimen>
     <dimen name="fab_margin" tools:keep="@dimen/fab_margin">17.6dp</dimen>
     <dimen name="d3dp" tools:keep="@dimen/d3dp">3.3dp</dimen>
@@ -166,4 +188,5 @@
     <dimen name="text_size_50dp">50sp</dimen>
     <dimen name="text_size_80dp">80sp</dimen>
     <dimen name="text_size_70dp">70sp</dimen>
+    <dimen name="text_size_40dp">40sp</dimen>
 </resources>

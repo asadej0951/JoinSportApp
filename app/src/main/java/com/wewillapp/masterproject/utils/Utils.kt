@@ -46,6 +46,13 @@ class Utils constructor(
             activity.overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out)
         }
     }
+    fun eventStartAnimationIntentTopBottom(activity: AppCompatActivity, isCheck: Boolean) {
+        if (isCheck) {
+            activity.overridePendingTransition(R.anim.trans_top_in, R.anim.trans_top_out)
+        } else {
+            activity.overridePendingTransition(R.anim.trans_bottom_in, R.anim.trans_bottom_out)
+        }
+    }
 
     fun closeKeyborad(context: AppCompatActivity, view: View) {
         val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager

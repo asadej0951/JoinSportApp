@@ -10,28 +10,31 @@
     <uses-permission android:name="android.hardware.location.gps" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".ProjectApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="${appIcon}"
-        android:roundIcon="${appIconRound}"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="${appIconRound}"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBars"
         android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="q">
-
+        <activity android:name=".view.main.home.PostActivity"></activity>
         <activity
-            android:name="com.wewillapp.masterproject.view.register.RegisterActivity"
+            android:name=".view.main.ui.MainUIActivity"
+            android:label="@string/title_activity_main_u_i" />
+        <activity
+            android:name=".view.register.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.wewillapp.masterproject.view.splashScreen.SplashScreenActivity"
+            android:name=".view.splashScreen.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,11 +43,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.wewillapp.masterproject.view.main.MainActivity"
+            android:name=".view.main.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.wewillapp.masterproject.view.login.LoginActivity"
+            android:name=".view.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 

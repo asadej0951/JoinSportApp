@@ -45,9 +45,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/app_bar"
-                android:layout_marginTop="@dimen/d20dp"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="@dimen/d20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layBack"
@@ -76,14 +76,15 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/imageIcon"
                     android:layout_width="@dimen/d30dp"
                     android:layout_height="@dimen/d30dp"
                     android:src="@drawable/ic_register"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/layBack"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvTitle"
@@ -91,10 +92,10 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/font_sv_set_bold"
                     android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@{toolbarViewModel.titleToolbarView}"
                     android:paddingStart="@dimen/d15dp"
                     android:paddingEnd="@dimen/d15dp"
+                    android:singleLine="true"
+                    android:text="@{toolbarViewModel.titleToolbarView}"
                     android:textColor="@color/textColorWhite"
                     android:textSize="@dimen/text_size_20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -112,10 +113,23 @@
                     android:paddingStart="@dimen/margin_padding_size_medium"
                     android:paddingEnd="@dimen/margin_padding_size_small"
                     android:visibility="invisible"
+                    android:onClick="@{()->toolbarViewModel.onClickIconToolbar()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvTitle"
                     app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_sv_set_semibold"
+                        android:text="@{toolbarViewModel.messageToolbar}"
+                        android:textSize="@dimen/text_size_16dp"
+                        android:textColor="@color/color_1_white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/imgBackInvisible"
